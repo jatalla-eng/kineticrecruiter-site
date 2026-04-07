@@ -28,7 +28,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. TypeScript and Tailwind are configured — a sample component using Tailwind classes compiles cleanly
   3. Brand color tokens and Inter font are available globally for use in any component
   4. `plans.json` with the three pricing tiers is present and importable by any page
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Scaffold Next.js 16 project with Tailwind brand tokens, Inter font, standalone output, and placeholder homepage
+- [ ] 01-02-PLAN.md — Create shared lib primitives: plans.json, plans.ts, metadata.ts, blog.ts
 
 ### Phase 2: Core Marketing Site
 **Goal**: Every marketing page is server-side rendered, discoverable by search engines, and matches the existing MiniMax site design
@@ -74,7 +78,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 0/2 | Not started | - |
 | 2. Core Marketing Site | 0/TBD | Not started | - |
 | 3. Blog & CMS | 0/TBD | Not started | - |
 | 4. Tools & Go Live | 0/TBD | Not started | - |
