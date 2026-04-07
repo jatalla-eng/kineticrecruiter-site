@@ -1,0 +1,33 @@
+backend:
+  name: github
+  repo: yajean/kineticrecruiter-site
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: public/images/blog
+public_folder: /images/blog
+
+collections:
+  - name: blog
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - Comparisons
+          - AI in Recruitment
+          - Agency Growth
+          - Product Updates
+          - Guides
+      - { label: Description, name: description, widget: string, hint: "Short summary shown on blog index and in search results (150-160 characters ideal)" }
+      - { label: Featured Image, name: image, widget: image, required: false, hint: "Recommended: 1200x630px JPG or PNG" }
+      - { label: Author, name: author, widget: string, default: "KineticRecruiter Team" }
+      - { label: Body, name: body, widget: markdown }
