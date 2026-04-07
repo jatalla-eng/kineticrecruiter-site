@@ -77,8 +77,12 @@ Plans:
   2. The ROI calculator accepts team size, placements, and current process inputs and displays estimated time saved, cost reduction, and payback period without a page reload
   3. `docker build` produces a runnable image; pushing to main triggers Cloud Build and the updated site appears at kineticrecruiter.com within a few minutes
   4. kineticrecruiter.com and www.kineticrecruiter.com both resolve to the Cloud Run service with a valid TLS certificate
-**Plans**: TBD
+**Plans**: 2 plans
 **UI hint**: yes
+
+Plans:
+- [ ] 04-01-PLAN.md — Tools pages: JD Generator (Gemini API + lead capture), ROI Calculator, Comparison page, Video placeholder, Tools landing, sitemap extension
+- [ ] 04-02-PLAN.md — Infrastructure: Dockerfile, .dockerignore, cloudbuild.yaml CI/CD, DEPLOYMENT.md runbook
 
 ## Progress
 
