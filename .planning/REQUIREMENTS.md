@@ -64,11 +64,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### JD Generator Tool
 
-- [ ] **JDG-01**: JD Generator page with form collecting: job title, industry, seniority level, key responsibilities, and requirements
-- [ ] **JDG-02**: Form requires name, company, email, and phone (with country selector) with proper validation before generating
-- [ ] **JDG-03**: Form submits to Next.js API route that calls Gemini API server-side (API key never exposed to client)
-- [ ] **JDG-04**: Generated job description displays with copy-to-clipboard functionality
-- [ ] **JDG-05**: Tools landing page linking to JD Generator (and future tools)
+- [x] **JDG-01**: JD Generator page with form collecting: job title, industry, seniority level, key responsibilities, and requirements
+- [x] **JDG-02**: Form requires name, company, email, and phone (with country selector) with proper validation before generating
+- [x] **JDG-03**: Form submits to Next.js API route that calls Gemini API server-side (API key never exposed to client)
+- [x] **JDG-04**: Generated job description displays with copy-to-clipboard functionality
+- [x] **JDG-05**: Tools landing page linking to JD Generator (and future tools)
 
 ### Contact
 
@@ -77,13 +77,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Comparison & ROI
 
-- [ ] **COMP-01**: Comparison page showing KineticRecruiter vs Greenhouse vs Lever with honest pros/cons
-- [ ] **ROI-01**: ROI calculator allowing prospects to input team size, placements, and current process to estimate savings
-- [ ] **ROI-02**: ROI calculator shows estimated time saved, cost reduction, and payback period
+- [x] **COMP-01**: Comparison page showing KineticRecruiter vs Greenhouse vs Lever with honest pros/cons
+- [x] **ROI-01**: ROI calculator allowing prospects to input team size, placements, and current process to estimate savings
+- [x] **ROI-02**: ROI calculator shows estimated time saved, cost reduction, and payback period
 
 ### Video
 
-- [ ] **VIDEO-01**: Product tour video embedded on homepage or dedicated page (2-3 min walkthrough)
+- [x] **VIDEO-01**: Product tour video embedded on homepage or dedicated page (2-3 min walkthrough)
 
 ### SEO & Metadata
 
@@ -184,15 +184,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CMS-02 | Phase 3 | Complete |
 | CMS-03 | Phase 3 | Complete |
 | CMS-04 | Phase 3 | Complete |
-| JDG-01 | Phase 4 | Pending |
-| JDG-02 | Phase 4 | Pending |
-| JDG-03 | Phase 4 | Pending |
-| JDG-04 | Phase 4 | Pending |
-| JDG-05 | Phase 4 | Pending |
-| COMP-01 | Phase 4 | Pending |
-| ROI-01 | Phase 4 | Pending |
-| ROI-02 | Phase 4 | Pending |
-| VIDEO-01 | Phase 4 | Pending |
+| JDG-01 | Phase 4 | Complete |
+| JDG-02 | Phase 4 | Complete |
+| JDG-03 | Phase 4 | Complete |
+| JDG-04 | Phase 4 | Complete |
+| JDG-05 | Phase 4 | Complete |
+| COMP-01 | Phase 4 | Complete |
+| ROI-01 | Phase 4 | Complete |
+| ROI-02 | Phase 4 | Complete |
+| VIDEO-01 | Phase 4 | Complete |
 | INFRA-03 | Phase 4 | Pending |
 | INFRA-04 | Phase 4 | Pending |
 | INFRA-05 | Phase 4 | Pending |

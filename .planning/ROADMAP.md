@@ -81,7 +81,7 @@ Plans:
 **UI hint**: yes
 
 Plans:
-- [ ] 04-01-PLAN.md — Tools pages: JD Generator (Gemini API + lead capture), ROI Calculator, Comparison page, Video placeholder, Tools landing, sitemap extension
+- [x] 04-01-PLAN.md — Tools pages: JD Generator (Gemini API + lead capture), ROI Calculator, Comparison page, Video placeholder, Tools landing, sitemap extension
 - [ ] 04-02-PLAN.md — Infrastructure: Dockerfile, .dockerignore, cloudbuild.yaml CI/CD, DEPLOYMENT.md runbook
 
 ## Progress
@@ -94,4 +94,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Foundation | 2/2 | Complete   | 2026-04-07 |
 | 2. Core Marketing Site | 4/5 | In Progress|  |
 | 3. Blog & CMS | 2/2 | Complete   | 2026-04-07 |
-| 4. Tools & Go Live | 0/TBD | Not started | - |
+| 4. Tools & Go Live | 1/2 | In Progress|  |
