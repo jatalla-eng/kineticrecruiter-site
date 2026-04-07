@@ -12,7 +12,7 @@ Four phases take the project from a blank Next.js scaffold to a fully deployed m
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Next.js project scaffold with App Router, TypeScript, Tailwind, and shared infrastructure primitives
+- [x] **Phase 1: Foundation** - Next.js project scaffold with App Router, TypeScript, Tailwind, and shared infrastructure primitives (completed 2026-04-07)
 - [ ] **Phase 2: Core Marketing Site** - All marketing pages (layout, homepage, pricing, feature pages, solution pages, contact) with full SEO
 - [ ] **Phase 3: Blog & CMS** - Blog index, post pages, markdown rendering, and Decap CMS at /admin
 - [ ] **Phase 4: Tools & Go Live** - JD Generator, comparison page, ROI calculator, video, Dockerfile, Cloud Build CI/CD, and custom domain
@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md — Scaffold Next.js 16 project with Tailwind brand tokens, Inter font, standalone output, and placeholder homepage
-- [ ] 01-02-PLAN.md — Create shared lib primitives: plans.json, plans.ts, metadata.ts, blog.ts
+- [x] 01-02-PLAN.md — Create shared lib primitives: plans.json, plans.ts, metadata.ts, blog.ts
 
 ### Phase 2: Core Marketing Site
 **Goal**: Every marketing page is server-side rendered, discoverable by search engines, and matches the existing MiniMax site design
@@ -78,7 +78,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 1/2 | In Progress|  |
+| 1. Foundation | 2/2 | Complete   | 2026-04-07 |
 | 2. Core Marketing Site | 0/TBD | Not started | - |
 | 3. Blog & CMS | 0/TBD | Not started | - |
 | 4. Tools & Go Live | 0/TBD | Not started | - |
