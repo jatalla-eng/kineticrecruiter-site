@@ -95,8 +95,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Infrastructure & Deployment
 
-- [ ] **INFRA-01**: Next.js project with App Router, TypeScript, Tailwind CSS
-- [ ] **INFRA-02**: Standalone output mode producing self-contained Node.js server
+- [x] **INFRA-01**: Next.js project with App Router, TypeScript, Tailwind CSS
+- [x] **INFRA-02**: Standalone output mode producing self-contained Node.js server
 - [ ] **INFRA-03**: Multi-stage Dockerfile for Cloud Run deployment
 - [ ] **INFRA-04**: Cloud Build configuration (cloudbuild.yaml) for CI/CD — push to main triggers build and deploy
 - [ ] **INFRA-05**: Cloud Run deployment to australia-southeast1 region
@@ -141,8 +141,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | Phase 1 | Pending |
-| INFRA-02 | Phase 1 | Pending |
+| INFRA-01 | Phase 1 | Complete |
+| INFRA-02 | Phase 1 | Complete |
 | LAYOUT-01 | Phase 2 | Pending |
 | LAYOUT-02 | Phase 2 | Pending |
 | LAYOUT-03 | Phase 2 | Pending |

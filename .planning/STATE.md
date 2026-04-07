@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-04-07T09:58:32.368Z"
-last_activity: 2026-04-07 — Roadmap created, ready to plan Phase 1
+status: executing
+stopped_at: Completed 01-foundation-01-01-PLAN.md
+last_updated: "2026-04-07T10:18:52.140Z"
+last_activity: 2026-04-07
 progress:
   total_phases: 4
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 2
+  completed_plans: 1
   percent: 0
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-07)
 
 **Core value:** Every page renders full HTML server-side so Google and AI search engines can discover and rank all marketing content.
-**Current focus:** Phase 1 - Foundation
+**Current focus:** Phase 01 — foundation
 
 ## Current Position
 
-Phase: 1 of 4 (Foundation)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-04-07 — Roadmap created, ready to plan Phase 1
+Phase: 01 (foundation) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
+Last activity: 2026-04-07
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -52,6 +52,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 01-foundation P01 | 4 | 2 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -64,6 +65,9 @@ Recent decisions affecting current work:
 - Init: Cloud Run standalone output mode — must produce self-contained Node.js server
 - Init: plans.json as single source of truth for pricing (shared with Flask app)
 - Init: Decap CMS git-based — no custom backend needed
+- [Phase 01-foundation]: next.config.ts (TypeScript) used instead of next.config.js — Next.js 16 scaffold default
+- [Phase 01-foundation]: Tailwind v4 CSS-first brand tokens in globals.css @theme inline; tailwind.config.ts kept for reference
+- [Phase 01-foundation]: package/ (MiniMax reference) excluded from tsconfig.json to prevent lucide-react type errors
 
 ### Pending Todos
 
@@ -75,6 +79,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-07T09:58:32.360Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-foundation/01-CONTEXT.md
+Last session: 2026-04-07T10:18:52.137Z
+Stopped at: Completed 01-foundation-01-01-PLAN.md
+Resume file: None
