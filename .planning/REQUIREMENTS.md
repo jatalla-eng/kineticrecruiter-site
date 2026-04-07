@@ -97,11 +97,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **INFRA-01**: Next.js project with App Router, TypeScript, Tailwind CSS
 - [x] **INFRA-02**: Standalone output mode producing self-contained Node.js server
-- [ ] **INFRA-03**: Multi-stage Dockerfile for Cloud Run deployment
-- [ ] **INFRA-04**: Cloud Build configuration (cloudbuild.yaml) for CI/CD — push to main triggers build and deploy
-- [ ] **INFRA-05**: Cloud Run deployment to australia-southeast1 region
-- [ ] **INFRA-06**: Custom domain mapping for kineticrecruiter.com and www.kineticrecruiter.com
-- [ ] **INFRA-07**: Environment variables (GEMINI_API_KEY) managed via Cloud Run, never in client bundle
+- [x] **INFRA-03**: Multi-stage Dockerfile for Cloud Run deployment
+- [x] **INFRA-04**: Cloud Build configuration (cloudbuild.yaml) for CI/CD — push to main triggers build and deploy
+- [x] **INFRA-05**: Cloud Run deployment to australia-southeast1 region
+- [x] **INFRA-06**: Custom domain mapping for kineticrecruiter.com and www.kineticrecruiter.com
+- [x] **INFRA-07**: Environment variables (GEMINI_API_KEY) managed via Cloud Run, never in client bundle
 
 ## v2 Requirements
 
@@ -193,11 +193,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ROI-01 | Phase 4 | Complete |
 | ROI-02 | Phase 4 | Complete |
 | VIDEO-01 | Phase 4 | Complete |
-| INFRA-03 | Phase 4 | Pending |
-| INFRA-04 | Phase 4 | Pending |
-| INFRA-05 | Phase 4 | Pending |
-| INFRA-06 | Phase 4 | Pending |
-| INFRA-07 | Phase 4 | Pending |
+| INFRA-03 | Phase 4 | Complete |
+| INFRA-04 | Phase 4 | Complete |
+| INFRA-05 | Phase 4 | Complete |
+| INFRA-06 | Phase 4 | Complete |
+| INFRA-07 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 43 total

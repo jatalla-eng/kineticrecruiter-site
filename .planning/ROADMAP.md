@@ -82,7 +82,7 @@ Plans:
 
 Plans:
 - [x] 04-01-PLAN.md — Tools pages: JD Generator (Gemini API + lead capture), ROI Calculator, Comparison page, Video placeholder, Tools landing, sitemap extension
-- [ ] 04-02-PLAN.md — Infrastructure: Dockerfile, .dockerignore, cloudbuild.yaml CI/CD, DEPLOYMENT.md runbook
+- [x] 04-02-PLAN.md — Infrastructure: Dockerfile, .dockerignore, cloudbuild.yaml CI/CD, DEPLOYMENT.md runbook
 
 ## Progress
 
