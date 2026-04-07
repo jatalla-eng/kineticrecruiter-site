@@ -1,0 +1,33 @@
+# Development
+node_modules
+.npm
+npm-debug.log*
+
+# Git
+.git
+.gitignore
+
+# Next.js build artifacts we don't need (standalone has its own)
+.next/cache
+
+# Environment files — NEVER commit secrets
+.env
+.env.*
+!.env.example
+
+# IDE and OS
+.DS_Store
+*.swp
+*.swo
+.vscode
+.idea
+
+# Planning and docs (not needed in image)
+.planning
+README.md
+DEPLOYMENT.md
+
+# Test files
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
