@@ -23,6 +23,11 @@ Every page renders full HTML server-side so Google (and AI search engines) can d
 - ✓ Contact page for Agency plan CTA — Phase 2
 - ✓ Blog system with markdown files, category filter, JSON-LD — Phase 3
 - ✓ Decap CMS at /admin for non-developer blog editing — Phase 3
+- ✓ JD Generator tool with lead capture and Gemini API — Phase 4
+- ✓ ROI calculator with live calculations from plans.json — Phase 4
+- ✓ Comparison page (vs Greenhouse/Lever) — Phase 4
+- ✓ Dockerfile + Cloud Build CI/CD for Cloud Run — Phase 4
+- ✓ Custom domain mapping documented (kineticrecruiter.com) — Phase 4
 
 ### Active
 
@@ -97,4 +102,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-08 after Phase 3 completion*
+*Last updated: 2026-04-08 after Phase 4 completion — ALL PHASES COMPLETE*
