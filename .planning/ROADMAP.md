@@ -50,7 +50,7 @@ Plans:
 - [x] 02-01-PLAN.md — Layout shell: Navbar, MobileMenu, Footer, images, root layout wiring, 404 page
 - [x] 02-02-PLAN.md — Homepage: Hero, FeatureGrid, ComparisonStrip, PricingPreview, SocialProof, CTASection
 - [x] 02-03-PLAN.md — Pricing page: PricingToggle, PricingCard, FAQ accordion, Button + Badge UI primitives
-- [ ] 02-04-PLAN.md — Feature pages (4) + Solution pages (2) + FeatureSection reusable component
+- [x] 02-04-PLAN.md — Feature pages (4) + Solution pages (2) + FeatureSection reusable component
 - [x] 02-05-PLAN.md — Contact page, sitemap.ts, robots.txt, og-default.jpg
 
 ### Phase 3: Blog & CMS

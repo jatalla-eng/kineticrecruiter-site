@@ -33,17 +33,17 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Feature Pages
 
-- [ ] **FEAT-01**: AI Candidate Intelligence feature page with alternating text+image sections
-- [ ] **FEAT-02**: Candidate Intake feature page
-- [ ] **FEAT-03**: Agency Workflow feature page
-- [ ] **FEAT-04**: Team Platform feature page
-- [ ] **FEAT-05**: Each feature page has proper page metadata and CTA section
+- [x] **FEAT-01**: AI Candidate Intelligence feature page with alternating text+image sections
+- [x] **FEAT-02**: Candidate Intake feature page
+- [x] **FEAT-03**: Agency Workflow feature page
+- [x] **FEAT-04**: Team Platform feature page
+- [x] **FEAT-05**: Each feature page has proper page metadata and CTA section
 
 ### Solution Pages
 
-- [ ] **SOL-01**: Recruitment Agencies solution page with agency-specific messaging and pain points
-- [ ] **SOL-02**: In-House Teams solution page with corporate HR-specific messaging
-- [ ] **SOL-03**: Each solution page has tailored hero, features, social proof, and CTA
+- [x] **SOL-01**: Recruitment Agencies solution page with agency-specific messaging and pain points
+- [x] **SOL-02**: In-House Teams solution page with corporate HR-specific messaging
+- [x] **SOL-03**: Each solution page has tailored hero, features, social proof, and CTA
 
 ### Blog
 
@@ -158,14 +158,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PRICE-03 | Phase 2 | Complete |
 | PRICE-04 | Phase 2 | Complete |
 | PRICE-05 | Phase 2 | Complete |
-| FEAT-01 | Phase 2 | Pending |
-| FEAT-02 | Phase 2 | Pending |
-| FEAT-03 | Phase 2 | Pending |
-| FEAT-04 | Phase 2 | Pending |
-| FEAT-05 | Phase 2 | Pending |
-| SOL-01 | Phase 2 | Pending |
-| SOL-02 | Phase 2 | Pending |
-| SOL-03 | Phase 2 | Pending |
+| FEAT-01 | Phase 2 | Complete |
+| FEAT-02 | Phase 2 | Complete |
+| FEAT-03 | Phase 2 | Complete |
+| FEAT-04 | Phase 2 | Complete |
+| FEAT-05 | Phase 2 | Complete |
+| SOL-01 | Phase 2 | Complete |
+| SOL-02 | Phase 2 | Complete |
+| SOL-03 | Phase 2 | Complete |
 | CONTACT-01 | Phase 2 | Complete |
 | CONTACT-02 | Phase 2 | Complete |
 | SEO-01 | Phase 2 | Complete |
