@@ -21,6 +21,8 @@ Every page renders full HTML server-side so Google (and AI search engines) can d
 - ✓ Full SEO: page metadata, OG tags, dynamic sitemap, robots.txt, canonical URLs — Phase 2
 - ✓ Responsive navigation with mobile menu — Phase 2
 - ✓ Contact page for Agency plan CTA — Phase 2
+- ✓ Blog system with markdown files, category filter, JSON-LD — Phase 3
+- ✓ Decap CMS at /admin for non-developer blog editing — Phase 3
 
 ### Active
 
@@ -95,4 +97,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-07 after Phase 2 completion*
+*Last updated: 2026-04-08 after Phase 3 completion*
