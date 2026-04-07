@@ -25,11 +25,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Pricing
 
-- [ ] **PRICE-01**: Pricing page displays all 3 tiers (Starter, Professional, Agency) from plans.json
-- [ ] **PRICE-02**: Monthly/annual toggle switches displayed prices and shows annual savings
-- [ ] **PRICE-03**: Each pricing card shows features list, limits, CTA button, and badge (if applicable)
-- [ ] **PRICE-04**: Pricing data is never hardcoded — always read from plans.json as single source of truth
-- [ ] **PRICE-05**: FAQ accordion section on pricing page
+- [x] **PRICE-01**: Pricing page displays all 3 tiers (Starter, Professional, Agency) from plans.json
+- [x] **PRICE-02**: Monthly/annual toggle switches displayed prices and shows annual savings
+- [x] **PRICE-03**: Each pricing card shows features list, limits, CTA button, and badge (if applicable)
+- [x] **PRICE-04**: Pricing data is never hardcoded — always read from plans.json as single source of truth
+- [x] **PRICE-05**: FAQ accordion section on pricing page
 
 ### Feature Pages
 
@@ -72,8 +72,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Contact
 
-- [ ] **CONTACT-01**: Contact page with form for Agency plan inquiries and general contact
-- [ ] **CONTACT-02**: Contact form captures name, email, company, message, and selected plan (if referred from pricing)
+- [x] **CONTACT-01**: Contact page with form for Agency plan inquiries and general contact
+- [x] **CONTACT-02**: Contact form captures name, email, company, message, and selected plan (if referred from pricing)
 
 ### Comparison & ROI
 
@@ -87,10 +87,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### SEO & Metadata
 
-- [ ] **SEO-01**: Every page has unique title, meta description, and canonical URL
-- [ ] **SEO-02**: Every page has Open Graph and Twitter Card metadata for social sharing
-- [ ] **SEO-03**: Dynamic sitemap.xml including all pages and blog posts
-- [ ] **SEO-04**: robots.txt allowing all crawlers with sitemap reference
+- [x] **SEO-01**: Every page has unique title, meta description, and canonical URL
+- [x] **SEO-02**: Every page has Open Graph and Twitter Card metadata for social sharing
+- [x] **SEO-03**: Dynamic sitemap.xml including all pages and blog posts
+- [x] **SEO-04**: robots.txt allowing all crawlers with sitemap reference
 - [x] **SEO-05**: All images use next/image with proper alt text
 
 ### Infrastructure & Deployment
@@ -153,11 +153,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | HOME-03 | Phase 2 | Complete |
 | HOME-04 | Phase 2 | Complete |
 | HOME-05 | Phase 2 | Complete |
-| PRICE-01 | Phase 2 | Pending |
-| PRICE-02 | Phase 2 | Pending |
-| PRICE-03 | Phase 2 | Pending |
-| PRICE-04 | Phase 2 | Pending |
-| PRICE-05 | Phase 2 | Pending |
+| PRICE-01 | Phase 2 | Complete |
+| PRICE-02 | Phase 2 | Complete |
+| PRICE-03 | Phase 2 | Complete |
+| PRICE-04 | Phase 2 | Complete |
+| PRICE-05 | Phase 2 | Complete |
 | FEAT-01 | Phase 2 | Pending |
 | FEAT-02 | Phase 2 | Pending |
 | FEAT-03 | Phase 2 | Pending |
@@ -166,12 +166,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SOL-01 | Phase 2 | Pending |
 | SOL-02 | Phase 2 | Pending |
 | SOL-03 | Phase 2 | Pending |
-| CONTACT-01 | Phase 2 | Pending |
-| CONTACT-02 | Phase 2 | Pending |
-| SEO-01 | Phase 2 | Pending |
-| SEO-02 | Phase 2 | Pending |
-| SEO-03 | Phase 2 | Pending |
-| SEO-04 | Phase 2 | Pending |
+| CONTACT-01 | Phase 2 | Complete |
+| CONTACT-02 | Phase 2 | Complete |
+| SEO-01 | Phase 2 | Complete |
+| SEO-02 | Phase 2 | Complete |
+| SEO-03 | Phase 2 | Complete |
+| SEO-04 | Phase 2 | Complete |
 | SEO-05 | Phase 2 | Complete |
 | BLOG-01 | Phase 3 | Pending |
 | BLOG-02 | Phase 3 | Pending |
