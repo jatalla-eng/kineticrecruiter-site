@@ -1,0 +1,115 @@
+{
+  "plans": {
+    "starter": {
+      "name": "Starter",
+      "tagline": "For solo and freelance recruiters",
+      "monthly_price_cents": 2900,
+      "monthly_price_display": "$29",
+      "annual_price_cents": 2400,
+      "annual_price_display": "$24",
+      "annual_total_cents": 28800,
+      "annual_savings_percent": 17,
+      "limits": {
+        "candidates": 50,
+        "open_jobs": 10,
+        "clients": 10
+      },
+      "features": [
+        "50 total candidates",
+        "Up to 10 open jobs",
+        "Up to 10 clients",
+        "AI resume parsing",
+        "AI candidate matching and scoring",
+        "AI career highlights",
+        "Natural language search",
+        "Job shortlist Kanban (7 stages)",
+        "Client CRM with contacts",
+        "Chrome extension (LinkedIn import)",
+        "Email integration",
+        "Dashboard and analytics",
+        "Google and Microsoft OAuth",
+        "Email support"
+      ],
+      "cta_text": "Start Free Trial",
+      "cta_url": "https://app.kineticrecruiter.com/register?plan=starter",
+      "badge": null,
+      "sort_order": 1
+    },
+    "professional": {
+      "name": "Professional",
+      "tagline": "For growing agencies and talent teams",
+      "monthly_price_cents": 5900,
+      "monthly_price_display": "$59",
+      "annual_price_cents": 4900,
+      "annual_price_display": "$49",
+      "annual_total_cents": 58800,
+      "annual_savings_percent": 17,
+      "limits": {
+        "candidates": 1000,
+        "open_jobs": null,
+        "clients": null
+      },
+      "features_intro": "Everything in Starter, plus:",
+      "features": [
+        "1,000 total candidates",
+        "Unlimited jobs",
+        "Unlimited clients",
+        "Bulk resume upload (drag and drop)",
+        "Inbound email resume processing",
+        "AI client submission emails",
+        "Custom AI prompt configuration",
+        "Source breakdown reporting",
+        "30-day trend analytics",
+        "API access (10K calls/day)",
+        "Priority email support"
+      ],
+      "cta_text": "Start Free Trial",
+      "cta_url": "https://app.kineticrecruiter.com/register?plan=professional",
+      "badge": "Most Popular",
+      "sort_order": 2
+    },
+    "agency": {
+      "name": "Agency",
+      "tagline": "For established agencies scaling their team",
+      "monthly_price_cents": 9900,
+      "monthly_price_display": "$99",
+      "annual_price_cents": 8200,
+      "annual_price_display": "$82",
+      "annual_total_cents": 98400,
+      "annual_savings_percent": 17,
+      "limits": {
+        "candidates": null,
+        "open_jobs": null,
+        "clients": null
+      },
+      "features_intro": "Everything in Professional, plus:",
+      "features": [
+        "Unlimited candidates",
+        "Custom report builder",
+        "White-label career page",
+        "Advanced API (100K calls/day)",
+        "Data retention controls",
+        "Dedicated account support",
+        "SSO (SAML)",
+        "Dedicated onboarding session",
+        "SLA (99.9% uptime)",
+        "Fair use AI policy"
+      ],
+      "cta_text": "Contact Us",
+      "cta_url": "/contact?plan=agency",
+      "badge": null,
+      "sort_order": 3
+    }
+  },
+  "trial": {
+    "duration_days": 7,
+    "plan": "professional",
+    "seats": 3
+  },
+  "referral": {
+    "reward": "One free month for both parties",
+    "reward_description": "Credit equal to one month of your current plan"
+  },
+  "version": "1.0.0",
+  "last_updated": "2026-04-07"
+}
