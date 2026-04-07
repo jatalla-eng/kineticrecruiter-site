@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Next.js project scaffold with App Router, TypeScript, Tailwind, and shared infrastructure primitives (completed 2026-04-07)
 - [ ] **Phase 2: Core Marketing Site** - All marketing pages (layout, homepage, pricing, feature pages, solution pages, contact) with full SEO
-- [ ] **Phase 3: Blog & CMS** - Blog index, post pages, markdown rendering, and Decap CMS at /admin
+- [x] **Phase 3: Blog & CMS** - Blog index, post pages, markdown rendering, and Decap CMS at /admin (completed 2026-04-07)
 - [ ] **Phase 4: Tools & Go Live** - JD Generator, comparison page, ROI calculator, video, Dockerfile, Cloud Build CI/CD, and custom domain
 
 ## Phase Details
@@ -65,7 +65,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Blog index + post pages + typography plugin + seed posts + sitemap extension
+- [x] 03-01-PLAN.md — Blog index + post pages + typography plugin + seed posts + sitemap extension
 - [x] 03-02-PLAN.md — Decap CMS at /admin (public/admin/index.html + config.yml)
 
 ### Phase 4: Tools & Go Live
@@ -89,5 +89,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-04-07 |
 | 2. Core Marketing Site | 4/5 | In Progress|  |
-| 3. Blog & CMS | 1/2 | In Progress|  |
+| 3. Blog & CMS | 2/2 | Complete   | 2026-04-07 |
 | 4. Tools & Go Live | 0/TBD | Not started | - |

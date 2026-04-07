@@ -47,13 +47,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Blog
 
-- [ ] **BLOG-01**: Blog index page listing all posts with title, date, category, description, and featured image
-- [ ] **BLOG-02**: Blog category filter (client-side) to filter posts by category
-- [ ] **BLOG-03**: Individual blog post pages rendering markdown content with proper typography
-- [ ] **BLOG-04**: Blog posts use frontmatter for metadata (title, date, category, description, image, author)
-- [ ] **BLOG-05**: Blog posts include reading time estimate
-- [ ] **BLOG-06**: Article JSON-LD structured data on each blog post page
-- [ ] **BLOG-07**: Blog posts are statically generated at build time via generateStaticParams
+- [x] **BLOG-01**: Blog index page listing all posts with title, date, category, description, and featured image
+- [x] **BLOG-02**: Blog category filter (client-side) to filter posts by category
+- [x] **BLOG-03**: Individual blog post pages rendering markdown content with proper typography
+- [x] **BLOG-04**: Blog posts use frontmatter for metadata (title, date, category, description, image, author)
+- [x] **BLOG-05**: Blog posts include reading time estimate
+- [x] **BLOG-06**: Article JSON-LD structured data on each blog post page
+- [x] **BLOG-07**: Blog posts are statically generated at build time via generateStaticParams
 
 ### CMS
 
@@ -173,13 +173,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEO-03 | Phase 2 | Complete |
 | SEO-04 | Phase 2 | Complete |
 | SEO-05 | Phase 2 | Complete |
-| BLOG-01 | Phase 3 | Pending |
-| BLOG-02 | Phase 3 | Pending |
-| BLOG-03 | Phase 3 | Pending |
-| BLOG-04 | Phase 3 | Pending |
-| BLOG-05 | Phase 3 | Pending |
-| BLOG-06 | Phase 3 | Pending |
-| BLOG-07 | Phase 3 | Pending |
+| BLOG-01 | Phase 3 | Complete |
+| BLOG-02 | Phase 3 | Complete |
+| BLOG-03 | Phase 3 | Complete |
+| BLOG-04 | Phase 3 | Complete |
+| BLOG-05 | Phase 3 | Complete |
+| BLOG-06 | Phase 3 | Complete |
+| BLOG-07 | Phase 3 | Complete |
 | CMS-01 | Phase 3 | Complete |
 | CMS-02 | Phase 3 | Complete |
 | CMS-03 | Phase 3 | Complete |
