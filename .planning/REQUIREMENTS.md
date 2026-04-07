@@ -17,11 +17,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Homepage
 
-- [ ] **HOME-01**: Hero section with clear value proposition, headline, subheadline, and primary CTA
-- [ ] **HOME-02**: Feature grid section showcasing 6 key capabilities with icons and descriptions
-- [ ] **HOME-03**: Comparison strip ($0/$0/$0 dark section highlighting no add-on fees)
-- [ ] **HOME-04**: Pricing preview section reading live data from plans.json
-- [ ] **HOME-05**: Bottom CTA section (reusable across pages)
+- [x] **HOME-01**: Hero section with clear value proposition, headline, subheadline, and primary CTA
+- [x] **HOME-02**: Feature grid section showcasing 6 key capabilities with icons and descriptions
+- [x] **HOME-03**: Comparison strip ($0/$0/$0 dark section highlighting no add-on fees)
+- [x] **HOME-04**: Pricing preview section reading live data from plans.json
+- [x] **HOME-05**: Bottom CTA section (reusable across pages)
 
 ### Pricing
 
@@ -148,11 +148,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LAYOUT-03 | Phase 2 | Complete |
 | LAYOUT-04 | Phase 2 | Complete |
 | LAYOUT-05 | Phase 2 | Complete |
-| HOME-01 | Phase 2 | Pending |
-| HOME-02 | Phase 2 | Pending |
-| HOME-03 | Phase 2 | Pending |
-| HOME-04 | Phase 2 | Pending |
-| HOME-05 | Phase 2 | Pending |
+| HOME-01 | Phase 2 | Complete |
+| HOME-02 | Phase 2 | Complete |
+| HOME-03 | Phase 2 | Complete |
+| HOME-04 | Phase 2 | Complete |
+| HOME-05 | Phase 2 | Complete |
 | PRICE-01 | Phase 2 | Pending |
 | PRICE-02 | Phase 2 | Pending |
 | PRICE-03 | Phase 2 | Pending |
