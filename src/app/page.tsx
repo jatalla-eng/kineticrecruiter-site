@@ -1,17 +1,27 @@
+import { generatePageMetadata } from '@/lib/metadata';
+import Hero from '@/components/sections/Hero';
+import FeatureGrid from '@/components/sections/FeatureGrid';
+import ComparisonStrip from '@/components/sections/ComparisonStrip';
+import PricingPreview from '@/components/sections/PricingPreview';
+import SocialProof from '@/components/sections/SocialProof';
+import CTASection from '@/components/sections/CTASection';
+
+export const metadata = generatePageMetadata({
+  title: 'KineticRecruiter — The ATS That Understands Your Candidates',
+  description:
+    'AI-powered applicant tracking system for recruitment agencies. Semantic search, candidate scoring, and client CRM. Start your free trial today.',
+  path: '/',
+});
+
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-[1200px] mx-auto px-6 py-24 text-center">
-        <h1 className="text-4xl font-semibold text-[#1a2332] mb-4">
-          KineticRecruiter
-        </h1>
-        <p className="text-lg text-gray-600">
-          AI-powered ATS for recruitment agencies. Coming soon.
-        </p>
-        <div className="mt-8 inline-block bg-[#0d8488] text-white px-6 py-3 rounded-lg">
-          Start Free Trial
-        </div>
-      </div>
-    </div>
+    <main className="flex flex-col">
+      <Hero />
+      <FeatureGrid />
+      <ComparisonStrip />
+      <PricingPreview />
+      <SocialProof />
+      <CTASection />
+    </main>
   );
 }
