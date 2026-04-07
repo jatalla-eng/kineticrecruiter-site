@@ -66,7 +66,7 @@ Plans:
 
 Plans:
 - [ ] 03-01-PLAN.md — Blog index + post pages + typography plugin + seed posts + sitemap extension
-- [ ] 03-02-PLAN.md — Decap CMS at /admin (public/admin/index.html + config.yml)
+- [x] 03-02-PLAN.md — Decap CMS at /admin (public/admin/index.html + config.yml)
 
 ### Phase 4: Tools & Go Live
 **Goal**: Interactive tools are live for prospects, and the site deploys automatically to kineticrecruiter.com on every push to main
@@ -89,5 +89,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-04-07 |
 | 2. Core Marketing Site | 4/5 | In Progress|  |
-| 3. Blog & CMS | 0/2 | Not started | - |
+| 3. Blog & CMS | 1/2 | In Progress|  |
 | 4. Tools & Go Live | 0/TBD | Not started | - |

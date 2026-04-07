@@ -57,10 +57,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### CMS
 
-- [ ] **CMS-01**: Decap CMS loads at /admin with GitHub OAuth authentication
-- [ ] **CMS-02**: Non-developers can create new blog posts through visual WYSIWYG editor
-- [ ] **CMS-03**: Non-developers can upload/drag-and-drop images into blog posts
-- [ ] **CMS-04**: Publishing a post commits a markdown file to the repo and triggers rebuild
+- [x] **CMS-01**: Decap CMS loads at /admin with GitHub OAuth authentication
+- [x] **CMS-02**: Non-developers can create new blog posts through visual WYSIWYG editor
+- [x] **CMS-03**: Non-developers can upload/drag-and-drop images into blog posts
+- [x] **CMS-04**: Publishing a post commits a markdown file to the repo and triggers rebuild
 
 ### JD Generator Tool
 
@@ -180,10 +180,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BLOG-05 | Phase 3 | Pending |
 | BLOG-06 | Phase 3 | Pending |
 | BLOG-07 | Phase 3 | Pending |
-| CMS-01 | Phase 3 | Pending |
-| CMS-02 | Phase 3 | Pending |
-| CMS-03 | Phase 3 | Pending |
-| CMS-04 | Phase 3 | Pending |
+| CMS-01 | Phase 3 | Complete |
+| CMS-02 | Phase 3 | Complete |
+| CMS-03 | Phase 3 | Complete |
+| CMS-04 | Phase 3 | Complete |
 | JDG-01 | Phase 4 | Pending |
 | JDG-02 | Phase 4 | Pending |
 | JDG-03 | Phase 4 | Pending |
