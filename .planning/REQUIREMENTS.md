@@ -9,11 +9,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Layout & Navigation
 
-- [ ] **LAYOUT-01**: Site has responsive navigation bar with logo, page links, and persistent "Start Free Trial" CTA
-- [ ] **LAYOUT-02**: Navigation collapses to mobile hamburger menu on small screens
-- [ ] **LAYOUT-03**: Site has footer with logo, navigation links, social links, and legal links
-- [ ] **LAYOUT-04**: All pages share consistent root layout (nav + footer wrapping content)
-- [ ] **LAYOUT-05**: Custom 404 page with helpful navigation back to main pages
+- [x] **LAYOUT-01**: Site has responsive navigation bar with logo, page links, and persistent "Start Free Trial" CTA
+- [x] **LAYOUT-02**: Navigation collapses to mobile hamburger menu on small screens
+- [x] **LAYOUT-03**: Site has footer with logo, navigation links, social links, and legal links
+- [x] **LAYOUT-04**: All pages share consistent root layout (nav + footer wrapping content)
+- [x] **LAYOUT-05**: Custom 404 page with helpful navigation back to main pages
 
 ### Homepage
 
@@ -91,7 +91,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **SEO-02**: Every page has Open Graph and Twitter Card metadata for social sharing
 - [ ] **SEO-03**: Dynamic sitemap.xml including all pages and blog posts
 - [ ] **SEO-04**: robots.txt allowing all crawlers with sitemap reference
-- [ ] **SEO-05**: All images use next/image with proper alt text
+- [x] **SEO-05**: All images use next/image with proper alt text
 
 ### Infrastructure & Deployment
 
@@ -143,11 +143,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | INFRA-01 | Phase 1 | Complete |
 | INFRA-02 | Phase 1 | Complete |
-| LAYOUT-01 | Phase 2 | Pending |
-| LAYOUT-02 | Phase 2 | Pending |
-| LAYOUT-03 | Phase 2 | Pending |
-| LAYOUT-04 | Phase 2 | Pending |
-| LAYOUT-05 | Phase 2 | Pending |
+| LAYOUT-01 | Phase 2 | Complete |
+| LAYOUT-02 | Phase 2 | Complete |
+| LAYOUT-03 | Phase 2 | Complete |
+| LAYOUT-04 | Phase 2 | Complete |
+| LAYOUT-05 | Phase 2 | Complete |
 | HOME-01 | Phase 2 | Pending |
 | HOME-02 | Phase 2 | Pending |
 | HOME-03 | Phase 2 | Pending |
@@ -172,7 +172,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEO-02 | Phase 2 | Pending |
 | SEO-03 | Phase 2 | Pending |
 | SEO-04 | Phase 2 | Pending |
-| SEO-05 | Phase 2 | Pending |
+| SEO-05 | Phase 2 | Complete |
 | BLOG-01 | Phase 3 | Pending |
 | BLOG-02 | Phase 3 | Pending |
 | BLOG-03 | Phase 3 | Pending |

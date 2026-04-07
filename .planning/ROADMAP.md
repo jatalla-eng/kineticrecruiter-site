@@ -47,7 +47,7 @@ Plans:
 **Plans**: 5 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Layout shell: Navbar, MobileMenu, Footer, images, root layout wiring, 404 page
+- [x] 02-01-PLAN.md — Layout shell: Navbar, MobileMenu, Footer, images, root layout wiring, 404 page
 - [ ] 02-02-PLAN.md — Homepage: Hero, FeatureGrid, ComparisonStrip, PricingPreview, SocialProof, CTASection
 - [ ] 02-03-PLAN.md — Pricing page: PricingToggle, PricingCard, FAQ accordion, Button + Badge UI primitives
 - [ ] 02-04-PLAN.md — Feature pages (4) + Solution pages (2) + FeatureSection reusable component
@@ -85,6 +85,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-04-07 |
-| 2. Core Marketing Site | 0/TBD | Not started | - |
+| 2. Core Marketing Site | 1/5 | In Progress|  |
 | 3. Blog & CMS | 0/TBD | Not started | - |
 | 4. Tools & Go Live | 0/TBD | Not started | - |
