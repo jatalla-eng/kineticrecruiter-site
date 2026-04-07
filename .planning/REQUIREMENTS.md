@@ -141,13 +141,69 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (populated during roadmap creation) | | |
+| INFRA-01 | Phase 1 | Pending |
+| INFRA-02 | Phase 1 | Pending |
+| LAYOUT-01 | Phase 2 | Pending |
+| LAYOUT-02 | Phase 2 | Pending |
+| LAYOUT-03 | Phase 2 | Pending |
+| LAYOUT-04 | Phase 2 | Pending |
+| LAYOUT-05 | Phase 2 | Pending |
+| HOME-01 | Phase 2 | Pending |
+| HOME-02 | Phase 2 | Pending |
+| HOME-03 | Phase 2 | Pending |
+| HOME-04 | Phase 2 | Pending |
+| HOME-05 | Phase 2 | Pending |
+| PRICE-01 | Phase 2 | Pending |
+| PRICE-02 | Phase 2 | Pending |
+| PRICE-03 | Phase 2 | Pending |
+| PRICE-04 | Phase 2 | Pending |
+| PRICE-05 | Phase 2 | Pending |
+| FEAT-01 | Phase 2 | Pending |
+| FEAT-02 | Phase 2 | Pending |
+| FEAT-03 | Phase 2 | Pending |
+| FEAT-04 | Phase 2 | Pending |
+| FEAT-05 | Phase 2 | Pending |
+| SOL-01 | Phase 2 | Pending |
+| SOL-02 | Phase 2 | Pending |
+| SOL-03 | Phase 2 | Pending |
+| CONTACT-01 | Phase 2 | Pending |
+| CONTACT-02 | Phase 2 | Pending |
+| SEO-01 | Phase 2 | Pending |
+| SEO-02 | Phase 2 | Pending |
+| SEO-03 | Phase 2 | Pending |
+| SEO-04 | Phase 2 | Pending |
+| SEO-05 | Phase 2 | Pending |
+| BLOG-01 | Phase 3 | Pending |
+| BLOG-02 | Phase 3 | Pending |
+| BLOG-03 | Phase 3 | Pending |
+| BLOG-04 | Phase 3 | Pending |
+| BLOG-05 | Phase 3 | Pending |
+| BLOG-06 | Phase 3 | Pending |
+| BLOG-07 | Phase 3 | Pending |
+| CMS-01 | Phase 3 | Pending |
+| CMS-02 | Phase 3 | Pending |
+| CMS-03 | Phase 3 | Pending |
+| CMS-04 | Phase 3 | Pending |
+| JDG-01 | Phase 4 | Pending |
+| JDG-02 | Phase 4 | Pending |
+| JDG-03 | Phase 4 | Pending |
+| JDG-04 | Phase 4 | Pending |
+| JDG-05 | Phase 4 | Pending |
+| COMP-01 | Phase 4 | Pending |
+| ROI-01 | Phase 4 | Pending |
+| ROI-02 | Phase 4 | Pending |
+| VIDEO-01 | Phase 4 | Pending |
+| INFRA-03 | Phase 4 | Pending |
+| INFRA-04 | Phase 4 | Pending |
+| INFRA-05 | Phase 4 | Pending |
+| INFRA-06 | Phase 4 | Pending |
+| INFRA-07 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 43 total
-- Mapped to phases: 0
-- Unmapped: 43 ⚠️
+- Mapped to phases: 43
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-04-07*
-*Last updated: 2026-04-07 after initial definition*
+*Last updated: 2026-04-07 after roadmap creation*
