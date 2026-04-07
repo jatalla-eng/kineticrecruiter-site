@@ -14,6 +14,13 @@ Every page renders full HTML server-side so Google (and AI search engines) can d
 
 - ✓ Next.js project with App Router, TypeScript, Tailwind CSS — Phase 1
 - ✓ Standalone output mode for Cloud Run deployment — Phase 1
+- ✓ Server-side rendered pages matching MiniMax design — Phase 2
+- ✓ Homepage with hero, feature grid, comparison strip, pricing preview, CTA — Phase 2
+- ✓ Pricing page reading from plans.json with monthly/annual toggle — Phase 2
+- ✓ 4 feature pages + 2 solution pages — Phase 2
+- ✓ Full SEO: page metadata, OG tags, dynamic sitemap, robots.txt, canonical URLs — Phase 2
+- ✓ Responsive navigation with mobile menu — Phase 2
+- ✓ Contact page for Agency plan CTA — Phase 2
 
 ### Active
 
@@ -88,4 +95,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-07 after Phase 1 completion*
+*Last updated: 2026-04-07 after Phase 2 completion*
