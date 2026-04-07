@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* KineticRecruiter brand colors */
+  --color-kinetic-teal: #0d8488;
+  --color-kinetic-teal-dark: #0a6b6e;
+  --color-kinetic-teal-light: #E8F5F5;
+  --color-kinetic-navy: #1a2332;
+  --color-kinetic-navy-light: #2a3a4f;
+  --color-motion-amber: #E8A838;
+  --color-momentum-violet: #9B8EC4;
+  --color-flow-cyan: #7DD3D6;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Max widths */
+  --max-w-content: 1200px;
+  --max-w-article: 720px;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
