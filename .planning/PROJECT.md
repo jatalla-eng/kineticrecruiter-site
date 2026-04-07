@@ -12,7 +12,8 @@ Every page renders full HTML server-side so Google (and AI search engines) can d
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ Next.js project with App Router, TypeScript, Tailwind CSS — Phase 1
+- ✓ Standalone output mode for Cloud Run deployment — Phase 1
 
 ### Active
 
@@ -87,4 +88,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-07 after initialization*
+*Last updated: 2026-04-07 after Phase 1 completion*
