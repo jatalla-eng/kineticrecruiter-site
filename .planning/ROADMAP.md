@@ -44,8 +44,14 @@ Plans:
   3. The pricing page displays all three tiers with a working monthly/annual toggle — prices come from plans.json, not hardcoded strings
   4. All four feature pages and both solution pages are reachable via navigation and render their content server-side
   5. `curl https://kineticrecruiter.com/sitemap.xml` (or local equivalent) returns a valid sitemap listing all pages; every page has a unique title and OG tags visible in the HTML source
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 5 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Layout shell: Navbar, MobileMenu, Footer, images, root layout wiring, 404 page
+- [ ] 02-02-PLAN.md — Homepage: Hero, FeatureGrid, ComparisonStrip, PricingPreview, SocialProof, CTASection
+- [ ] 02-03-PLAN.md — Pricing page: PricingToggle, PricingCard, FAQ accordion, Button + Badge UI primitives
+- [ ] 02-04-PLAN.md — Feature pages (4) + Solution pages (2) + FeatureSection reusable component
+- [ ] 02-05-PLAN.md — Contact page, sitemap.ts, robots.txt, og-default.jpg
 
 ### Phase 3: Blog & CMS
 **Goal**: Non-developers can publish blog posts through a visual editor, and all posts render as server-side HTML with structured data for search engines
