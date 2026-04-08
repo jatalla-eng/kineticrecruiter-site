@@ -3,13 +3,14 @@
 import Link from 'next/link';
 
 interface ButtonProps {
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 const variantClasses: Record<NonNullable<ButtonProps['variant']>, string> = {
@@ -19,6 +20,8 @@ const variantClasses: Record<NonNullable<ButtonProps['variant']>, string> = {
     'bg-[#1a2332] text-white hover:bg-[#2a3a4f] font-semibold rounded-lg transition-colors',
   outline:
     'border-2 border-[#0d8488] text-[#0d8488] hover:bg-[#E8F5F5] font-semibold rounded-lg transition-colors',
+  danger:
+    'bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors',
 };
 
 const sizeClasses: Record<NonNullable<ButtonProps['size']>, string> = {
@@ -35,8 +38,9 @@ export default function Button({
   className = '',
   onClick,
   type = 'button',
+  disabled = false,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center ${variantClasses[variant]} ${sizeClasses[size]} ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${className}`;
 
   if (href) {
     return (
@@ -47,7 +51,7 @@ export default function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
       {children}
     </button>
   );

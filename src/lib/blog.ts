@@ -38,7 +38,7 @@ export function getAllPosts(): BlogPost[] {
         date: data.date,
         category: data.category,
         description: data.description,
-        image: data.image || '/images/blog/default.jpg',
+        image: data.image || '',
         author: data.author || 'KineticRecruiter Team',
         readingTime: stats.text,
       };
@@ -64,7 +64,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     date: data.date,
     category: data.category,
     description: data.description,
-    image: data.image || '/images/blog/default.jpg',
+    image: data.image || '',
     author: data.author || 'KineticRecruiter Team',
     readingTime: stats.text,
     content: processedContent.toString(),
