@@ -1,41 +1,94 @@
-import { Search, Sparkles, FileText, Building2, LayoutGrid, Upload } from 'lucide-react';
+import {
+  Search,
+  BarChart3,
+  FileText,
+  Send,
+  Upload,
+  Globe,
+  Building2,
+  Layout,
+  Share2,
+  Users,
+  BarChart,
+  Sparkles
+} from 'lucide-react';
+import Link from 'next/link';
 
 const features = [
   {
     icon: Search,
     title: 'AI Candidate Discovery',
     description:
-      'Search your database the way you actually think. Type plain English — "Find backend developers with fintech experience in Sydney" — and get ranked results in seconds. Semantic embeddings understand what candidates actually do, not just keywords.',
+      'Search in plain English. Semantic matching finds candidates that keyword search would miss. Results ranked by AI relevance scores.',
   },
   {
-    icon: Sparkles,
-    title: 'AI Candidate Scoring',
+    icon: BarChart3,
+    title: 'AI Match Scoring',
     description:
-      'Every candidate matched to a job gets a score from 0 to 100 with a full factor breakdown. See which factors contributed, what weighted highest, and a plain-English explanation you can share directly with clients.',
+      'Every candidate scored 0-100 against every job. Full factor breakdown. Written reasons you can share directly with clients.',
   },
   {
     icon: FileText,
     title: 'AI Career Highlights',
     description:
-      'Stop spending 15 minutes per candidate writing profile summaries. KineticRecruiter analyses each resume and generates career highlight bullet points automatically — action-driven, context-aware, and ready for client submissions.',
+      'Auto-generated career summary bullet points from every resume. Client-ready in seconds, not minutes. No other ATS does this.',
   },
   {
-    icon: Building2,
-    title: 'Client CRM',
+    icon: Send,
+    title: 'AI Client Submissions',
     description:
-      'Manage clients and candidates in one system. Full client management includes company profiles, contact directories, job assignments, and AI-powered client submission emails. No separate CRM required.',
-  },
-  {
-    icon: LayoutGrid,
-    title: 'Job Shortlist Board',
-    description:
-      'Each job has a visual shortlist board with seven stages. Drag candidates between stages, track outcomes, and add candidates from your database or AI-suggested matches. Star ratings and suitability scores let you compare candidates within a stage.',
+      'One click generates a professional submission email with candidate summary. Uses your organisation\'s tone and style. Review, tweak, send.',
   },
   {
     icon: Upload,
-    title: 'Resume Intake',
+    title: 'Multi-Channel Resume Intake',
     description:
-      'Upload one resume, bulk upload fifty, or forward them from your inbox. AI parsing extracts names, contact details, skills, experience, and work history into structured profiles. No resume gets dropped.',
+      'Upload one, bulk upload fifty, or forward from your inbox. AI parsing with regex fallback. Duplicate detection. No resume gets lost.',
+  },
+  {
+    icon: Globe,
+    title: 'LinkedIn Chrome Extension',
+    description:
+      'Import candidates from any LinkedIn profile in one click. Name, photo, work history, skills, and education pulled straight into your ATS.',
+  },
+  {
+    icon: Building2,
+    title: 'Built-In Client CRM',
+    description:
+      'Client profiles, contact directories, job assignments, and company enrichment. Every job links to a client. Every submission tracked.',
+  },
+  {
+    icon: Layout,
+    title: 'Job Shortlist Board',
+    description:
+      '7-stage Kanban board per job. Drag-and-drop. Star ratings. Suitability scores. Outcome tracking. Add from your database or AI suggestions.',
+  },
+  {
+    icon: Share2,
+    title: 'Shareable Client Review',
+    description:
+      'Generate a secure link. Clients review candidates, leave comments, approve or reject — without creating an account. You get notified instantly.',
+  },
+  {
+    icon: Users,
+    title: 'Team Management',
+    description:
+      'Four role levels. Google and Microsoft OAuth. Email invitations with configurable expiry. Domain auto-matching for seamless onboarding.',
+  },
+  {
+    icon: BarChart,
+    title: 'Dashboard & Analytics',
+    description:
+      'Pipeline visualisation, 30-day trends, source breakdown, recent activity feed. See where every candidate sits across every role at a glance.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Free AI Job Description Generator',
+    description:
+      'Generate professional job descriptions in seconds. No login required. Try it now and see what the AI can do.',
+    link: '/tools/job-description-generator',
+    linkText: 'Try it free →',
+    special: true,
   },
 ];
 
@@ -45,26 +98,36 @@ export default function FeatureGrid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1a2332] mb-4">
-            Everything you need to run your recruitment operation
+            Everything you need to run your recruitment operation.
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Every AI feature included in every plan. No add-ons. No per-feature charges.
+            One platform. No bolted-on tools. No separate CRM. No spreadsheet sidecars.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
               <div
                 key={feature.title}
-                className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow"
+                className={`rounded-xl p-6 border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 ${
+                  feature.special ? 'bg-[#0d8488]/5' : 'bg-white'
+                }`}
               >
-                <div className="w-12 h-12 rounded-xl bg-[#0d8488]/10 flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-[#0d8488]" />
+                <div className="w-10 h-10 bg-[#0d8488]/10 rounded-lg flex items-center justify-center mb-4">
+                  <Icon className="w-5 h-5 text-[#0d8488]" />
                 </div>
-                <h3 className="text-lg font-bold text-[#1a2332] mb-2">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-sm">{feature.description}</p>
+                <h3 className="font-bold text-[#1a2332] text-lg mb-2">{feature.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                {feature.link && (
+                  <Link
+                    href={feature.link}
+                    className="text-[#0d8488] text-sm font-medium mt-3 inline-block hover:underline"
+                  >
+                    {feature.linkText}
+                  </Link>
+                )}
               </div>
             );
           })}
