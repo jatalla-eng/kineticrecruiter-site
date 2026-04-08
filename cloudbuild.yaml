@@ -4,21 +4,21 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:$COMMIT_SHA'
+      - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:$COMMIT_SHA'
       - '-t'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:latest'
+      - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:latest'
       - '.'
 
   # Step 2: Push image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:$COMMIT_SHA'
+      - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:$COMMIT_SHA'
 
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:latest'
+      - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:latest'
 
   # Step 3: Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -28,9 +28,9 @@ steps:
       - 'deploy'
       - 'kineticrecruiter-site'
       - '--image'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:$COMMIT_SHA'
+      - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:$COMMIT_SHA'
       - '--region'
-      - 'us-central1'
+      - 'australia-southeast1'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
@@ -46,8 +46,8 @@ steps:
       - '3'
 
 images:
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:$COMMIT_SHA'
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:latest'
+  - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:$COMMIT_SHA'
+  - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY
