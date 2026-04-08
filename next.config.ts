@@ -6,6 +6,14 @@ const nextConfig: NextConfig = {
     unoptimized: false,
     remotePatterns: [],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/admin',
+        destination: '/admin/index.html',
+      },
+    ];
+  },
 }
 
 export default nextConfig

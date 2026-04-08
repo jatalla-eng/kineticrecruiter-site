@@ -3,7 +3,6 @@ import Hero from '@/components/sections/Hero';
 import FeatureGrid from '@/components/sections/FeatureGrid';
 import ComparisonStrip from '@/components/sections/ComparisonStrip';
 import PricingPreview from '@/components/sections/PricingPreview';
-import SocialProof from '@/components/sections/SocialProof';
 import CTASection from '@/components/sections/CTASection';
 
 export const metadata = generatePageMetadata({
@@ -20,7 +19,6 @@ export default function HomePage() {
       <FeatureGrid />
       <ComparisonStrip />
       <PricingPreview />
-      <SocialProof />
       <CTASection />
     </main>
   );
