@@ -6,6 +6,19 @@ const nextConfig: NextConfig = {
     unoptimized: false,
     remotePatterns: [],
   },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, s-maxage=3600, stale-while-revalidate=86400',
+          },
+        ],
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
