@@ -25,4 +25,30 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  /* Blog prose table styling */
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: 0.875rem;
+  }
+  .prose th {
+    background-color: var(--color-kinetic-teal);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+  .prose td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .prose tr:nth-child(even) td {
+    background-color: #f9fafb;
+  }
+  .prose tbody tr:hover td {
+    background-color: #f0fdfa;
+  }
 }

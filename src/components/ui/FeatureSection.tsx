@@ -28,7 +28,7 @@ export default function FeatureSection({
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text side */}
           <div className={reverse ? 'lg:order-2' : ''}>
-            <h3 className="text-2xl md:text-3xl font-bold text-[#1a2332] mb-6">{headline}</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-kinetic-navy mb-6">{headline}</h3>
             {body.split('\n\n').map((paragraph, index) => (
               <p key={index} className="text-gray-600 text-lg leading-relaxed mb-4">
                 {paragraph}
@@ -38,7 +38,7 @@ export default function FeatureSection({
               <ul className="mt-4 space-y-3">
                 {bullets.map((bullet, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-[#0d8488] flex-shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-kinetic-teal flex-shrink-0 mt-0.5" />
                     <span className="text-gray-600">{bullet}</span>
                   </li>
                 ))}

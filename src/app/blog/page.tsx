@@ -1,16 +1,13 @@
 import { getAllPosts } from '@/lib/blog';
 import BlogIndex from '@/components/blog/BlogIndex';
-import type { Metadata } from 'next';
+import { generatePageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: 'Blog | KineticRecruiter',
-  description: 'Recruitment insights, ATS guides, and agency growth strategies from the KineticRecruiter team.',
-  openGraph: {
-    title: 'Blog | KineticRecruiter',
-    description: 'Recruitment insights, ATS guides, and agency growth strategies.',
-    type: 'website',
-  },
-};
+export const metadata = generatePageMetadata({
+  title: 'Recruitment Blog',
+  description:
+    'Recruitment insights, ATS guides, and agency growth strategies from the KineticRecruiter team. Learn how to hire smarter.',
+  path: '/blog',
+});
 
 export default function BlogPage() {
   const posts = getAllPosts();

@@ -6,6 +6,10 @@ interface PageMetaProps {
   path: string;
   image?: string;
   type?: 'website' | 'article';
+  /** Set true on the homepage to skip the "| KineticRecruiter" suffix */
+  noSuffix?: boolean;
+  /** Override default robots (index, follow) — e.g. for 404 page */
+  robots?: string;
 }
 
 const BASE_URL = 'https://kineticrecruiter.com';
@@ -16,8 +20,10 @@ export function generatePageMetadata({
   path,
   image = '/images/og-default.jpg',
   type = 'website',
+  noSuffix = false,
+  robots,
 }: PageMetaProps): Metadata {
-  const fullTitle = `${title} | KineticRecruiter`;
+  const fullTitle = noSuffix ? title : `${title} | KineticRecruiter`;
   const url = `${BASE_URL}${path}`;
   const imageUrl = image.startsWith('http') ? image : `${BASE_URL}${image}`;
 
@@ -39,5 +45,6 @@ export function generatePageMetadata({
       description,
       images: [imageUrl],
     },
+    ...(robots ? { robots } : {}),
   };
 }

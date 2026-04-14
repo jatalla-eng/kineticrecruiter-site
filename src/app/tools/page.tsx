@@ -5,9 +5,9 @@ import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 
 export const metadata = generatePageMetadata({
-  title: 'Free Recruiter Tools | KineticRecruiter',
+  title: 'Free Recruiter Tools',
   description:
-    'Free AI-powered tools for recruiters. Generate job descriptions, calculate ROI, and more.',
+    'Free AI-powered recruiting tools. Generate job descriptions, calculate hiring ROI, and more. No signup required — try them now.',
   path: '/tools',
 });
 
@@ -26,7 +26,7 @@ export default function ToolsPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#0d8488] to-[#0a6b6e] py-16">
+      <section className="bg-gradient-to-br from-kinetic-teal to-kinetic-teal-dark py-16">
         <div className="mx-auto max-w-[1200px] px-6">
           <h1 className="text-4xl font-bold text-white">Recruiter Tools</h1>
           <p className="mt-3 max-w-xl text-lg text-white/90">
@@ -45,7 +45,7 @@ export default function ToolsPage() {
               className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-start justify-between mb-3">
-                <h2 className="text-lg font-semibold text-[#1a2332] group-hover:text-[#0d8488] transition-colors">
+                <h2 className="text-lg font-semibold text-kinetic-navy group-hover:text-kinetic-teal transition-colors">
                   {tool.title}
                 </h2>
                 <Badge variant={tool.badgeVariant} className="ml-3 flex-shrink-0">

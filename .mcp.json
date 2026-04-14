@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "mcp-image": {
+      "command": "npx",
+      "args": ["-y", "mcp-image"],
+      "env": {
+        "GEMINI_API_KEY": "AIzaSyCe4tv5of3LPSUm3Gvu8aL96No2synQMKA",
+        "IMAGE_OUTPUT_DIR": "/Users/admin/Documents/Development/kineticrecruiter-site/public/images/generated"
+      }
+    }
+  }
+}

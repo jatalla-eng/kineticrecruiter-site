@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Star, Quote, BrainCircuit, Database, Building2, BadgeDollarSign } from 'lucide-react';
 
 const stats = [
@@ -54,10 +55,10 @@ export default function SocialProof() {
             const Icon = stat.icon;
             return (
               <div key={stat.label} className="flex flex-col items-center text-center group">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0d8488] to-[#7DD3D6] flex items-center justify-center mb-4 shadow-md group-hover:scale-105 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-kinetic-teal to-flow-cyan flex items-center justify-center mb-4 shadow-md group-hover:scale-105 transition-transform">
                   <Icon className="w-7 h-7 text-white" />
                 </div>
-                <span className="text-sm md:text-base font-bold text-[#1a2332]">
+                <span className="text-sm md:text-base font-bold text-kinetic-navy">
                   {stat.label}
                 </span>
               </div>
@@ -65,9 +66,27 @@ export default function SocialProof() {
           })}
         </div>
 
+        {/* Human imagery banner */}
+        <div className="relative rounded-2xl overflow-hidden mb-16 h-48 md:h-64">
+          <Image
+            src="/images/team-collaboration.jpg"
+            alt="Recruitment team collaborating in a modern office"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-kinetic-navy/80 to-kinetic-navy/40 flex items-center">
+            <div className="px-8 md:px-12">
+              <p className="text-white text-2xl md:text-3xl font-bold mb-2">Built for how recruiters actually work.</p>
+              <p className="text-gray-300 text-sm md:text-base max-w-lg">
+                From boutique agencies to growing talent teams, KineticRecruiter fits your workflow — not the other way around.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Testimonials heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1a2332] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-kinetic-navy mb-4">
             Loved by recruiters across Australia
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -83,12 +102,12 @@ export default function SocialProof() {
               key={testimonial.name}
               className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow relative"
             >
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-[#0d8488]/10" />
+              <Quote className="absolute top-6 right-6 w-10 h-10 text-kinetic-teal/10" />
 
               {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: testimonial.stars }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-[#E8A838] fill-[#E8A838]" />
+                  <Star key={i} className="w-5 h-5 text-motion-amber fill-motion-amber" />
                 ))}
               </div>
 
@@ -97,13 +116,13 @@ export default function SocialProof() {
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-[#0d8488] flex items-center justify-center text-white font-bold text-lg border-2 border-[#0d8488]/20 shadow-sm">
+                <div className="w-14 h-14 rounded-full bg-kinetic-teal flex items-center justify-center text-white font-bold text-lg border-2 border-kinetic-teal/20 shadow-sm">
                   {testimonial.initials}
                 </div>
                 <div>
-                  <p className="font-semibold text-[#1a2332]">{testimonial.name}</p>
+                  <p className="font-semibold text-kinetic-navy">{testimonial.name}</p>
                   <p className="text-sm text-gray-500">{testimonial.role}</p>
-                  <p className="text-xs text-[#0d8488] font-medium">{testimonial.company}</p>
+                  <p className="text-xs text-kinetic-teal font-medium">{testimonial.company}</p>
                 </div>
               </div>
             </div>
@@ -114,7 +133,7 @@ export default function SocialProof() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {metricStats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#0d8488] mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-kinetic-teal mb-2">
                 {stat.number}
               </div>
               <div className="text-gray-600">{stat.label}</div>

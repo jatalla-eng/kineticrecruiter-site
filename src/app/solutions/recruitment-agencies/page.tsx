@@ -4,16 +4,31 @@ import CTASection from '@/components/sections/CTASection';
 import { ArrowRight, Check } from 'lucide-react';
 
 export const metadata = generatePageMetadata({
-  title: 'For Recruitment Agencies',
-  description: 'ATS built for recruitment agencies. Manage candidates across multiple clients, track placements, and close more roles with AI-powered matching.',
+  title: 'ATS for Recruitment Agencies',
+  description:
+    'Manage candidates across multiple clients, track placements, and close roles faster with AI matching. Start your free agency trial.',
   path: '/solutions/recruitment-agencies',
 });
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kineticrecruiter.com' },
+    { '@type': 'ListItem', position: 2, name: 'Solutions', item: 'https://kineticrecruiter.com/solutions/recruitment-agencies' },
+    { '@type': 'ListItem', position: 3, name: 'Recruitment Agencies' },
+  ],
+};
 
 export default function RecruitmentAgenciesPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1a2332] to-[#243447] py-20 md:py-28">
+      <section className="bg-gradient-to-br from-kinetic-navy to-[#243447] py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -24,7 +39,7 @@ export default function RecruitmentAgenciesPage() {
             </p>
             <a
               href="https://app.kineticrecruiter.com/register"
-              className="inline-flex items-center justify-center bg-[#0d8488] hover:bg-[#0b7276] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
+              className="inline-flex items-center justify-center bg-kinetic-teal hover:bg-kinetic-teal-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
             >
               Start Free Trial
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -37,7 +52,7 @@ export default function RecruitmentAgenciesPage() {
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="text-3xl font-bold text-[#1a2332] mb-6">The challenges agencies face every day</h2>
+            <h2 className="text-3xl font-bold text-kinetic-navy mb-6">The challenges agencies face every day</h2>
             <ul className="space-y-4">
               {[
                 'Juggling client expectations, candidate pipelines across dozens of roles, and the pressure to submit quality profiles fast',
@@ -47,7 +62,7 @@ export default function RecruitmentAgenciesPage() {
                 'Paying for AI features as add-ons on top of already expensive per-seat pricing',
               ].map((pain, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#0d8488] flex-shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-kinetic-teal flex-shrink-0 mt-0.5" />
                   <span className="text-gray-600">{pain}</span>
                 </li>
               ))}
@@ -121,12 +136,7 @@ KineticRecruiter puts all of it in one system.`}
         />
       </div>
 
-      <CTASection
-        headline="Ready to streamline your agency?"
-        subheadline="Start your 7-day free trial with full access to every feature. No add-ons. No implementation fees."
-        primaryCTA={{ text: 'Start Free Trial', href: 'https://app.kineticrecruiter.com/register' }}
-        secondaryCTA={{ text: 'See Pricing', href: '/pricing' }}
-      />
+      <CTASection variant="minimal" />
     </main>
   );
 }

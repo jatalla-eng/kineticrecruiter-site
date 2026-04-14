@@ -48,8 +48,8 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-xl border border-[#0d8488]/20 bg-[#E8F5F5] p-8 text-center">
-        <p className="text-lg font-semibold text-[#0d8488]">
+      <div className="rounded-xl border border-kinetic-teal/20 bg-kinetic-teal-light p-8 text-center">
+        <p className="text-lg font-semibold text-kinetic-teal">
           Thanks! We&apos;ll be in touch within 1 business day.
         </p>
       </div>
@@ -59,7 +59,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-[#1a2332] mb-1">
+        <label htmlFor="name" className="block text-sm font-medium text-kinetic-navy mb-1">
           Your name
         </label>
         <input
@@ -70,12 +70,12 @@ export default function ContactForm() {
           placeholder="Your name"
           value={formData.name}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-[#0d8488]"
+          className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-kinetic-teal"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-[#1a2332] mb-1">
+        <label htmlFor="email" className="block text-sm font-medium text-kinetic-navy mb-1">
           Work email
         </label>
         <input
@@ -86,12 +86,12 @@ export default function ContactForm() {
           placeholder="work@example.com"
           value={formData.email}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-[#0d8488]"
+          className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-kinetic-teal"
         />
       </div>
 
       <div>
-        <label htmlFor="company" className="block text-sm font-medium text-[#1a2332] mb-1">
+        <label htmlFor="company" className="block text-sm font-medium text-kinetic-navy mb-1">
           Company
         </label>
         <input
@@ -102,12 +102,12 @@ export default function ContactForm() {
           placeholder="Company name"
           value={formData.company}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-[#0d8488]"
+          className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-kinetic-teal"
         />
       </div>
 
       <div>
-        <label htmlFor="plan" className="block text-sm font-medium text-[#1a2332] mb-1">
+        <label htmlFor="plan" className="block text-sm font-medium text-kinetic-navy mb-1">
           Plan interest
         </label>
         <select
@@ -115,7 +115,7 @@ export default function ContactForm() {
           name="plan"
           value={formData.plan}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-[#0d8488] bg-white"
+          className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-kinetic-teal bg-white"
         >
           {PLAN_OPTIONS.map((option) => (
             <option key={option} value={option}>
@@ -126,7 +126,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-[#1a2332] mb-1">
+        <label htmlFor="message" className="block text-sm font-medium text-kinetic-navy mb-1">
           Message
         </label>
         <textarea
@@ -137,13 +137,13 @@ export default function ContactForm() {
           placeholder="Tell us about your team and what you're looking for"
           value={formData.message}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-[#0d8488] resize-none"
+          className="border border-gray-300 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-kinetic-teal resize-none"
         />
       </div>
 
       <button
         type="submit"
-        className="bg-[#0d8488] text-white rounded-lg px-8 py-3 font-semibold hover:bg-[#0a6b6e] w-full transition-colors"
+        className="bg-kinetic-teal text-white rounded-lg px-8 py-3 font-semibold hover:bg-kinetic-teal-dark w-full transition-colors"
       >
         Send message
       </button>

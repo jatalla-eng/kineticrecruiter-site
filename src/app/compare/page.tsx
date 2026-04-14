@@ -2,9 +2,9 @@ import { generatePageMetadata } from '@/lib/metadata';
 import CTASection from '@/components/sections/CTASection';
 
 export const metadata = generatePageMetadata({
-  title: 'KineticRecruiter vs Greenhouse vs Lever | ATS Comparison',
+  title: 'ATS Comparison: vs Greenhouse & Lever',
   description:
-    'Honest comparison of KineticRecruiter, Greenhouse, and Lever. Compare pricing, AI features, ease of use, integrations, and support.',
+    'Compare KineticRecruiter, Greenhouse, and Lever side by side on pricing, AI features, and ease of use. See which ATS fits your team.',
   path: '/compare',
 });
 
@@ -69,7 +69,7 @@ export default function ComparePage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#0d8488] to-[#0a6b6e] py-16">
+      <section className="bg-gradient-to-br from-kinetic-teal to-kinetic-teal-dark py-16">
         <div className="mx-auto max-w-[1200px] px-6">
           <h1 className="text-4xl font-bold text-white">ATS Comparison</h1>
           <p className="mt-3 max-w-xl text-lg text-white/90">
@@ -88,13 +88,13 @@ export default function ComparePage() {
                 <th className="w-1/4 py-4 px-4 text-left text-gray-500 font-medium border-b border-gray-200">
                   Category
                 </th>
-                <th className="w-1/4 py-4 px-4 text-left font-semibold text-[#1a2332] bg-[#E8F5F5] border-b border-[#0d8488]">
-                  <span className="text-[#0d8488]">KineticRecruiter</span>
+                <th className="w-1/4 py-4 px-4 text-left font-semibold text-kinetic-navy bg-kinetic-teal-light border-b border-kinetic-teal">
+                  <span className="text-kinetic-teal">KineticRecruiter</span>
                 </th>
-                <th className="w-1/4 py-4 px-4 text-left font-semibold text-[#1a2332] border-b border-gray-200">
+                <th className="w-1/4 py-4 px-4 text-left font-semibold text-kinetic-navy border-b border-gray-200">
                   Greenhouse
                 </th>
-                <th className="w-1/4 py-4 px-4 text-left font-semibold text-[#1a2332] border-b border-gray-200">
+                <th className="w-1/4 py-4 px-4 text-left font-semibold text-kinetic-navy border-b border-gray-200">
                   Lever
                 </th>
               </tr>
@@ -102,10 +102,10 @@ export default function ComparePage() {
             <tbody>
               {comparisonData.map((row, i) => (
                 <tr key={row.category} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                  <td className="py-5 px-4 font-semibold text-[#1a2332] align-top border-b border-gray-100">
+                  <td className="py-5 px-4 font-semibold text-kinetic-navy align-top border-b border-gray-100">
                     {row.category}
                   </td>
-                  <td className="py-5 px-4 text-gray-700 align-top border-b border-gray-100 bg-[#E8F5F5]/40">
+                  <td className="py-5 px-4 text-gray-700 align-top border-b border-gray-100 bg-kinetic-teal-light/40">
                     {row.kinetic}
                   </td>
                   <td className="py-5 px-4 text-gray-700 align-top border-b border-gray-100">
@@ -126,10 +126,58 @@ export default function ComparePage() {
         </p>
       </section>
 
-      <CTASection
-        headline="Ready to try the affordable alternative?"
-        subheadline="Get full access to every KineticRecruiter feature for 7 days free. No credit card required."
-      />
+      {/* FAQ — structured for AI search engines */}
+      <section className="mx-auto max-w-[1200px] px-6 pb-16">
+        <h2 className="text-2xl font-bold text-kinetic-navy mb-8">
+          Frequently Asked Questions About ATS Comparison
+        </h2>
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-lg font-semibold text-kinetic-navy">
+              What is the best ATS for recruitment agencies?
+            </h3>
+            <p className="mt-2 text-gray-700">
+              The best ATS for recruitment agencies depends on team size and budget.
+              KineticRecruiter is designed specifically for agencies with 1-50 recruiters who want
+              AI-powered candidate matching and scoring without enterprise pricing. Greenhouse and
+              Lever are better suited for mid-to-large enterprises with complex compliance needs.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-kinetic-navy">
+              How does KineticRecruiter compare to Greenhouse?
+            </h3>
+            <p className="mt-2 text-gray-700">
+              KineticRecruiter starts at $29/month with all AI features included, while Greenhouse
+              typically costs $6,000-$25,000+ per year with AI as a paid add-on. KineticRecruiter
+              offers native AI candidate scoring and semantic search; Greenhouse has a larger
+              integration ecosystem with 500+ partners.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-kinetic-navy">
+              How does KineticRecruiter compare to Lever?
+            </h3>
+            <p className="mt-2 text-gray-700">
+              KineticRecruiter offers transparent pricing starting at $29/month, while Lever uses
+              custom pricing typically starting at $3,500+/year. KineticRecruiter includes AI match
+              scoring and job description generation natively; Lever focuses on structured hiring
+              pipelines and has stronger HRIS integrations.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-kinetic-navy">
+              Does KineticRecruiter offer a free trial?
+            </h3>
+            <p className="mt-2 text-gray-700">
+              Yes. KineticRecruiter offers a 7-day free trial with no credit card required. All AI
+              features are available during the trial period.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <CTASection variant="minimal" />
     </main>
   );
 }

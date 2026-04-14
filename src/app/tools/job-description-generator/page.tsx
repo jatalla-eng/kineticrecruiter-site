@@ -2,9 +2,9 @@ import { generatePageMetadata } from '@/lib/metadata';
 import JDGeneratorForm from './_JDGeneratorForm';
 
 export const metadata = generatePageMetadata({
-  title: 'AI Job Description Generator | KineticRecruiter',
+  title: 'Free AI Job Description Generator',
   description:
-    'Generate professional job descriptions in seconds using AI. Free tool for recruitment teams.',
+    'Generate professional job descriptions in seconds with AI. Free tool for recruiters — no signup needed. Try it now.',
   path: '/tools/job-description-generator',
 });
 
@@ -12,7 +12,7 @@ export default function JDGeneratorPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#0d8488] to-[#0a6b6e] py-16">
+      <section className="bg-gradient-to-br from-kinetic-teal to-kinetic-teal-dark py-16">
         <div className="mx-auto max-w-[1200px] px-6">
           <span className="inline-block mb-3 rounded-full bg-white/20 px-4 py-1 text-sm font-medium text-white">
             Free Tool

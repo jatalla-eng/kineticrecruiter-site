@@ -25,7 +25,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: '#1a2332' }} className="py-16">
+    <footer className="py-16 bg-kinetic-navy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-5 gap-12 mb-12">
           {/* Brand */}
@@ -34,9 +34,9 @@ export default function Footer() {
               <Image
                 src="/images/logo-footer.png"
                 alt="KineticRecruiter"
-                width={160}
-                height={40}
-                className="h-10 w-auto"
+                width={500}
+                height={100}
+                className="h-16 md:h-20 w-auto"
               />
             </Link>
             <p className="text-gray-400 mb-6 max-w-sm text-sm leading-relaxed">

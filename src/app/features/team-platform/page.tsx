@@ -5,22 +5,37 @@ import { ArrowRight, Users } from 'lucide-react';
 
 export const metadata = generatePageMetadata({
   title: 'Team & Platform',
-  description: 'Multi-seat team access, API integrations, and role-based permissions for growing agencies.',
+  description:
+    'Multi-seat access, role-based permissions, and API integrations for growing recruitment agencies. Start your free trial today.',
   path: '/features/team-platform',
 });
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kineticrecruiter.com' },
+    { '@type': 'ListItem', position: 2, name: 'Features', item: 'https://kineticrecruiter.com/features/team-platform' },
+    { '@type': 'ListItem', position: 3, name: 'Team & Platform' },
+  ],
+};
 
 export default function TeamPlatformPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#E8F5F5] via-white to-white py-20 md:py-28">
+      <section className="bg-gradient-to-br from-kinetic-teal-light via-white to-white py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#0d8488]/10 text-[#0d8488] px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center gap-2 bg-kinetic-teal/10 text-kinetic-teal px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Users className="w-4 h-4" />
               Team &amp; Platform
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-kinetic-navy mb-6">
               Built to run as a product, not a prototype.
             </h1>
             <p className="text-xl text-gray-600 mb-8">
@@ -28,7 +43,7 @@ export default function TeamPlatformPage() {
             </p>
             <a
               href="https://app.kineticrecruiter.com/register"
-              className="inline-flex items-center justify-center bg-[#0d8488] hover:bg-[#0b7276] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
+              className="inline-flex items-center justify-center bg-kinetic-teal hover:bg-kinetic-teal-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
             >
               Start Free Trial
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -80,12 +95,7 @@ Google and Microsoft OAuth sign-in mean one less password for your team.`}
         />
       </div>
 
-      <CTASection
-        headline="Ready to scale your team?"
-        subheadline="Start your 7-day free trial with full access to every feature."
-        primaryCTA={{ text: 'Start Free Trial', href: 'https://app.kineticrecruiter.com/register' }}
-        secondaryCTA={{ text: 'See Pricing', href: '/pricing' }}
-      />
+      <CTASection variant="minimal" />
     </main>
   );
 }

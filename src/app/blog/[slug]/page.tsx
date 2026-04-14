@@ -38,6 +38,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   // Article JSON-LD structured data
+  const wordCount = post.content ? post.content.replace(/<[^>]*>/g, '').split(/\s+/).length : 0;
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -46,6 +47,12 @@ export default async function BlogPostPage({ params }: Props) {
     image: post.image,
     datePublished: post.date,
     dateModified: post.date,
+    wordCount,
+    articleSection: post.category,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://kineticrecruiter.com/blog/${slug}`,
+    },
     author: {
       '@type': 'Organization',
       name: post.author,
@@ -54,6 +61,14 @@ export default async function BlogPostPage({ params }: Props) {
       '@type': 'Organization',
       name: 'KineticRecruiter',
       url: 'https://kineticrecruiter.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://kineticrecruiter.com/images/logo.png',
+      },
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['article h1', 'article .prose > p:first-of-type'],
     },
   };
 

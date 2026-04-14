@@ -43,7 +43,7 @@ export default function FAQ() {
     <section className="py-20 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1a2332] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-kinetic-navy mb-4">
             Frequently asked questions
           </h2>
           <p className="text-lg text-gray-600">
@@ -61,9 +61,9 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between p-5 md:p-6 text-left bg-white hover:bg-gray-50 transition-colors"
               >
-                <span className="font-semibold text-[#1a2332] pr-4">{faq.question}</span>
+                <span className="font-semibold text-kinetic-navy pr-4">{faq.question}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-[#0d8488] flex-shrink-0 transition-transform ${
+                  className={`w-5 h-5 text-kinetic-teal flex-shrink-0 transition-transform ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 />

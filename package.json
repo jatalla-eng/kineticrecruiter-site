@@ -23,6 +23,7 @@
     "react-phone-number-input": "^3.4.16",
     "reading-time": "^1.5.0",
     "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1"
   },
   "devDependencies": {

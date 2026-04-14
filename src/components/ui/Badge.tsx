@@ -5,9 +5,9 @@ interface BadgeProps {
 }
 
 const variantClasses: Record<NonNullable<BadgeProps['variant']>, string> = {
-  teal: 'bg-[#0d8488] text-white',
-  amber: 'bg-[#E8A838] text-white',
-  navy: 'bg-[#1a2332] text-white',
+  teal: 'bg-kinetic-teal text-white',
+  amber: 'bg-motion-amber text-white',
+  navy: 'bg-kinetic-navy text-white',
 };
 
 export default function Badge({ children, variant = 'teal', className = '' }: BadgeProps) {

@@ -15,11 +15,11 @@ interface ButtonProps {
 
 const variantClasses: Record<NonNullable<ButtonProps['variant']>, string> = {
   primary:
-    'bg-[#0d8488] hover:bg-[#0a6b6e] text-white font-semibold rounded-lg transition-colors',
+    'bg-kinetic-teal hover:bg-kinetic-teal-dark text-white font-semibold rounded-lg transition-colors',
   secondary:
-    'bg-[#1a2332] text-white hover:bg-[#2a3a4f] font-semibold rounded-lg transition-colors',
+    'bg-kinetic-navy text-white hover:bg-kinetic-navy-light font-semibold rounded-lg transition-colors',
   outline:
-    'border-2 border-[#0d8488] text-[#0d8488] hover:bg-[#E8F5F5] font-semibold rounded-lg transition-colors',
+    'border-2 border-kinetic-teal text-kinetic-teal hover:bg-kinetic-teal-light font-semibold rounded-lg transition-colors',
   danger:
     'bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors',
 };

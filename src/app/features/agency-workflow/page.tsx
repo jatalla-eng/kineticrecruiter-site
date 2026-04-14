@@ -5,22 +5,37 @@ import { ArrowRight, LayoutGrid } from 'lucide-react';
 
 export const metadata = generatePageMetadata({
   title: 'Agency Workflow',
-  description: 'Client CRM, job shortlist Kanban, and AI submission emails built for recruitment agencies.',
+  description:
+    'Client CRM, Kanban job shortlists, and AI-drafted submission emails built for recruitment agencies. Start your free trial today.',
   path: '/features/agency-workflow',
 });
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kineticrecruiter.com' },
+    { '@type': 'ListItem', position: 2, name: 'Features', item: 'https://kineticrecruiter.com/features/agency-workflow' },
+    { '@type': 'ListItem', position: 3, name: 'Agency Workflow' },
+  ],
+};
 
 export default function AgencyWorkflowPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#E8F5F5] via-white to-white py-20 md:py-28">
+      <section className="bg-gradient-to-br from-kinetic-teal-light via-white to-white py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#0d8488]/10 text-[#0d8488] px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center gap-2 bg-kinetic-teal/10 text-kinetic-teal px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <LayoutGrid className="w-4 h-4" />
               Agency Workflow
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-kinetic-navy mb-6">
               Clients, candidates, and submissions. One system.
             </h1>
             <p className="text-xl text-gray-600 mb-8">
@@ -28,7 +43,7 @@ export default function AgencyWorkflowPage() {
             </p>
             <a
               href="https://app.kineticrecruiter.com/register"
-              className="inline-flex items-center justify-center bg-[#0d8488] hover:bg-[#0b7276] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
+              className="inline-flex items-center justify-center bg-kinetic-teal hover:bg-kinetic-teal-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
             >
               Start Free Trial
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -82,12 +97,7 @@ Add candidates from your existing database, from AI-suggested matches, or from n
         />
       </div>
 
-      <CTASection
-        headline="Ready to streamline your agency workflow?"
-        subheadline="Start your 7-day free trial with full access to every feature."
-        primaryCTA={{ text: 'Start Free Trial', href: 'https://app.kineticrecruiter.com/register' }}
-        secondaryCTA={{ text: 'See Pricing', href: '/pricing' }}
-      />
+      <CTASection variant="minimal" />
     </main>
   );
 }

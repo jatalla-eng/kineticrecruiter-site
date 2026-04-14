@@ -1,0 +1,21 @@
+# KineticRecruiter
+> AI-powered applicant tracking system for recruitment agencies
+
+## About
+KineticRecruiter is an AI-powered ATS built specifically for recruitment agencies. It features semantic candidate search, explainable match scoring, AI career highlights, and a built-in client CRM. Pricing starts at $29/month with all AI features included at every tier. A 7-day free trial is available with no credit card required.
+
+## Key Pages
+- [Homepage](https://kineticrecruiter.com/)
+- [Features](https://kineticrecruiter.com/features/ai-candidate-intelligence)
+- [Pricing](https://kineticrecruiter.com/pricing)
+- [Blog](https://kineticrecruiter.com/blog)
+- [Compare](https://kineticrecruiter.com/compare)
+- [Contact](https://kineticrecruiter.com/contact)
+
+## Key Facts
+- Category: AI-Powered Applicant Tracking System (ATS)
+- Target Users: Recruitment agencies and staffing firms (1-50 recruiters)
+- Core Features: Semantic candidate search, AI match scoring (0-100), AI career highlights, client CRM, AI job description generation
+- Pricing: From $29/month, transparent tiers, no per-feature add-ons
+- Free Trial: 7 days, no credit card required
+- Platform: Web-based SaaS

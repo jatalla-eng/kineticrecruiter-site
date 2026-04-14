@@ -41,7 +41,7 @@ const SENIORITY_LEVELS = [
 ];
 
 const inputClass =
-  'w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0d8488] focus:border-transparent';
+  'w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-kinetic-teal focus:border-transparent';
 
 const labelClass = 'block text-sm font-medium text-gray-700 mb-1';
 
@@ -115,7 +115,7 @@ export default function JDGeneratorForm() {
     return text.split('\n').map((line, i) => {
       if (line.startsWith('## ')) {
         return (
-          <h3 key={i} className="text-lg font-semibold text-[#1a2332] mt-4 mb-2">
+          <h3 key={i} className="text-lg font-semibold text-kinetic-navy mt-4 mb-2">
             {line.replace('## ', '')}
           </h3>
         );
@@ -137,7 +137,7 @@ export default function JDGeneratorForm() {
           <form onSubmit={handleSubmit} noValidate>
             {/* Lead capture */}
             <div className="mb-8">
-              <h2 className="text-xl font-semibold text-[#1a2332] mb-4">Your Information</h2>
+              <h2 className="text-xl font-semibold text-kinetic-navy mb-4">Your Information</h2>
               <div className="space-y-4">
                 <div>
                   <label htmlFor="name" className={labelClass}>Full Name *</label>
@@ -164,7 +164,7 @@ export default function JDGeneratorForm() {
 
             {/* Job details */}
             <div className="mb-8">
-              <h2 className="text-xl font-semibold text-[#1a2332] mb-4">Job Details</h2>
+              <h2 className="text-xl font-semibold text-kinetic-navy mb-4">Job Details</h2>
               <div className="space-y-4">
                 <div>
                   <label htmlFor="jobTitle" className={labelClass}>Job Title *</label>
@@ -209,7 +209,7 @@ export default function JDGeneratorForm() {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full inline-flex items-center justify-center bg-[#0d8488] hover:bg-[#0a6b6e] text-white font-semibold rounded-lg transition-colors px-5 py-2.5 disabled:opacity-60 disabled:cursor-not-allowed`}
+              className={`w-full inline-flex items-center justify-center bg-kinetic-teal hover:bg-kinetic-teal-dark text-white font-semibold rounded-lg transition-colors px-5 py-2.5 disabled:opacity-60 disabled:cursor-not-allowed`}
             >
               {loading ? 'Generating...' : 'Generate Job Description'}
             </button>
@@ -219,12 +219,12 @@ export default function JDGeneratorForm() {
         {/* Right: Output */}
         <div>
           {generatedJD ? (
-            <div className="border-2 border-[#0d8488] bg-[#E8F5F5] rounded-xl p-6">
+            <div className="border-2 border-kinetic-teal bg-kinetic-teal-light rounded-xl p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold text-[#1a2332]">Generated Job Description</h2>
+                <h2 className="text-xl font-semibold text-kinetic-navy">Generated Job Description</h2>
                 <button
                   onClick={handleCopy}
-                  className="text-sm font-medium text-[#0d8488] hover:text-[#0a6b6e] border border-[#0d8488] rounded-lg px-3 py-1.5 transition-colors"
+                  className="text-sm font-medium text-kinetic-teal hover:text-kinetic-teal-dark border border-kinetic-teal rounded-lg px-3 py-1.5 transition-colors"
                 >
                   {copied ? 'Copied!' : 'Copy'}
                 </button>
@@ -233,8 +233,8 @@ export default function JDGeneratorForm() {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center h-full min-h-[400px] rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 text-center px-8">
-              <div className="w-16 h-16 rounded-full bg-[#E8F5F5] flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-[#0d8488]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 rounded-full bg-kinetic-teal-light flex items-center justify-center mb-4">
+                <svg className="w-8 h-8 text-kinetic-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>

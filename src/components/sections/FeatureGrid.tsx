@@ -12,6 +12,7 @@ import {
   BarChart,
   Sparkles
 } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const features = [
@@ -97,7 +98,7 @@ export default function FeatureGrid() {
     <section className="py-20 md:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1a2332] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-kinetic-navy mb-4">
             Everything you need to run your recruitment operation.
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -105,25 +106,62 @@ export default function FeatureGrid() {
           </p>
         </div>
 
+        {/* First row of features */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {features.map((feature) => {
+          {features.slice(0, 4).map((feature) => {
+            const Icon = feature.icon;
+            return (
+              <div key={feature.title} className="rounded-xl p-6 border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 bg-white">
+                <div className="w-10 h-10 bg-kinetic-teal/10 rounded-lg flex items-center justify-center mb-4">
+                  <Icon className="w-5 h-5 text-kinetic-teal" />
+                </div>
+                <h3 className="font-bold text-kinetic-navy text-lg mb-2">{feature.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Human imagery break */}
+        <div className="my-8 md:my-12 grid md:grid-cols-2 gap-6 items-center">
+          <div className="relative h-48 md:h-64 rounded-2xl overflow-hidden">
+            <Image
+              src="/images/team-success.jpg"
+              alt="Recruitment team celebrating a successful placement"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="flex flex-col justify-center">
+            <h3 className="text-2xl font-bold text-kinetic-navy mb-3">
+              Built by recruiters, for recruiters.
+            </h3>
+            <p className="text-gray-600 leading-relaxed">
+              Every feature was designed around how agency recruiters actually work — from the 7-stage Kanban board to AI-powered client submissions. No enterprise bloat, no features you&apos;ll never use.
+            </p>
+          </div>
+        </div>
+
+        {/* Remaining features */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {features.slice(4).map((feature) => {
             const Icon = feature.icon;
             return (
               <div
                 key={feature.title}
                 className={`rounded-xl p-6 border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200 ${
-                  feature.special ? 'bg-[#0d8488]/5' : 'bg-white'
+                  feature.special ? 'bg-kinetic-teal/5' : 'bg-white'
                 }`}
               >
-                <div className="w-10 h-10 bg-[#0d8488]/10 rounded-lg flex items-center justify-center mb-4">
-                  <Icon className="w-5 h-5 text-[#0d8488]" />
+                <div className="w-10 h-10 bg-kinetic-teal/10 rounded-lg flex items-center justify-center mb-4">
+                  <Icon className="w-5 h-5 text-kinetic-teal" />
                 </div>
-                <h3 className="font-bold text-[#1a2332] text-lg mb-2">{feature.title}</h3>
+                <h3 className="font-bold text-kinetic-navy text-lg mb-2">{feature.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
                 {feature.link && (
                   <Link
                     href={feature.link}
-                    className="text-[#0d8488] text-sm font-medium mt-3 inline-block hover:underline"
+                    className="text-kinetic-teal text-sm font-medium mt-3 inline-block hover:underline"
                   >
                     {feature.linkText}
                   </Link>

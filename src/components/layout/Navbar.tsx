@@ -62,8 +62,7 @@ export default function Navbar() {
               item.dropdown ? (
                 <div key={item.label} className="relative group">
                   <button
-                    className="flex items-center px-4 py-2 font-medium transition-colors"
-                    style={{ color: '#1a2332' }}
+                    className="flex items-center px-4 py-2 font-medium transition-colors text-kinetic-navy"
                   >
                     {item.label}
                     <ChevronDown className="ml-1 w-4 h-4 transition-transform group-hover:rotate-180" />
@@ -75,8 +74,7 @@ export default function Navbar() {
                       <Link
                         key={subItem.label}
                         href={subItem.href}
-                        className="block px-4 py-2 text-sm transition-colors hover:bg-gray-50"
-                        style={{ color: '#1a2332' }}
+                        className="block px-4 py-2 text-sm transition-colors hover:bg-gray-50 text-kinetic-navy"
                       >
                         {subItem.label}
                       </Link>
@@ -87,8 +85,7 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href!}
-                  className="px-4 py-2 font-medium transition-colors hover:text-[#0d8488]"
-                  style={{ color: '#1a2332' }}
+                  className="px-4 py-2 font-medium transition-colors text-kinetic-navy hover:text-kinetic-teal"
                 >
                   {item.label}
                 </Link>
@@ -102,15 +99,13 @@ export default function Navbar() {
               href="https://app.kineticrecruiter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium transition-colors hover:text-[#0d8488]"
-              style={{ color: '#1a2332' }}
+              className="font-medium transition-colors text-kinetic-navy hover:text-kinetic-teal"
             >
               Login
             </a>
             <Link
               href="/pricing"
-              className="text-white px-5 py-2.5 rounded-lg font-semibold transition-colors hover:opacity-90"
-              style={{ backgroundColor: '#0d8488' }}
+              className="text-white px-5 py-2.5 rounded-lg font-semibold transition-colors hover:opacity-90 bg-kinetic-teal"
             >
               Start Free Trial
             </Link>

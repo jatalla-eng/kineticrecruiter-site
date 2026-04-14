@@ -32,8 +32,7 @@ export default function MobileMenu({ navItems }: MobileMenuProps) {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 transition-colors hover:text-[#0d8488]"
-        style={{ color: '#1a2332' }}
+        className="p-2 transition-colors text-kinetic-navy hover:text-kinetic-teal"
         aria-label="Toggle navigation menu"
         aria-expanded={isOpen}
       >
@@ -48,8 +47,7 @@ export default function MobileMenu({ navItems }: MobileMenuProps) {
                 <div key={item.label}>
                   <button
                     onClick={() => toggleSection(item.label)}
-                    className="flex items-center justify-between w-full px-4 py-3 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-                    style={{ color: '#1a2332' }}
+                    className="flex items-center justify-between w-full px-4 py-3 font-medium rounded-lg hover:bg-gray-50 transition-colors text-kinetic-navy"
                   >
                     {item.label}
                     <ChevronDown
@@ -67,7 +65,7 @@ export default function MobileMenu({ navItems }: MobileMenuProps) {
                           key={subItem.label}
                           href={subItem.href}
                           onClick={closeMenu}
-                          className="block px-4 py-2 text-sm text-gray-600 hover:text-[#0d8488] rounded-lg hover:bg-gray-50 transition-colors"
+                          className="block px-4 py-2 text-sm text-gray-600 hover:text-kinetic-teal rounded-lg hover:bg-gray-50 transition-colors"
                         >
                           {subItem.label}
                         </Link>
@@ -80,8 +78,7 @@ export default function MobileMenu({ navItems }: MobileMenuProps) {
                   key={item.label}
                   href={item.href!}
                   onClick={closeMenu}
-                  className="block px-4 py-3 font-medium rounded-lg hover:bg-gray-50 transition-colors"
-                  style={{ color: '#1a2332' }}
+                  className="block px-4 py-3 font-medium rounded-lg hover:bg-gray-50 transition-colors text-kinetic-navy"
                 >
                   {item.label}
                 </Link>
@@ -94,16 +91,14 @@ export default function MobileMenu({ navItems }: MobileMenuProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenu}
-                className="block px-4 py-3 font-medium hover:text-[#0d8488] transition-colors rounded-lg hover:bg-gray-50"
-                style={{ color: '#1a2332' }}
+                className="block px-4 py-3 font-medium text-kinetic-navy hover:text-kinetic-teal transition-colors rounded-lg hover:bg-gray-50"
               >
                 Login
               </a>
               <Link
                 href="/pricing"
                 onClick={closeMenu}
-                className="block text-center text-white px-5 py-3 rounded-lg font-semibold transition-colors hover:opacity-90"
-                style={{ backgroundColor: '#0d8488' }}
+                className="block text-center text-white px-5 py-3 rounded-lg font-semibold transition-colors hover:opacity-90 bg-kinetic-teal"
               >
                 Start Free Trial
               </Link>

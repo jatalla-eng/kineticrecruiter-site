@@ -17,7 +17,7 @@ export default function CountryPhoneInput({ value, onChange, required }: Country
         value={value}
         onChange={onChange}
         required={required}
-        className="flex items-center w-full border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-[#0d8488] focus-within:border-transparent"
+        className="flex items-center w-full border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-kinetic-teal focus-within:border-transparent"
         numberInputProps={{
           className:
             'flex-1 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 bg-transparent outline-none rounded-r-lg',

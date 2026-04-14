@@ -5,22 +5,37 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 export const metadata = generatePageMetadata({
   title: 'AI Candidate Intelligence',
-  description: 'Semantic search and AI scoring that understands context. Find the right candidates in seconds, not hours.',
+  description:
+    'Semantic search and AI match scoring that understands context, not just keywords. Find the right candidates in seconds. Try it free.',
   path: '/features/ai-candidate-intelligence',
 });
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kineticrecruiter.com' },
+    { '@type': 'ListItem', position: 2, name: 'Features', item: 'https://kineticrecruiter.com/features/ai-candidate-intelligence' },
+    { '@type': 'ListItem', position: 3, name: 'AI Candidate Intelligence' },
+  ],
+};
 
 export default function AICandidateIntelligencePage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#E8F5F5] via-white to-white py-20 md:py-28">
+      <section className="bg-gradient-to-br from-kinetic-teal-light via-white to-white py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-[#0d8488]/10 text-[#0d8488] px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center gap-2 bg-kinetic-teal/10 text-kinetic-teal px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Sparkles className="w-4 h-4" />
               AI Candidate Intelligence
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1a2332] mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-kinetic-navy mb-6">
               The AI that finds, scores, and explains.
             </h1>
             <p className="text-xl text-gray-600 mb-8">
@@ -28,7 +43,7 @@ export default function AICandidateIntelligencePage() {
             </p>
             <a
               href="https://app.kineticrecruiter.com/register"
-              className="inline-flex items-center justify-center bg-[#0d8488] hover:bg-[#0b7276] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
+              className="inline-flex items-center justify-center bg-kinetic-teal hover:bg-kinetic-teal-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
             >
               Start Free Trial
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -80,12 +95,7 @@ No other ATS on the market generates client-ready career summaries.`}
         />
       </div>
 
-      <CTASection
-        headline="Ready to experience AI-powered recruiting?"
-        subheadline="Start your 7-day free trial with full access to every AI feature."
-        primaryCTA={{ text: 'Start Free Trial', href: 'https://app.kineticrecruiter.com/register' }}
-        secondaryCTA={{ text: 'See Pricing', href: '/pricing' }}
-      />
+      <CTASection variant="minimal" />
     </main>
   );
 }

@@ -84,7 +84,7 @@ export default function ROICalculator() {
   ];
 
   const inputClass =
-    'mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#0d8488] focus:border-transparent';
+    'mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-kinetic-teal focus:border-transparent';
 
   return (
     <div className="mx-auto max-w-4xl">
@@ -139,9 +139,9 @@ export default function ROICalculator() {
 
 function ResultCard({ label, value, suffix }: { label: string; value: string; suffix?: string }) {
   return (
-    <div className="rounded-xl bg-[#E8F5F5] p-6 text-center">
+    <div className="rounded-xl bg-kinetic-teal-light p-6 text-center">
       <p className="text-sm font-medium text-gray-600 mb-2">{label}</p>
-      <p className="text-3xl font-bold text-[#0d8488]">
+      <p className="text-3xl font-bold text-kinetic-teal">
         {value}
         {suffix && <span className="text-xl ml-1">{suffix}</span>}
       </p>

@@ -1,4 +1,7 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import { Check, Minus, ChevronDown } from 'lucide-react';
 
 const competitors = [
   { key: 'kr', name: 'KineticRecruiter', highlight: true },
@@ -8,7 +11,21 @@ const competitors = [
   { key: 'greenhouse', name: 'Greenhouse', highlight: false },
 ];
 
-const categories = [
+interface Feature {
+  label: string;
+  kr: boolean | string;
+  bullhorn: boolean | string;
+  manatal: boolean | string;
+  recruiterflow: boolean | string;
+  greenhouse: boolean | string;
+}
+
+interface Category {
+  name: string;
+  features: Feature[];
+}
+
+const categories: Category[] = [
   {
     name: "Pricing",
     features: [
@@ -52,17 +69,17 @@ const categories = [
       {
         label: "Natural language candidate search",
         kr: true,
-        bullhorn: false,
-        manatal: false,
-        recruiterflow: false,
-        greenhouse: false,
+        bullhorn: "Via Textkernel",
+        manatal: true,
+        recruiterflow: "Basic",
+        greenhouse: true,
       },
       {
         label: "Semantic matching (embeddings)",
         kr: true,
-        bullhorn: false,
-        manatal: "Basic",
-        recruiterflow: false,
+        bullhorn: "Via Textkernel",
+        manatal: true,
+        recruiterflow: "Basic",
         greenhouse: "Basic",
       },
       {
@@ -70,23 +87,23 @@ const categories = [
         kr: true,
         bullhorn: "Add-on",
         manatal: true,
-        recruiterflow: "In development",
+        recruiterflow: true,
         greenhouse: true,
       },
       {
         label: "Explainable scoring (factor breakdown)",
         kr: true,
         bullhorn: false,
-        manatal: false,
-        recruiterflow: false,
+        manatal: true,
+        recruiterflow: "Basic",
         greenhouse: false,
       },
       {
         label: "Written match reasons",
         kr: true,
         bullhorn: false,
-        manatal: false,
-        recruiterflow: false,
+        manatal: true,
+        recruiterflow: "Basic",
         greenhouse: false,
       },
       {
@@ -198,9 +215,9 @@ const categories = [
       {
         label: "Shareable client review portal",
         kr: true,
-        bullhorn: false,
-        manatal: false,
-        recruiterflow: false,
+        bullhorn: "Add-on",
+        manatal: "Basic",
+        recruiterflow: true,
         greenhouse: false,
       },
       {
@@ -268,58 +285,234 @@ const categories = [
   },
 ];
 
+/** Calculate fill fraction for a competitor in a category (0-1) */
+function getCompetitorFill(category: Category, compKey: string): number {
+  let score = 0;
+  category.features.forEach(f => {
+    const val = f[compKey as keyof Feature];
+    if (val === true) score += 1;
+    else if (typeof val === 'string' && !String(val).includes('$') && val !== 'false') {
+      // Partial credit: "Basic", "Add-on", "Via X" etc.
+      if (String(val).toLowerCase().includes('basic') || String(val).toLowerCase().includes('add-on') || String(val).toLowerCase().includes('via ')) {
+        score += 0.5;
+      } else {
+        score += 0.75; // "AIRA plan", "3 levels", etc.
+      }
+    }
+  });
+  return score / category.features.length;
+}
+
+/** Harvey ball SVG — filled circle proportional to score */
+function HarveyBall({ fill, highlight, showTick = false, size = 28 }: { fill: number; highlight: boolean; showTick?: boolean; size?: number }) {
+  const r = (size - 2) / 2;
+  const cx = size / 2;
+  const cy = size / 2;
+
+  if (showTick || fill >= 0.95) {
+    // Full circle — with optional tick for KR
+    return (
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+        <circle cx={cx} cy={cy} r={r} fill={highlight ? '#0d8488' : '#9ca3af'} />
+        {showTick && (
+          <path
+            d={`M ${cx - 5} ${cy} L ${cx - 1.5} ${cy + 4} L ${cx + 5.5} ${cy - 4}`}
+            stroke="white"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+        )}
+      </svg>
+    );
+  }
+
+  if (fill <= 0.05) {
+    // Empty circle
+    return (
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+        <circle cx={cx} cy={cy} r={r} fill="none" stroke="#d1d5db" strokeWidth="1.5" />
+      </svg>
+    );
+  }
+
+  // Partial fill using a pie slice from 12 o'clock clockwise
+  const angle = fill * 360;
+  const rad = (angle - 90) * (Math.PI / 180);
+  const x = Math.round((cx + r * Math.cos(rad)) * 100) / 100;
+  const y = Math.round((cy + r * Math.sin(rad)) * 100) / 100;
+  const largeArc = angle > 180 ? 1 : 0;
+
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#e5e7eb" strokeWidth="1.5" />
+      <path
+        d={`M ${cx} ${cy} L ${cx} ${cy - r} A ${r} ${r} 0 ${largeArc} 1 ${x} ${y} Z`}
+        fill={highlight ? '#0d8488' : '#9ca3af'}
+      />
+    </svg>
+  );
+}
+
 function renderValue(value: boolean | string, isHighlight: boolean) {
   if (value === true) {
     return (
-      <span className={isHighlight ? 'text-[#0d8488] font-bold' : 'text-green-600'}>
-        ✓
+      <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full ${
+        isHighlight ? 'bg-kinetic-teal/10' : 'bg-green-50'
+      }`}>
+        <Check className={`w-4 h-4 ${isHighlight ? 'text-kinetic-teal' : 'text-green-600'}`} strokeWidth={3} />
       </span>
     );
   }
   if (value === false) {
-    return <span className="text-gray-300">—</span>;
+    return (
+      <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-50">
+        <Minus className="w-4 h-4 text-gray-300" strokeWidth={2} />
+      </span>
+    );
   }
-  // String value (like "$39+/mo add-on" or "Basic")
   const isNegative = typeof value === 'string' && (
     value.includes('add-on') ||
     value.includes('Add-on') ||
     value.includes('extra') ||
     value.includes('only') ||
-    value.includes('development')
+    value.includes('Via ')
   );
   return (
-    <span className={`text-xs ${isNegative ? 'text-amber-600' : isHighlight ? 'text-[#0d8488] font-medium' : 'text-gray-600'}`}>
+    <span className={`text-xs font-medium leading-tight ${
+      isNegative
+        ? 'text-amber-600'
+        : isHighlight
+          ? 'text-kinetic-teal font-semibold'
+          : 'text-gray-700'
+    }`}>
       {value}
     </span>
   );
 }
 
+function CategorySection({ category, isExpanded, onToggle }: {
+  category: Category;
+  isExpanded: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <>
+      {/* Category header — always visible, clickable */}
+      <tr
+        className="cursor-pointer hover:bg-kinetic-teal/[0.03] transition-colors"
+        onClick={onToggle}
+      >
+        <td className="px-4 py-3.5 bg-kinetic-navy/5 font-bold text-kinetic-navy text-sm tracking-wide uppercase sticky left-0 z-10 border-t-2 border-gray-200">
+          <div className="flex items-center gap-2">
+            <ChevronDown className={`w-4 h-4 text-kinetic-teal transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+            {category.name}
+          </div>
+        </td>
+        {/* Summary row when collapsed: show KR score vs competitors */}
+        {competitors.map(comp => (
+          <td
+            key={comp.key}
+            className={`px-4 py-3.5 text-center bg-kinetic-navy/5 border-t-2 border-gray-200 ${
+              comp.highlight ? 'border-l-2 border-r-2 border-kinetic-teal/10' : ''
+            }`}
+          >
+            {!isExpanded && (
+              <div className="flex items-center justify-center">
+                <HarveyBall
+                  fill={comp.highlight ? 1 : getCompetitorFill(category, comp.key)}
+                  highlight={comp.highlight}
+                  showTick={comp.highlight}
+                />
+              </div>
+            )}
+          </td>
+        ))}
+      </tr>
+      {/* Expanded feature rows */}
+      {isExpanded && category.features.map((feature, idx) => (
+        <tr
+          key={feature.label}
+          className={`${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/40'} hover:bg-kinetic-teal/[0.02] transition-colors`}
+        >
+          <td className="px-4 py-3.5 pl-10 text-sm text-kinetic-navy font-medium sticky left-0 bg-inherit z-10 border-r border-gray-100">
+            {feature.label}
+          </td>
+          {competitors.map(comp => {
+            const value = feature[comp.key as keyof typeof feature];
+            return (
+              <td
+                key={comp.key}
+                className={`px-4 py-3.5 text-center ${
+                  comp.highlight
+                    ? 'bg-kinetic-teal/[0.03] border-l-2 border-r-2 border-kinetic-teal/10'
+                    : ''
+                }`}
+              >
+                {renderValue(value as boolean | string, comp.highlight)}
+              </td>
+            );
+          })}
+        </tr>
+      ))}
+    </>
+  );
+}
+
 export default function ComparisonStrip() {
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
+
+  const toggleCategory = (name: string) => {
+    setExpandedCategories(prev => {
+      const next = new Set(prev);
+      if (next.has(name)) next.delete(name);
+      else next.add(name);
+      return next;
+    });
+  };
+
+  const expandAll = () => setExpandedCategories(new Set(categories.map(c => c.name)));
+  const collapseAll = () => setExpandedCategories(new Set());
+  const allExpanded = expandedCategories.size === categories.length;
+
   return (
     <>
       {/* Main comparison section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[#1a2332] text-center mb-4">
-            How KineticRecruiter compares where it counts.
-          </h2>
-          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
-            We compared ourselves against the platforms most recruitment agencies are evaluating right now. Here's the honest picture.
-          </p>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-kinetic-navy mb-4">
+              How KineticRecruiter compares where it counts.
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We compared ourselves against the platforms most recruitment agencies are evaluating. Here&apos;s the honest picture.
+            </p>
+          </div>
 
-          {/* Comprehensive comparison table */}
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse min-w-[800px]">
+          {/* Expand/Collapse toggle */}
+          <div className="flex justify-end mb-3">
+            <button
+              onClick={allExpanded ? collapseAll : expandAll}
+              className="text-sm font-medium text-kinetic-teal hover:text-kinetic-teal-dark transition-colors"
+            >
+              {allExpanded ? 'Collapse all' : 'Expand all'}
+            </button>
+          </div>
+
+          {/* Comparison table */}
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
+            <table className="w-full border-collapse min-w-[900px]">
               <thead>
                 <tr>
-                  <th className="text-left p-4 bg-gray-50 w-[240px] sticky left-0 z-10"></th>
+                  <th className="text-left p-4 bg-gray-50 w-[260px] sticky left-0 z-10 border-b border-gray-200" />
                   {competitors.map(comp => (
                     <th
                       key={comp.key}
-                      className={`p-4 text-center text-sm font-bold min-w-[160px] ${
+                      className={`p-4 text-center text-sm font-bold border-b min-w-[140px] ${
                         comp.highlight
-                          ? 'bg-[#0d8488] text-white'
-                          : 'bg-gray-50 text-[#1a2332]'
+                          ? 'bg-kinetic-teal text-white border-kinetic-teal'
+                          : 'bg-gray-50 text-kinetic-navy border-gray-200'
                       }`}
                     >
                       {comp.name}
@@ -329,136 +522,47 @@ export default function ComparisonStrip() {
               </thead>
               <tbody>
                 {categories.map(category => (
-                  <React.Fragment key={category.name}>
-                    {/* Category header row */}
-                    <tr>
-                      <td
-                        colSpan={competitors.length + 1}
-                        className="p-3 bg-[#0d8488]/5 font-bold text-[#1a2332] text-sm border-t-2 border-[#0d8488]/20"
-                      >
-                        {category.name}
-                      </td>
-                    </tr>
-                    {/* Feature rows */}
-                    {category.features.map((feature, idx) => (
-                      <tr key={feature.label} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
-                        <td className="p-3 text-sm text-[#1a2332] font-medium sticky left-0 bg-inherit z-10">
-                          {feature.label}
-                        </td>
-                        {competitors.map(comp => {
-                          const value = feature[comp.key as keyof typeof feature];
-                          return (
-                            <td key={comp.key} className={`p-3 text-center text-sm ${comp.highlight ? 'border-l-2 border-r-2 border-[#0d8488]/20' : ''}`}>
-                              {renderValue(value as boolean | string, comp.highlight)}
-                            </td>
-                          );
-                        })}
-                      </tr>
-                    ))}
-                  </React.Fragment>
+                  <CategorySection
+                    key={category.name}
+                    category={category}
+                    isExpanded={expandedCategories.has(category.name)}
+                    onToggle={() => toggleCategory(category.name)}
+                  />
                 ))}
               </tbody>
             </table>
           </div>
+
+          <p className="text-center text-sm text-gray-400 mt-6">
+            Data gathered from public pricing pages and documentation as of April 2026. Prices in USD.
+          </p>
         </div>
       </section>
 
       {/* Cost strip */}
-      <section className="bg-[#1a2332] py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <h3 className="text-white text-2xl font-bold text-center mb-12">
-            The costs they don't put on the pricing page.
+      <section className="bg-kinetic-navy py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-white text-2xl md:text-3xl font-bold text-center mb-12">
+            The costs they don&apos;t put on the pricing page.
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <p className="text-5xl font-bold text-[#0d8488] mb-2">$0</p>
-              <p className="text-white font-medium">Implementation fee</p>
-              <p className="text-gray-400 text-sm mt-1">Bullhorn charges $1K–$15K+</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold text-[#0d8488] mb-2">$0</p>
-              <p className="text-white font-medium">Training costs</p>
-              <p className="text-gray-400 text-sm mt-1">Greenhouse charges $2K–$10K</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold text-[#0d8488] mb-2">$0</p>
-              <p className="text-white font-medium">AI add-on fees</p>
-              <p className="text-gray-400 text-sm mt-1">Bullhorn charges $39+/mo per add-on</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold text-[#0d8488] mb-2">$0</p>
-              <p className="text-white font-medium">LinkedIn extension fee</p>
-              <p className="text-gray-400 text-sm mt-1">Bullhorn charges $39+/mo extra</p>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            {[
+              { amount: '$0', label: 'Implementation fee', compare: 'Bullhorn charges $1K–$15K+' },
+              { amount: '$0', label: 'Training costs', compare: 'Greenhouse charges $2K–$10K' },
+              { amount: '$0', label: 'AI add-on fees', compare: 'Bullhorn charges $39+/mo per add-on' },
+              { amount: '$0', label: 'LinkedIn extension fee', compare: 'Bullhorn charges $39+/mo extra' },
+            ].map(item => (
+              <div key={item.label} className="text-center">
+                <p className="text-4xl md:text-5xl font-bold text-kinetic-teal mb-2">{item.amount}</p>
+                <p className="text-white font-medium text-sm md:text-base">{item.label}</p>
+                <p className="text-gray-400 text-xs md:text-sm mt-1">{item.compare}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Only in KineticRecruiter */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <h3 className="text-2xl font-bold text-[#1a2332] text-center mb-4">
-            Features you won't find anywhere else.
-          </h3>
-          <p className="text-gray-600 text-center max-w-xl mx-auto mb-16">
-            These capabilities are unique to KineticRecruiter. No competitor offers them at any price.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="border-l-4 border-[#0d8488] pl-6">
-              <h4 className="font-bold text-[#1a2332] text-lg mb-2">Explainable Match Scoring</h4>
-              <p className="text-gray-600 text-sm">
-                Every candidate score comes with a full factor breakdown and a written explanation.
-                When a client asks "why this person?", the answer is already written. No other ATS
-                shows you why a candidate matched — they just give you a number.
-              </p>
-            </div>
-
-            <div className="border-l-4 border-[#0d8488] pl-6">
-              <h4 className="font-bold text-[#1a2332] text-lg mb-2">AI Career Highlights</h4>
-              <p className="text-gray-600 text-sm">
-                Auto-generated career summary bullet points from every resume. Client-ready,
-                action-driven, context-aware. Saves 10-15 minutes per candidate submission.
-                No other ATS on the market generates client-ready career summaries.
-              </p>
-            </div>
-
-            <div className="border-l-4 border-[#0d8488] pl-6">
-              <h4 className="font-bold text-[#1a2332] text-lg mb-2">Client Review Portal</h4>
-              <p className="text-gray-600 text-sm">
-                Share a secure link with your hiring manager. They review candidates with match scores,
-                leave comments, and approve or reject — without creating an account. Real-time
-                notifications. No PDFs, no email chains.
-              </p>
-            </div>
-
-            <div className="border-l-4 border-[#0d8488] pl-6">
-              <h4 className="font-bold text-[#1a2332] text-lg mb-2">Natural Language Search</h4>
-              <p className="text-gray-600 text-sm">
-                Type what you need in plain English: "backend developers with fintech experience in
-                Sydney." Semantic embeddings understand meaning, not just keywords. Finds candidates
-                that Boolean search would never surface.
-              </p>
-            </div>
-
-            <div className="border-l-4 border-[#0d8488] pl-6">
-              <h4 className="font-bold text-[#1a2332] text-lg mb-2">Resume Fallback Parser</h4>
-              <p className="text-gray-600 text-sm">
-                When the AI parser hits a rate limit or goes down, a regex fallback still extracts
-                core fields. No other ATS has a backup parser. Your intake pipeline never stops.
-              </p>
-            </div>
-
-            <div className="border-l-4 border-[#0d8488] pl-6">
-              <h4 className="font-bold text-[#1a2332] text-lg mb-2">Referral Program Built In</h4>
-              <p className="text-gray-600 text-sm">
-                Every account gets a unique referral link. Refer another recruiter, both get a free
-                month. No limit. No other ATS incentivises word-of-mouth at the product level.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* "What makes KineticRecruiter different" now lives in FeatureShowcase component on homepage */}
     </>
   );
 }

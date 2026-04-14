@@ -17,8 +17,8 @@ export default function PricingToggle() {
             onClick={() => setIsAnnual(false)}
             className={`px-6 py-2 rounded-full font-medium text-sm transition-colors ${
               !isAnnual
-                ? 'bg-[#0d8488] text-white shadow-sm'
-                : 'text-gray-600 hover:text-[#1a2332]'
+                ? 'bg-kinetic-teal text-white shadow-sm'
+                : 'text-gray-600 hover:text-kinetic-navy'
             }`}
           >
             Monthly
@@ -27,13 +27,13 @@ export default function PricingToggle() {
             onClick={() => setIsAnnual(true)}
             className={`px-6 py-2 rounded-full font-medium text-sm transition-colors flex items-center gap-2 ${
               isAnnual
-                ? 'bg-[#0d8488] text-white shadow-sm'
-                : 'text-gray-600 hover:text-[#1a2332]'
+                ? 'bg-kinetic-teal text-white shadow-sm'
+                : 'text-gray-600 hover:text-kinetic-navy'
             }`}
           >
             Annual
             {!isAnnual && (
-              <span className="text-xs font-semibold bg-[#E8A838] text-white px-2 py-0.5 rounded-full">
+              <span className="text-xs font-semibold bg-motion-amber text-white px-2 py-0.5 rounded-full">
                 Save 17%
               </span>
             )}
