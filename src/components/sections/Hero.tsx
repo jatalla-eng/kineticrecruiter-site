@@ -72,7 +72,7 @@ export default function Hero() {
   return (
     <>
       {/* ══════════ HERO SECTION ══════════ */}
-      <section className="relative overflow-hidden bg-kinetic-navy min-h-[92vh] flex items-center">
+      <section className="relative overflow-hidden bg-kinetic-navy flex items-center">
         {/* Animated gradient mesh background */}
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-kinetic-teal/8 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
@@ -85,7 +85,7 @@ export default function Hero() {
           }} />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-16 md:py-20 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-10 md:py-14 w-full">
           {/* Top banner — Free JD Generator */}
           <div className={`flex justify-center mb-10 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
             <Link
