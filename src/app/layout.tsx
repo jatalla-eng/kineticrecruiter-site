@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     'max-image-preview': 'large' as const,
     'max-video-preview': -1,
   },
+  other: {
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    'Pragma': 'no-cache',
+    'Expires': '0',
+  },
 };
 
 const organizationSchema = {

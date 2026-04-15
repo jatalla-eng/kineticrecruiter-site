@@ -17,7 +17,11 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'CDN-Cache-Control',
-            value: 'public, max-age=3600',
+            value: 'public, max-age=600',
+          },
+          {
+            key: 'Surrogate-Control',
+            value: 'max-age=600',
           },
         ],
       },
