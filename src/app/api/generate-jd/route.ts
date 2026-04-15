@@ -39,10 +39,10 @@ Keep it concise, engaging, and suitable for posting on LinkedIn and Seek.`;
   try {
     const vertexAI = new VertexAI({
       project: process.env.GOOGLE_CLOUD_PROJECT || 'agentos-demo-1775622291',
-      location: 'australia-southeast1',
+      location: 'us-central1',
     });
 
-    const model = vertexAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite' });
+    const model = vertexAI.getGenerativeModel({ model: 'gemini-2.0-flash-001' });
     const result = await model.generateContent(prompt);
     const response = result.response;
     const text = response.candidates?.[0]?.content?.parts?.[0]?.text;
