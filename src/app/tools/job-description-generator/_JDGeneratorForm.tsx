@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Sparkles, Copy, Check, ArrowRight, Send } from 'lucide-react';
+import { Sparkles, Copy, Check, ArrowRight, Lock, Send } from 'lucide-react';
 
 const INDUSTRIES = [
   'Technology', 'Finance', 'Healthcare', 'Retail', 'Education',
@@ -20,28 +20,28 @@ const inputClass =
 const labelClass = 'block text-sm font-medium text-gray-700 mb-1';
 
 export default function JDGeneratorForm() {
-  // Step management
-  const [step, setStep] = useState<'generate' | 'result' | 'capture'>('generate');
+  // Steps: generate → gate → revealed
+  const [step, setStep] = useState<'generate' | 'gate' | 'revealed'>('generate');
 
-  // Job details (step 1)
+  // Job details
   const [jobTitle, setJobTitle] = useState('');
   const [industry, setIndustry] = useState('');
   const [seniority, setSeniority] = useState('');
   const [responsibilities, setResponsibilities] = useState('');
   const [requirements, setRequirements] = useState('');
 
-  // Generated output
+  // Generated output (hidden until gated)
   const [generatedJD, setGeneratedJD] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
 
-  // Contact capture (step 2)
+  // Lead capture
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
   const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [captureError, setCaptureError] = useState('');
 
   async function handleGenerate(e: React.FormEvent) {
     e.preventDefault();
@@ -64,7 +64,7 @@ export default function JDGeneratorForm() {
         setError(data.error || 'Something went wrong. Please try again.');
       } else {
         setGeneratedJD(data.jd);
-        setStep('result');
+        setStep('gate');
       }
     } catch {
       setError('Network error. Please try again.');
@@ -73,15 +73,14 @@ export default function JDGeneratorForm() {
     }
   }
 
-  async function handleCopy() {
-    await navigator.clipboard.writeText(generatedJD);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
-
-  async function handleCapture(e: React.FormEvent) {
+  async function handleUnlock(e: React.FormEvent) {
     e.preventDefault();
-    if (!name.trim() || !email.trim()) return;
+    setCaptureError('');
+
+    if (!name.trim() || !email.trim()) {
+      setCaptureError('Please enter your name and work email.');
+      return;
+    }
 
     setSubmitting(true);
     try {
@@ -94,29 +93,29 @@ export default function JDGeneratorForm() {
           source: 'jd-generator',
         }),
       });
-      setSubmitted(true);
     } catch {
-      // Still show success — don't block the user experience for a lead capture failure
-      setSubmitted(true);
-    } finally {
-      setSubmitting(false);
+      // Don't block — lead capture is best-effort
     }
+    setSubmitting(false);
+    setStep('revealed');
+  }
+
+  async function handleCopy() {
+    await navigator.clipboard.writeText(generatedJD);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   }
 
   function renderJD(text: string) {
     return text.split('\n').map((line, i) => {
-      if (line.startsWith('## ')) {
-        return <h3 key={i} className="text-lg font-semibold text-kinetic-navy mt-5 mb-2">{line.replace('## ', '')}</h3>;
-      }
-      if (line.startsWith('- ') || line.startsWith('* ')) {
-        return <li key={i} className="text-gray-700 text-sm leading-relaxed ml-4">{line.replace(/^[-*] /, '')}</li>;
-      }
+      if (line.startsWith('## ')) return <h3 key={i} className="text-lg font-semibold text-kinetic-navy mt-5 mb-2">{line.replace('## ', '')}</h3>;
+      if (line.startsWith('- ') || line.startsWith('* ')) return <li key={i} className="text-gray-700 text-sm leading-relaxed ml-4">{line.replace(/^[-*] /, '')}</li>;
       if (line.trim() === '') return <br key={i} />;
       return <p key={i} className="text-gray-700 text-sm leading-relaxed">{line}</p>;
     });
   }
 
-  // ═══════════ STEP 1: Generate ═══════════
+  // ═══════════ STEP 1: Enter job details ═══════════
   if (step === 'generate') {
     return (
       <section className="mx-auto max-w-3xl px-4 sm:px-6 py-12 md:py-16">
@@ -168,7 +167,7 @@ export default function JDGeneratorForm() {
             {loading ? (
               <>
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                Generating...
+                Generating your job description...
               </>
             ) : (
               <>
@@ -179,101 +178,141 @@ export default function JDGeneratorForm() {
           </button>
 
           <p className="text-center text-xs text-gray-400">
-            Free to use. No login required. Powered by AI.
+            Free to use. Powered by AI.
           </p>
         </form>
       </section>
     );
   }
 
-  // ═══════════ STEP 2: Result + Lead Capture ═══════════
-  return (
-    <section className="mx-auto max-w-4xl px-4 sm:px-6 py-12 md:py-16">
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-        {/* Left: Generated JD (takes 3/5) */}
-        <div className="lg:col-span-3">
-          <div className="border border-kinetic-teal/20 bg-kinetic-teal-light/30 rounded-xl p-5 md:p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-kinetic-navy flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-kinetic-teal" />
-                Your Job Description
-              </h2>
-              <button
-                onClick={handleCopy}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-kinetic-teal hover:text-kinetic-teal-dark border border-kinetic-teal/30 rounded-lg px-3 py-1.5 transition-colors"
-              >
-                {copied ? <><Check className="w-4 h-4" /> Copied!</> : <><Copy className="w-4 h-4" /> Copy</>}
-              </button>
-            </div>
-            <div className="prose prose-sm max-w-none">{renderJD(generatedJD)}</div>
+  // ═══════════ STEP 2: JD generated but GATED — must enter details to see it ═══════════
+  if (step === 'gate') {
+    return (
+      <section className="mx-auto max-w-2xl px-4 sm:px-6 py-12 md:py-16">
+        {/* Success indicator */}
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 rounded-full bg-kinetic-teal/10 flex items-center justify-center mx-auto mb-4">
+            <Check className="w-8 h-8 text-kinetic-teal" />
           </div>
+          <h2 className="text-2xl font-bold text-kinetic-navy mb-2">
+            Your job description is ready!
+          </h2>
+          <p className="text-gray-600">
+            Enter your details below to view and copy your AI-generated job description.
+          </p>
+        </div>
 
-          <div className="flex gap-3 mt-4">
-            <button
-              onClick={() => { setStep('generate'); setGeneratedJD(''); }}
-              className="text-sm font-medium text-gray-500 hover:text-kinetic-navy transition-colors"
-            >
-              &larr; Generate another
-            </button>
+        {/* Blurred preview teaser */}
+        <div className="relative mb-8 rounded-xl overflow-hidden">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 select-none" style={{ filter: 'blur(5px)' }} aria-hidden="true">
+            <p className="text-gray-700 text-sm leading-relaxed">
+              We are looking for a passionate and experienced {seniority} {jobTitle} to join our growing team in the {industry} sector.
+              This is an exciting opportunity to make a real impact in a fast-paced environment where your contributions will directly
+              shape the future of our products and services. The ideal candidate will bring strong technical skills combined with
+              excellent communication abilities and a collaborative mindset...
+            </p>
+            <p className="text-gray-700 text-sm leading-relaxed mt-3">
+              Key Responsibilities include leading technical initiatives, mentoring junior team members, collaborating with
+              cross-functional stakeholders, and driving best practices across the engineering organization...
+            </p>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-xl">
+            <div className="flex items-center gap-2 text-kinetic-navy font-semibold">
+              <Lock className="w-5 h-5" />
+              Enter your details to unlock
+            </div>
           </div>
         </div>
 
-        {/* Right: Lead capture (takes 2/5) */}
-        <div className="lg:col-span-2">
-          {!submitted ? (
-            <div className="bg-kinetic-navy rounded-xl p-6 text-white sticky top-24">
-              <h3 className="text-lg font-bold mb-2">Want more AI-powered tools?</h3>
-              <p className="text-sm text-gray-300 mb-6">
-                Get a free walkthrough of KineticRecruiter&apos;s full AI suite — semantic search, match scoring, career highlights, and more.
-              </p>
-              <form onSubmit={handleCapture} className="space-y-3">
-                <div>
-                  <input
-                    type="text" placeholder="Your name *" value={name}
-                    onChange={e => setName(e.target.value)} required
-                    className="w-full px-3 py-2.5 bg-white/10 border border-white/20 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-kinetic-teal focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email" placeholder="Work email *" value={email}
-                    onChange={e => setEmail(e.target.value)} required
-                    className="w-full px-3 py-2.5 bg-white/10 border border-white/20 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-kinetic-teal focus:border-transparent"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text" placeholder="Company (optional)" value={company}
-                    onChange={e => setCompany(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-white/10 border border-white/20 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-kinetic-teal focus:border-transparent"
-                  />
-                </div>
-                <button
-                  type="submit" disabled={submitting}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-kinetic-teal hover:bg-kinetic-teal-dark text-white font-semibold rounded-lg transition-colors px-5 py-2.5 disabled:opacity-60"
-                >
-                  {submitting ? 'Sending...' : <><Send className="w-4 h-4" /> Get a Free Demo</>}
-                </button>
-              </form>
-              <p className="text-[10px] text-gray-500 mt-3 text-center">No spam. We&apos;ll reach out with a personalised demo link.</p>
-            </div>
-          ) : (
-            <div className="bg-kinetic-teal-light rounded-xl p-6 text-center">
-              <div className="w-12 h-12 rounded-full bg-kinetic-teal/10 flex items-center justify-center mx-auto mb-3">
-                <Check className="w-6 h-6 text-kinetic-teal" />
-              </div>
-              <h3 className="text-lg font-bold text-kinetic-navy mb-2">Thanks, {name.split(' ')[0]}!</h3>
-              <p className="text-sm text-gray-600 mb-4">
-                We&apos;ll send you a personalised demo link shortly.
-              </p>
-              <a
-                href="https://app.kineticrecruiter.com/register"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-kinetic-teal hover:text-kinetic-teal-dark"
-              >
-                Or start your free trial now <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
+        {/* Lead capture form */}
+        <form onSubmit={handleUnlock} className="bg-white border border-gray-200 rounded-xl p-6 md:p-8 shadow-sm space-y-4">
+          <div>
+            <label htmlFor="gate-name" className={labelClass}>Your Name *</label>
+            <input
+              id="gate-name" type="text" value={name}
+              onChange={e => setName(e.target.value)}
+              placeholder="Jane Smith" className={inputClass} required
+            />
+          </div>
+          <div>
+            <label htmlFor="gate-email" className={labelClass}>Work Email *</label>
+            <input
+              id="gate-email" type="email" value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder="jane@acmerecruiting.com" className={inputClass} required
+            />
+          </div>
+          <div>
+            <label htmlFor="gate-company" className={labelClass}>Company <span className="text-gray-400 font-normal">(optional)</span></label>
+            <input
+              id="gate-company" type="text" value={company}
+              onChange={e => setCompany(e.target.value)}
+              placeholder="Acme Recruiting" className={inputClass}
+            />
+          </div>
+
+          {captureError && (
+            <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-2">{captureError}</p>
           )}
+
+          <button
+            type="submit"
+            disabled={submitting}
+            className="w-full inline-flex items-center justify-center gap-2 bg-kinetic-teal hover:bg-kinetic-teal-dark text-white font-semibold rounded-lg transition-colors px-6 py-3 text-lg disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {submitting ? 'Unlocking...' : (
+              <>
+                <Send className="w-4 h-4" />
+                View My Job Description
+              </>
+            )}
+          </button>
+
+          <p className="text-center text-xs text-gray-400">
+            We&apos;ll also send you a copy by email. No spam, ever.
+          </p>
+        </form>
+      </section>
+    );
+  }
+
+  // ═══════════ STEP 3: JD revealed ═══════════
+  return (
+    <section className="mx-auto max-w-3xl px-4 sm:px-6 py-12 md:py-16">
+      <div className="border border-kinetic-teal/20 bg-kinetic-teal-light/30 rounded-xl p-5 md:p-8">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-lg font-semibold text-kinetic-navy flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-kinetic-teal" />
+            Your Job Description
+          </h2>
+          <button
+            onClick={handleCopy}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-kinetic-teal hover:text-kinetic-teal-dark border border-kinetic-teal/30 rounded-lg px-3 py-1.5 transition-colors"
+          >
+            {copied ? <><Check className="w-4 h-4" /> Copied!</> : <><Copy className="w-4 h-4" /> Copy</>}
+          </button>
+        </div>
+        <div className="prose prose-sm max-w-none">{renderJD(generatedJD)}</div>
+      </div>
+
+      <div className="mt-8 bg-kinetic-navy rounded-xl p-6 md:p-8 text-center">
+        <h3 className="text-xl font-bold text-white mb-2">Like what you see?</h3>
+        <p className="text-gray-300 text-sm mb-6 max-w-md mx-auto">
+          KineticRecruiter does this and much more — AI candidate matching, scoring with full breakdowns, and client-ready submissions. All included.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="https://app.kineticrecruiter.com/register"
+            className="inline-flex items-center justify-center gap-2 bg-kinetic-teal hover:bg-kinetic-teal-dark text-white font-semibold rounded-lg px-6 py-3 transition-colors"
+          >
+            Start Free Trial <ArrowRight className="w-4 h-4" />
+          </a>
+          <button
+            onClick={() => { setStep('generate'); setGeneratedJD(''); }}
+            className="inline-flex items-center justify-center text-white/70 hover:text-white font-medium text-sm transition-colors"
+          >
+            Generate another JD
+          </button>
         </div>
       </div>
     </section>
