@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { VertexAI } from '@google-cloud/vertexai';
+import { GoogleGenAI } from '@google/genai';
 
 export async function POST(request: NextRequest) {
   let body: Record<string, string>;
@@ -12,7 +12,11 @@ export async function POST(request: NextRequest) {
   const { jobTitle, industry, seniority, responsibilities, requirements } = body;
 
   if (!jobTitle?.trim() || !industry?.trim() || !seniority?.trim() || !responsibilities?.trim()) {
-    return NextResponse.json({ error: 'Missing required fields: jobTitle, industry, seniority, responsibilities' }, { status: 400 });
+    return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+  }
+
+  if (!process.env.GEMINI_API_KEY) {
+    return NextResponse.json({ error: 'API not configured' }, { status: 500 });
   }
 
   const prompt = `You are an expert recruiter writing professional job descriptions for a modern ATS platform.
@@ -37,23 +41,20 @@ Format the output with these sections:
 Keep it concise, engaging, and suitable for posting on LinkedIn and Seek.`;
 
   try {
-    const vertexAI = new VertexAI({
-      project: process.env.GOOGLE_CLOUD_PROJECT || 'agentos-demo-1775622291',
-      location: 'us-central1',
+    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.0-flash',
+      contents: prompt,
     });
-
-    const model = vertexAI.getGenerativeModel({ model: 'gemini-2.0-flash-001' });
-    const result = await model.generateContent(prompt);
-    const response = result.response;
-    const text = response.candidates?.[0]?.content?.parts?.[0]?.text;
+    const text = response.text;
 
     if (!text) {
-      return NextResponse.json({ error: 'No content generated. Please try again.' }, { status: 500 });
+      return NextResponse.json({ error: 'No content generated.' }, { status: 500 });
     }
 
     return NextResponse.json({ jd: text });
   } catch (err) {
-    console.error('Vertex AI error:', err instanceof Error ? err.message : err);
+    console.error('Gemini error:', err instanceof Error ? err.message : err);
     return NextResponse.json({ error: 'Failed to generate job description. Please try again.' }, { status: 500 });
   }
 }
