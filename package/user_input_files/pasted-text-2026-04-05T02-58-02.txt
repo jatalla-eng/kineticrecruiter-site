@@ -1,0 +1,504 @@
+# MiniMax Agent — Design Feedback & Blog Content
+
+---
+
+## PART 1: CORE DESIGN PROBLEM
+
+Every page below the homepage looks identical. Same layout: dark teal hero bar with left-aligned text, then alternating white and grey sections with left-aligned text blocks. No images. No illustrations. No visual differentiation between pages. If you removed the headlines, you couldn't tell which page you were on.
+
+The homepage is the only page with visual interest because it has product mockup illustrations alongside the text. Every other page is a wall of text with teal checkmarks.
+
+**This needs to change.** Every page must have:
+1. A distinct hero image/illustration that tells you what the page is about at a glance
+2. Visual elements alongside each content section (not just text)
+3. Human presence — real photographs of people in recruitment contexts
+
+---
+
+## PART 2: HUMAN ELEMENT DIRECTION
+
+Recruitment is fundamentally about people. The current site has zero human presence. Not a single person appears anywhere. This makes the product feel cold and purely technical. We need to introduce real human photography while maintaining the clean, modern brand aesthetic.
+
+### Photography Style Guide
+
+**What we want:**
+- Candid, natural workplace photography — not staged corporate stock
+- Diverse people in realistic recruitment/office settings
+- Warm, well-lit environments (natural light preferred)
+- Slightly desaturated/muted colour grading that harmonises with the teal brand palette
+- People should look like they're actually working, not posing
+- Mix of ages, ethnicities, and genders
+
+**Specific shot types to source:**
+- Recruiter at a laptop reviewing candidate profiles (over-the-shoulder angle showing a screen)
+- Two people in a casual interview setting (coffee shop, modern office, not a boardroom)
+- Small team (2-3 people) around a screen discussing candidates
+- Person on a phone call with a notepad (the client submission moment)
+- Hiring manager reviewing a shortlist on a tablet or screen
+- Someone smiling while looking at their phone (offer accepted notification moment)
+
+**What to avoid:**
+- Handshake photos (overdone, cliché)
+- Massive boardroom meetings (we serve small teams, not enterprises)
+- Suits and ties (too corporate — our users wear smart casual)
+- Overhead flat-lay desk setups (overdone)
+- People pointing at whiteboards (overdone)
+- Overly diverse stock photo groups that feel staged
+
+**Where to source:**
+Use Unsplash, Pexels, or a paid library like Shutterstock. Filter for "modern office", "recruiter", "hiring", "startup office", "laptop work". Crop and apply a subtle colour grade to match the brand palette — slightly cool shadows, warm midtones, desaturated just enough to not clash with the teal accents.
+
+### Where Photos Go on Each Page
+
+**Homepage:**
+- Hero: Keep the product UI mockup illustration as the primary visual. Add a small circular photo inset in the bottom-left corner of the hero area showing a recruiter at a laptop. The photo sits partially behind/below the mockup, creating a layered effect that says "real person using this product."
+- Testimonial section (when real testimonials are available): circular headshot photos.
+
+**Feature pages:**
+- Each feature page should have ONE section (preferably the second or third section) where the illustration is replaced with a photograph. This breaks up the pattern and adds warmth. The photo should relate to the section content. Examples below.
+
+**Solutions pages:**
+- Hero: Use a photograph as the hero image background with a dark teal overlay (60-70% opacity) so the white headline text remains readable. This is the opposite of the feature pages which use illustrations. The contrast makes the Solutions pages feel distinct.
+- One additional photo in the middle of the page alongside a content section.
+
+**Pricing page:**
+- No photos needed. Keep it clean and data-focused.
+
+---
+
+## PART 3: PAGE-BY-PAGE VISUAL UPDATES
+
+### AI Candidate Intelligence (`/features/ai-candidate-intelligence`)
+
+**Current state:** All text, no visuals, every section looks identical.
+
+**Hero section:**
+Add the three-cascading-cards illustration (search → score breakdown → career highlights) to the right side of the hero. This was specified in the earlier visual direction document. The hero should be two-column: text left, illustration right.
+
+**Section 1 (Stop writing Boolean):**
+Right side: An illustration showing a search bar with natural language text, and below it 3 candidate result cards with teal match score badges (94, 87, 78). Use the same card style as the homepage mockup.
+
+**Section 2 (A number means nothing):**
+Right side: A photograph — over-the-shoulder shot of a recruiter looking at a screen. The screen content doesn't need to be legible. The photo communicates "a real person using this to make decisions." Apply a subtle brand colour grade.
+
+**Section 3 (Candidate summaries in seconds):**
+Right side: An illustration showing a resume document on the left transforming (with a sparkle/AI icon in between) into clean bullet points on the right. Before → After visual.
+
+**Bottom icon strip (Natural Language Search / Explainable Scoring / AI Career Highlights):**
+This is fine as-is. Keep the three icons with labels.
+
+---
+
+### Multi-Channel Candidate Intake (`/features/candidate-intake`)
+
+**Current state:** All text, no visuals.
+
+**Hero section:**
+Add the three-paths-converging illustration to the right: document icon + envelope icon + LinkedIn icon → central AI circle → structured candidate profile card.
+
+**Section 1 (Drag, drop, done):**
+Right side: An illustration of a file upload zone — a dashed teal border rectangle with a document icon and "Drop files here" text, plus a small progress bar below showing "3/5 uploaded" with teal fill.
+
+**Section 2 (Forward a resume):**
+Right side: A photograph — a person looking at their phone or laptop, smiling slightly. Suggests the "forwarded a resume and it just worked" moment. Natural, candid.
+
+**Section 3 (See a profile. Import it.):**
+Right side: An illustration of a simplified LinkedIn profile card with a teal "Import to KineticRecruiter" button overlaid. Shows the Chrome extension concept visually.
+
+**Section 4 (One candidate. One record.):**
+Right side: A simple illustration showing two document icons merging into one candidate card with a green checkmark. Visualises deduplication.
+
+---
+
+### Agency Workflow (`/features/agency-workflow`)
+
+**Current state:** All text, no visuals.
+
+**Hero section:**
+Add the five-node horizontal flow illustration: Client → Job → Shortlist → Submit → Placed.
+
+**Section 1 (Every client. Every contact.):**
+Right side: An illustration of a client company card with contacts listed below it (avatar circles with name lines) and linked job cards. Same card style as the homepage.
+
+**Section 2 (Seven stages. Complete visibility.):**
+Right side: A miniature Kanban board illustration — 4-5 columns with candidate cards. One card mid-drag. Same visual language as the homepage hero mockup but cropped tighter to just the Kanban portion.
+
+**Section 3 (Draft, review, send.):**
+Right side: A photograph — a person on a phone or at a desk, gesturing or talking. Suggests the client conversation moment. The context is "I just submitted the candidate and I'm following up with the client."
+
+**Section 4 (From first contact to placement.):**
+Right side: An illustration of a simplified dashboard — 3-4 stat cards (Total Jobs, Active Candidates, Placements This Month) and a small bar chart. Clean, minimal.
+
+---
+
+### Solutions: Recruitment Agencies (`/solutions/recruitment-agencies`)
+
+**Current state:** All text, teal hero bar, no imagery at all.
+
+**Hero section:**
+Use a photograph as the hero background — a modern, bright office environment with 2-3 people working. Apply a dark teal gradient overlay (gradient from left to right: 80% opacity on the left fading to 40% on the right) so the headline text on the left is clearly readable while the photo is visible on the right. This creates a dramatic, high-impact hero that's visually completely different from the feature pages.
+
+**Section 2 (Clients are first-class):**
+Right side: The client CRM illustration — company card with contacts and linked jobs. Same one used on the Agency Workflow feature page (reuse is fine across pages as long as it's not the hero).
+
+**Section 3 (Find the right candidate):**
+Right side: A photograph — a recruiter at a dual-monitor setup, one screen showing what looks like a list of candidates. The image communicates "deep in the database searching." Candid, focused, not posed.
+
+**Section 5 (Add recruiters without adding line items):**
+Instead of just text, add a simple pricing comparison graphic here. Three columns: KineticRecruiter ($29/user/mo, everything included), Bullhorn ($99 + add-ons), Greenhouse ($50K+/yr + implementation). Visual makes the pricing argument much more compelling than text alone.
+
+---
+
+### Solutions: In-House Talent Teams (`/solutions/in-house-teams`)
+
+**Current state:** All text, same teal hero bar, identical to the agencies page.
+
+**Hero section:**
+Use a different photograph as the hero background — a small team (2-3 people) huddled around a laptop or screen in a modern office. Apply the same dark teal gradient overlay treatment. Choose a photo that clearly reads as "small team" not "big agency."
+
+**Section 2 (AI matching that works):**
+Right side: The search bar + results illustration — same one from the AI Candidate Intelligence page. Shows the AI doing the work.
+
+**Section 3 (Keep hiring managers in the loop):**
+Right side: A photograph — two people looking at a screen together, one pointing at something. Suggests the "hiring manager reviewing the shortlist" moment.
+
+**Section 5 (Enterprise AI at startup pricing):**
+Same pricing comparison graphic as the agencies page but framed differently: KineticRecruiter ($59/user/mo for a 3-person team = $2,124/yr) vs Greenhouse ($50,000+/yr).
+
+---
+
+### Pricing Page (`/pricing`)
+
+**Current state:** This actually looks good. The tier cards are well-structured, the comparison table works, the FAQ accordion is clean. Minor issues only.
+
+**Fixes:**
+- Add the monthly/annual toggle functionality if it's not already switching the displayed prices
+- The "Most Popular" badge on Professional is correctly placed
+- Agency CTA correctly says "Contact Us"
+- Add annual pricing below the monthly price on each card: show "or $24/user billed annually" in smaller teal text below the main price
+- The comparison table has the teal highlighted column — good. Make sure the KineticRecruiter checkmarks are teal and competitor dashes are grey
+- Remove "Created by MiniMax Agent" from footer
+
+---
+
+### Team & Platform (`/features/team-platform`)
+
+**This page is missing from the build.** Add it with the content from the earlier instructions document.
+
+**Hero:** Browser frame mockup showing the admin dashboard (usage bar, stat cards, team list).
+
+**Section 2 (The numbers that matter):**
+Right side: Dashboard illustration with stat cards and a small line chart.
+
+**Section 4 (Multi-tenant by design):**
+Right side: A simple shield/lock icon illustration with a teal checkmark. Or a visual showing three separate org boxes with a dividing line between them, communicating data isolation.
+
+---
+
+## PART 4: GLOBAL DESIGN RULES UPDATE
+
+Replace the earlier "no stock photography of people" rule with this updated version:
+
+**Photography rules:**
+- Use candid workplace photography on Solutions pages (as hero backgrounds with teal overlay) and as accent images on feature pages (one photo per page max)
+- Product illustrations remain the primary visual language — photos supplement, not replace
+- Every feature page hero still uses an illustration/mockup, not a photo
+- Solutions page heroes use photos with teal gradient overlay
+- Never use more than 2 photographs on a single page
+- All photos must have a subtle colour grade that harmonises with the teal brand palette
+- No stock photos that feel staged, corporate, or cliché (no handshakes, no boardrooms, no pointing at whiteboards)
+- Photographs of screens should never show readable competitor product UI
+
+**Illustration rules (unchanged):**
+- Every candidate card in illustrations must include a teal match score badge
+- Consistent card style: white, 8px radius, subtle shadow
+- Teal is the only primary accent colour in illustrations
+- Illustrations are flat/2D, not 3D or isometric
+
+---
+
+## PART 5: BLOG POSTS
+
+### Blog Post 1: Competitive Comparison (SEO)
+
+**URL:** /blog/best-ats-for-recruitment-agencies-2026
+
+**Title tag (60 chars):** Best ATS for Recruitment Agencies in 2026 | Comparison Guide
+
+**Meta description (155 chars):** Compare the top ATS platforms for recruitment agencies in 2026. See how KineticRecruiter, Bullhorn, Manatal, and Recruiterflow stack up on AI, pricing, and CRM.
+
+**H1:** The Best ATS for Recruitment Agencies in 2026: An Honest Comparison
+
+**Schema markup:** Add Article schema with author (KineticRecruiter Team), datePublished, dateModified, and publisher.
+
+**Open Graph tags:**
+- og:title: Best ATS for Recruitment Agencies in 2026
+- og:description: Compare AI features, pricing, and CRM capabilities across the top ATS platforms for recruitment agencies.
+- og:type: article
+- og:image: (create a branded OG image — teal background with the article title in white text and the KineticRecruiter logo)
+
+**Canonical URL:** https://kineticrecruiter.com/blog/best-ats-for-recruitment-agencies-2026
+
+---
+
+**Article body:**
+
+### Introduction
+
+If you run a recruitment agency, your ATS is the backbone of your business. It holds your candidates, manages your client relationships, and determines how fast you can submit quality profiles. The wrong one slows you down. The right one makes you faster than your competitors.
+
+The ATS market has shifted significantly over the past two years. AI capabilities have moved from nice-to-have to essential. Pricing models have fragmented. Some platforms now charge separately for features that were previously included, while others have bundled everything into a single per-user fee.
+
+We reviewed the most widely used ATS platforms for recruitment agencies in the APAC and global markets. This comparison focuses on what matters most to agency recruiters: AI matching, client CRM, resume processing, pricing transparency, and the speed from sourcing to client submission.
+
+### What We Compared
+
+We evaluated each platform across six categories:
+
+**AI and matching capabilities** — Does the platform offer AI-powered candidate matching? Is it included in the base price or an add-on? Can you search in natural language or are you limited to Boolean? Does it explain why a candidate matched?
+
+**Client relationship management** — Does the platform treat clients as first-class entities with contacts, jobs linked to clients, and submission tracking? Or is it designed for in-house HR teams with no client concept?
+
+**Resume processing** — How many intake channels exist? Does it parse resumes with AI? What happens when the AI is unavailable? Does it deduplicate?
+
+**Pricing and total cost** — What does it actually cost when you add up the base price, add-ons, implementation fees, and training costs?
+
+**Reporting and analytics** — Can you track time-to-submit, source effectiveness, and pipeline health? Is reporting built in or an add-on?
+
+**Ease of setup** — How long does it take to go from signup to productive use? Is there an implementation project? Training required?
+
+### Platform Overviews
+
+#### KineticRecruiter
+
+KineticRecruiter is an AI-native ATS built specifically for recruitment agencies. Its core differentiator is the depth of AI integration: natural language candidate search using semantic embeddings, match scoring with full factor breakdowns and written explanations, and AI-generated career highlights for client submissions.
+
+Client management is built in as a core entity, not an afterthought. Jobs link to clients, contacts sit under client profiles, and the AI generates client submission emails with auto-generated candidate summaries.
+
+Pricing starts at $29 per user per month with all AI features included. There are no add-on fees for automation, LinkedIn integration, or analytics. The Professional plan at $59 per user includes unlimited jobs and clients with 1,000 candidate capacity. The Agency plan at $99 per user removes all limits and adds custom reporting, SSO, and dedicated onboarding.
+
+Resume processing supports three intake channels: direct upload, bulk drag-and-drop upload, and inbound email forwarding. A regex fallback parser operates when the primary AI parser is unavailable.
+
+**Strongest for:** AI-powered candidate matching with explainability, agency client workflow, and pricing transparency.
+
+**Gaps to be aware of:** Newer platform with a smaller integration ecosystem. Job board posting and interview scheduling are in active development. No native mobile app yet.
+
+#### Bullhorn
+
+Bullhorn is the largest ATS and CRM platform in the staffing industry, serving over 10,000 agencies globally. It offers a comprehensive feature set covering the full recruitment lifecycle from sourcing through to placement and back-office operations.
+
+The platform is powerful but complex. Pricing starts at $99 per user per month for the standard plan, but essential features like LinkedIn integration, email automation, and analytics are separate add-ons at $39 or more per month each. Implementation costs range from $1,000 to $15,000 depending on the size of the deployment, and training can add another $500 to $5,000.
+
+AI capabilities are available through the Bullhorn Amplify product, which is positioned as a separate add-on. Core search relies on Boolean and keyword matching. The analytics suite (Bullhorn Canvas, acquired from Cube19) is well-regarded but adds to the total cost.
+
+**Strongest for:** Large agencies that need extensive customisation, VMS integrations, and a mature marketplace of over 300 partner integrations.
+
+**Gaps to be aware of:** The add-on pricing model means the actual cost is significantly higher than the advertised starting price. Users frequently report the interface feels dated. AI is not built into the core product.
+
+#### Manatal
+
+Manatal is a cloud-based ATS that has gained significant traction by offering AI-powered features at a low entry price. Starting at $15 per user per month, it provides resume parsing, AI candidate scoring, social media enrichment, and integration with over 2,500 job boards.
+
+The platform is well-designed and quick to implement. Client CRM is included for agency users. The AI scoring provides candidate recommendations, though the match explanations are less detailed than some competitors.
+
+The main limitations appear at the lower tiers: the starter plan caps at 15 open jobs and 10,000 candidates. API access requires the Enterprise Plus plan at $55 per user. Custom reporting is also gated behind higher tiers.
+
+**Strongest for:** Small to mid-sized agencies wanting AI features at the lowest possible price point, and teams that post to many job boards.
+
+**Gaps to be aware of:** AI scoring provides less transparency than platforms that show full factor breakdowns. Customisation options are limited compared to Bullhorn. Some users report the search functionality could be stronger.
+
+#### Recruiterflow
+
+Recruiterflow is designed specifically for staffing and recruiting agencies, combining ATS and CRM in a single platform. The interface is clean and user-friendly, with strong email sequence capabilities and workflow automation.
+
+Pricing starts at $119 per user per month for the Platform plan. AI features are available through AIRA (Recruiterflow's AI agent suite), which requires the higher-tier AIRA plan. The platform includes a Chrome extension for LinkedIn sourcing and integrates with Gmail and Office 365.
+
+Recruiterflow is frequently praised for its user experience and customer support. The "Recipes" automation feature allows agencies to set up triggered workflows. However, AI candidate matching is still under active development and is not yet at feature parity with platforms that have invested more heavily in this area.
+
+**Strongest for:** Mid-sized agencies that value user experience, email automation, and a Bullhorn alternative at a lower price point.
+
+**Gaps to be aware of:** AI matching capabilities are less mature. The starting price of $119 per user is higher than several competitors that include more AI out of the box. No free trial without contacting sales (though a 14-day trial is available after signup).
+
+### Side-by-Side Comparison
+
+| Category | KineticRecruiter | Bullhorn | Manatal | Recruiterflow |
+|---|---|---|---|---|
+| Starting price | $29/user/mo | $99/user/mo | $15/user/mo | $119/user/mo |
+| AI matching | Included, all plans | Add-on ($39+/mo) | Included | AIRA plan only |
+| Match explainability | Full factor breakdown with written reasons | Not available | Basic score only | Not available |
+| AI career highlights | Yes, auto-generated | Not available | Not available | Not available |
+| Natural language search | Yes, semantic | Boolean only | Keyword with AI assist | Boolean only |
+| Client CRM | Built-in | Built-in | Built-in | Built-in |
+| AI submission emails | Included | Not available | Available | AIRA plan only |
+| Resume parsing | AI + regex fallback | Add-on | AI included | AI included |
+| Job board integrations | In development | 100+ | 2,500+ | Multiple |
+| Implementation fee | $0 | $1K-$15K+ | $0 | Paid migration |
+| Free trial | 7 days | None | 14 days | 14 days |
+
+### Pricing Comparison for a 5-Person Agency (Annual)
+
+| Platform | Base cost | AI/automation add-ons | Implementation | Year 1 total |
+|---|---|---|---|---|
+| KineticRecruiter (Professional) | $2,940/yr | $0 | $0 | $2,940 |
+| Manatal (Enterprise) | $2,100/yr | $0 | $0 | $2,100 |
+| Recruiterflow (Platform) | $7,140/yr | AIRA plan extra | Migration fee | $8,000+ |
+| Bullhorn (Standard) | $5,940/yr | $2,340/yr (est.) | $5,000+ | $13,000+ |
+
+### Who Should Choose What
+
+**Choose KineticRecruiter if** you want the deepest AI matching capabilities with full transparency, you serve clients and need built-in CRM, and you don't want to worry about add-on fees. Best for agencies that value candidate intelligence and fast client submissions.
+
+**Choose Bullhorn if** you're a large agency (50+ recruiters) that needs extensive customisation, VMS integrations, and a mature partner ecosystem. Be prepared for a higher total cost and longer implementation.
+
+**Choose Manatal if** budget is the primary concern and you need broad job board coverage. The AI is solid at the price point, though less transparent in its scoring methodology.
+
+**Choose Recruiterflow if** you value user experience and email automation above AI matching depth, and you want a Bullhorn alternative at a lower price point.
+
+### Methodology
+
+This comparison is based on publicly available pricing from each vendor's website and third-party review sites, feature documentation from each platform, and user reviews on G2, Capterra, and GetApp as of early 2026. Pricing may vary based on contract terms and negotiation. We recommend requesting direct quotes from each vendor for your specific requirements.
+
+*KineticRecruiter is our product. We've aimed to be fair and accurate about all platforms, including acknowledging our own gaps. If you spot any inaccuracies, contact us at support@kineticrecruiter.com.*
+
+**Published:** April 2026
+**Last updated:** April 2026
+**Author:** KineticRecruiter Team
+**Category:** Comparisons
+
+---
+
+### Blog Post 2: Generic Recruitment Post (SEO)
+
+**URL:** /blog/ai-changing-recruitment-agencies-2026
+
+**Title tag (60 chars):** How AI Is Actually Changing Recruitment Agencies in 2026
+
+**Meta description (155 chars):** AI in recruitment has moved beyond hype. Here's what's actually working for agencies in 2026: semantic search, match scoring, and automated candidate summaries.
+
+**H1:** How AI Is Actually Changing Recruitment Agencies in 2026
+
+**Schema markup:** Article schema with author, dates, publisher.
+
+**Open Graph tags:**
+- og:title: How AI Is Actually Changing Recruitment Agencies in 2026
+- og:description: Beyond the hype — what AI capabilities are actually making recruiters faster and more effective right now.
+- og:type: article
+
+**Canonical URL:** https://kineticrecruiter.com/blog/ai-changing-recruitment-agencies-2026
+
+---
+
+**Article body:**
+
+### The hype cycle is over. The practical phase has started.
+
+For the past three years, every recruitment technology vendor has promised that AI would transform hiring. Most of those promises were vague: "AI-powered", "intelligent matching", "smart automation." The actual product was usually keyword matching with a machine learning label stuck on it.
+
+That's changed. In 2026, AI capabilities in recruitment technology have matured enough that the difference between platforms with genuine AI and platforms with marketing AI is obvious. Here's what's actually working.
+
+### Semantic search has replaced Boolean
+
+The single biggest practical improvement in recruitment AI is the shift from Boolean search strings to natural language search powered by semantic embeddings.
+
+In a Boolean search world, a recruiter looking for a backend developer with fintech experience would type something like: `("backend developer" OR "backend engineer" OR "server-side") AND (fintech OR "financial services" OR banking) AND (Sydney OR "New South Wales")`. Get one operator wrong and you miss half your database.
+
+Semantic search changes this fundamentally. The recruiter types what they actually mean: "Backend developers with fintech experience in Sydney." The AI understands that "server-side engineer" and "backend developer" mean the same thing. It understands that someone who worked at a neobank has fintech experience even if the word "fintech" never appears on their resume.
+
+This isn't a marginal improvement. It's a category shift. Recruiters who used to spend 20 minutes constructing Boolean strings now get better results in 10 seconds. More importantly, they find candidates that Boolean search would never surface — people whose experience matches the intent of the search even when the exact keywords don't appear.
+
+### Match scoring is becoming explainable
+
+Early AI matching in recruitment was a black box. The system would assign a score (say, 85 out of 100) and leave the recruiter guessing why. Was it the skills? The location? The years of experience? No way to tell.
+
+The better ATS platforms now break down match scores into contributing factors. A recruiter can see that a candidate scored 92% on skills match, 85% on experience level, and 70% on location proximity. Some platforms go further and generate a written explanation: "Strong Python and cloud infrastructure experience matches the role requirements. Previous financial services background at two relevant companies."
+
+This matters for two reasons. First, it helps recruiters make better decisions. A candidate with a 78% score who has a 95% skills match and a 40% location match is very different from one with flat 78% scores across all factors. Second, it gives recruiters something to share with clients. When a hiring manager asks "why did you put this candidate forward?", a factor breakdown with written reasons is far more convincing than "our system said 85%."
+
+### Automated candidate summaries are saving real time
+
+One of the most time-consuming parts of agency recruitment is preparing candidate submissions for clients. For every candidate, a recruiter typically opens their resume, reads through their work history, identifies the most relevant achievements, rewrites them as concise bullet points, and pastes them into a submission email. This takes 10 to 15 minutes per candidate.
+
+AI-generated career highlights compress this to seconds. The system analyses the candidate's parsed resume and generates action-driven bullet points that highlight their most relevant experience. These aren't perfect every time — a recruiter will still want to review and occasionally edit them — but getting from a raw resume to a client-ready summary in 30 seconds instead of 15 minutes changes the economics of a recruiter's day.
+
+If a recruiter submits 8 candidates per day, that's 2 hours saved on summary writing alone. Over a month, that's 40 hours. That's an entire working week recovered for actual recruiting.
+
+### Resume processing has gone multi-channel
+
+Traditional ATS platforms assumed resumes arrived through one channel: a job application form. Modern recruitment involves resumes coming from everywhere. A referral emails a CV. A candidate applies on a job board. A recruiter sources a profile on LinkedIn. An old contact sends their updated resume directly.
+
+The practical AI improvement here is multi-channel intake with automatic processing. Forward an email to a designated inbox, and the system extracts the attachment, parses it, creates or updates a candidate profile, checks for duplicates, and indexes the candidate for future searches. Upload fifty resumes at once, and each one gets processed individually with real-time progress tracking.
+
+The deduplication piece is worth calling out specifically. Without it, the same candidate gets entered three times from three different sources. With it, the system recognises that the resume received via email belongs to the same person who was imported from LinkedIn last month, and updates their record instead of creating a duplicate.
+
+### What hasn't changed
+
+For all the genuine progress, some things haven't changed. AI doesn't replace the recruiter's judgement on cultural fit, career trajectory, or whether a candidate would actually thrive in a specific team environment. It doesn't replace the relationship-building that defines great recruitment. And it doesn't fix a poorly defined job brief — garbage in, garbage out applies to AI matching just as much as it does to Boolean search.
+
+The best way to think about AI in recruitment in 2026 is as a leverage tool. It makes the tasks that used to take minutes take seconds, and it surfaces information that used to require manual effort. The recruiter who uses it well gets an unfair advantage. The recruiter who ignores it is doing the same job with one hand tied behind their back.
+
+### What to look for in an AI-powered ATS
+
+If you're evaluating ATS platforms and want genuine AI capability rather than marketing AI, ask these questions:
+
+**Can I search in natural language?** If the system only offers Boolean or keyword search, the AI is superficial. Ask for a demo where you type a plain English query and see what comes back.
+
+**Does the match score break down into factors?** If the system gives you a single number with no explanation, you can't evaluate the quality of the match or explain it to a client. Ask to see a score breakdown for a real candidate-job pairing.
+
+**Can it generate candidate summaries automatically?** This is the easiest AI feature to test. Give it a resume and see what it produces. If the output is usable for a client submission, that's genuine time savings.
+
+**Is the AI included in the base price?** Some platforms advertise AI capabilities that only come with premium add-ons. Ask specifically whether AI matching, scoring, and candidate summaries are available on the plan you're evaluating.
+
+**What happens when the AI is unavailable?** APIs go down. Rate limits get hit. Ask what the fallback is. A platform with no fallback means work stops when the AI stops.
+
+The recruitment agencies that thrive in the next few years will be the ones that adopt these tools early and integrate them into their daily workflow. Not because AI is magic, but because it removes the friction that slows down the path from sourcing to placement. And in recruitment, speed is everything.
+
+**Published:** April 2026
+**Last updated:** April 2026
+**Author:** KineticRecruiter Team
+**Category:** AI in Recruitment
+
+---
+
+## PART 6: BLOG PAGE STRUCTURE
+
+**URL:** /blog
+
+**Layout:**
+- Page headline: "Blog" or "Resources"
+- Grid of blog post cards (2 columns on desktop, 1 on mobile)
+- Each card: featured image (the OG image), title, excerpt (first 150 chars of the intro), date, category tag, "Read more →" link
+- Category filter tabs at the top: All | Comparisons | AI in Recruitment | Agency Growth
+
+**Blog post template:**
+- Breadcrumb: Home → Blog → [Post Title]
+- H1 title
+- Meta info: Published date | Category | Estimated reading time
+- Featured image (full width, below the meta info)
+- Article body (max-width 720px, centred, comfortable reading line length)
+- Author box at bottom: "KineticRecruiter Team" with logo
+- CTA box at the very bottom of each post: "Ready to try AI-powered recruitment? Start your 7-day free trial." with a teal button
+- Related posts: 2 card suggestions below the CTA
+
+**SEO elements on every blog post:**
+- Canonical URL
+- Article schema markup (JSON-LD)
+- Open Graph tags (title, description, image, type)
+- Twitter Card tags
+- Meta robots: index, follow
+- Sitemap inclusion
+- Internal links to relevant feature/solution pages where naturally appropriate
+- Alt text on all images
+
+**AI discoverability:**
+- Structured FAQ sections within posts (use FAQ schema where applicable)
+- Clear, factual claims that AI systems can extract and attribute
+- Comparison tables with structured data
+- Specific numbers and dates (not vague claims)
+- Author and publisher information for entity recognition
+- Consistent use of the brand name "KineticRecruiter" (not abbreviations or variations)
+
+---
+
+## PART 7: FOOTER FIX (ALL PAGES)
+
+Remove "Created by MiniMax Agent" from every page footer. This should have been removed already. Check every page.

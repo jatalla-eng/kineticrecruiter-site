@@ -1,0 +1,315 @@
+# MiniMax Agent — Final Design Review & Fixes
+
+Based on review of all current pages as of 5 April 2026.
+
+---
+
+## FIXES THAT APPLY TO EVERY PAGE
+
+### 1. Footer Logo
+**Problem:** The KineticRecruiter logo in the footer is tiny and barely visible. It looks like a broken image or placeholder.
+**Fix:** Increase the footer logo to at least 150px wide. It should be clearly readable — the full K icon + "KineticRecruiter" wordmark. Match the size and presence of the logo in the navbar.
+
+### 2. "Created by MiniMax Agent"
+**Problem:** Still appearing in the bottom-right corner of every page footer.
+**Fix:** Remove from every page. This has been flagged in every previous review. Search the codebase for "MiniMax" and delete every instance.
+
+### 3. Login Link
+**Problem:** The "Login" link in the navbar currently goes nowhere or to a placeholder.
+**Fix:** Set the Login link to point to `https://app.kineticrecruiter.com`. This is the production app URL. It should open in the same tab (not a new tab).
+
+### 4. Footer Links — API Documentation
+**Problem:** "API Documentation" is listed in the footer under Product. There's no API docs page ready for launch.
+**Fix:** Remove "API Documentation" from the footer for now. It can be added back when the docs are ready. Replace with "Help Centre" as a placeholder, or just remove the link entirely.
+
+---
+
+## HOMEPAGE
+
+### What's Working Well
+- Hero section with the product UI mockup illustration looks good — the Kanban board with candidate cards and match score badges communicates the product clearly
+- The alternating left-right layout for feature sections works
+- Product illustrations (search results, score breakdown, career highlights, client CRM, Kanban, resume parsing) are well-executed and distinct from each other
+- Comparison tables are clean and the KineticRecruiter column is properly highlighted
+- The $0/$0/$0 dark strip is effective
+- Pricing preview section with three tier cards is present and correct ($29/$59/$99)
+- FAQ section is clean
+
+### What Needs Fixing
+
+**Issue 1: No human element on the homepage**
+The homepage is the most visited page and it has zero photographs of people. Every section uses product illustrations, which is good for showing features, but the page feels cold and purely technical.
+
+**Fix:** Add ONE photograph to the homepage. Place it in the "Candidate summaries that write themselves" section or the "Manage clients and candidates in one system" section. Replace the illustration in that ONE section with a candid workplace photograph — a recruiter at a laptop, or two people reviewing a screen together. This breaks up the illustration pattern and adds warmth without overdoing it.
+
+Keep all other sections as product illustrations. One photo is enough for the homepage.
+
+**Issue 2: Hero area could use a subtle human touch**
+The product mockup in the hero is strong, but the overall hero feels purely digital.
+
+**Fix:** Add a small circular photograph (approximately 60px diameter) in the bottom-left area of the hero section, partially overlapping the edge of the content area. Show a smiling recruiter or professional. This tiny human element anchors the hero without competing with the product mockup. It's subtle but effective.
+
+---
+
+## AI CANDIDATE INTELLIGENCE PAGE
+
+### What's Working Well
+- Hero has the cascading cards illustration (search → score → highlights) — matches the spec
+- Section 1 (search) has the search results mockup with candidate names and match scores — excellent
+- Section 2 (scoring) has a real photograph of a person — good, this breaks up the pattern correctly
+- Section 3 (career highlights) has the resume → AI → bullet points illustration
+- Bottom icon strip is clean
+
+### What Needs Fixing
+
+**Issue 1: Hero illustration is partially cut off**
+The cascading cards illustration in the hero appears cropped or clipped on the right side. The search bar, score breakdown, and highlights cards should all be fully visible.
+
+**Fix:** Ensure the hero illustration has enough space to render completely. If the container is clipping it, increase the width or reduce the illustration scale so all three cards are fully visible.
+
+**Issue 2: No other fixes needed**
+This page is the strongest of all the feature pages. The photo in section 2 was the right call. Content is correct.
+
+---
+
+## MULTI-CHANNEL CANDIDATE INTAKE PAGE
+
+### What's Working Well
+- Hero has the three-input-channels illustration (upload, email, LinkedIn → candidate card) — matches spec
+- Section 1 (drag and drop) has the file upload zone mockup with progress bar — good
+- Section 2 (email forwarding) has a real photograph — good, breaks up the pattern
+- Section 3 (Chrome extension) has the LinkedIn import mockup — effective
+- Section 4 (deduplication) has the merge illustration — clean
+- Bottom icon strip with four channels is good
+
+### What Needs Fixing
+
+**Issue 1: The photo in the email forwarding section**
+The photograph shows a man in a white shirt looking at a laptop. It's fine but feels slightly generic/stock-like. If possible, source a photo that feels more candid — someone mid-action on a phone or laptop, not posed.
+
+**Fix:** Low priority. The photo works. Replace only if a better option is readily available.
+
+**No other fixes needed.** This page is well-executed.
+
+---
+
+## AGENCY WORKFLOW PAGE
+
+### What's Working Well
+- Hero has the five-node horizontal flow (Client → Job → Shortlist → Submit → Placed) — exactly as specified
+- Section 1 (client CRM) has the TechVentures client card mockup with contacts and linked jobs — excellent
+- Section 2 (seven stages) has the Kanban board mockup with candidate cards and match scores — good
+- Section 3 (draft, review, send) has a real photograph — good placement
+- Section 4 (pipeline tracking) has the dashboard stats mockup — clean
+
+### What Needs Fixing
+
+**Issue 1: The photo in section 3**
+The photograph appears to show a laptop/desk setup from a distance. It's dark and hard to read. The section is about client submissions — the photo should suggest communication or sending.
+
+**Fix:** Replace with a brighter, closer photograph. Ideally someone on a phone call at a desk, or a close-up of hands typing on a laptop. The mood should be "active communication" not "dark office."
+
+**Issue 2: "Job Kanban" label in the bottom icon strip**
+The second icon says "Job Kanban." This should say "Job Shortlist" — we renamed this across the product.
+
+**Fix:** Change "Job Kanban" to "Job Shortlist" and update the subtitle from "Visual pipeline management" to "Visual candidate management".
+
+---
+
+## TEAM & PLATFORM PAGE
+
+### What's Working Well
+- Hero has the admin dashboard browser mockup with stat cards, usage bar, and team list — exactly as specified
+- Section 1 (four roles) has the same admin mockup showing team members with Owner/Admin badges — good
+- Section 2 (analytics) has the dashboard stats and bar chart — clean
+- Section 3 (connect to your stack) has integration icons — fine
+- Section 4 (multi-tenant) has the three-org isolation illustration — effective, clearly communicates data separation
+- Bottom icon strip is clean
+
+### What Needs Fixing
+
+**Issue 1: Section 1 and hero use the same visual**
+Both the hero and the "Four roles" section show essentially the same admin dashboard mockup. This feels repetitive.
+
+**Fix:** Differentiate them. The hero should show the broader admin dashboard (stats + usage bar + team list). Section 1 should zoom in on just the team management portion — show a closer view of the team list with role badges, an "Invite" button, and a pending user with an amber badge. Or replace section 1's illustration with a simple role hierarchy diagram: Owner → Admin → Standard → Readonly.
+
+**No other issues.** This page is solid.
+
+---
+
+## SOLUTIONS: RECRUITMENT AGENCIES
+
+### What's Working Well
+- Hero uses a real photograph as the background with dark teal overlay — this is excellent and makes the Solutions pages feel visually distinct from the Feature pages. Keep this approach.
+- The hero photograph shows people in a modern office — appropriate
+- Section 2 (clients are first-class) has the TechVentures client card mockup — good
+- Section 3 (find the right candidate) has a real photograph — good
+- Section 5 (pricing comparison) has the annual cost comparison card (KineticRecruiter $2,940/yr vs Bullhorn $13,000+ vs Greenhouse $50,000+) — very effective
+
+### What Needs Fixing
+
+**Issue 1: Section 4 (resumes arrive from everywhere) has no visual**
+This section is text-only with a dark background. Every other section has an illustration or photo.
+
+**Fix:** Add the three-channel convergence illustration from the Candidate Intake page (upload + email + LinkedIn → AI → candidate card). Reusing it here is fine — different audience, different page.
+
+**Issue 2: Section 1 (you manage clients, not just candidates) has no visual**
+Also text-only.
+
+**Fix:** Add a simple illustration showing the fragmented current state vs the unified KineticRecruiter state. Left side: small icons for "ATS", "CRM", "Spreadsheet", "Email" scattered. Right side: single KineticRecruiter icon with everything consolidated. Connected by an arrow. Simple visual that makes the point.
+
+---
+
+## SOLUTIONS: IN-HOUSE TALENT TEAMS
+
+### What's Working Well
+- Hero uses a real photograph background with dark overlay — consistent with the Agencies page, good
+- The hero photo shows a handshake/meeting moment — fine for in-house context
+- Section 2 (AI matching) has the search results mockup with candidate cards and scores — good
+- Section 3 (keep hiring managers in the loop) has a real photograph — good
+- Section 5 (enterprise AI at startup pricing) has the pricing comparison card — effective
+
+### What Needs Fixing
+
+**Issue 1: Hero photograph**
+The hero photo shows what appears to be a handshake. Earlier guidance specifically said to avoid handshake photos — they're clichéd and overused.
+
+**Fix:** Replace with a different photograph. Ideally a small team (2-3 people) looking at a screen together in a modern office. This communicates "small in-house team" better than a handshake.
+
+**Issue 2: Section 1 (team of two) has no visual**
+Text-only.
+
+**Fix:** Add a small illustration or photograph. Either a simple icon showing 2-3 people with a large stack of job cards (communicating "small team, big workload"), or a candid photo of 2 people at a desk.
+
+**Issue 3: Section 4 (no implementation project) has no visual**
+Text-only.
+
+**Fix:** Add a simple illustration showing a timeline: "Day 1: Sign up → Upload resumes → AI parses" or a clock icon with "Live in 30 minutes" to communicate speed of setup.
+
+---
+
+## PRICING PAGE
+
+### What's Working Well
+- Headline and subtext are correct
+- Monthly/Annual toggle is present
+- Three tier cards with correct pricing ($29/$59/$99)
+- Professional card is visually elevated with "Most Popular" badge and teal border — good
+- Annual pricing shown below monthly on each card ("or $24/user billed annually") — correct
+- Feature lists are correct and match the definitive pricing spec
+- Agency CTA correctly says "Contact Us"
+- Comparison table is clean with KineticRecruiter column highlighted in teal
+- FAQ section has all 9 questions
+- All content matches the approved pricing document
+
+### What Needs Fixing
+
+**Issue 1: Annual pricing display**
+The annual price on the Starter card appears to show "$24/user billed annually" but it's partially cut off or hard to read.
+
+**Fix:** Ensure the annual price line is clearly legible on all three cards. Format: "or $24/user billed annually" in teal text, clearly below the main monthly price.
+
+**Issue 2: No CTA at the very bottom**
+The page ends with the FAQ and then the footer. There should be a final CTA section between the FAQ and footer.
+
+**Fix:** Add a "Ready to get started?" section below the FAQ with "Start your 7-day free trial with full access to every feature." and a teal "Start Free Trial" button. This matches the pattern on every other page. (Note: Looking again at the screenshot, there IS a "Ready to get started?" section — it may just be hard to see. If it exists, no fix needed here.)
+
+**No other issues.** The pricing page is the strongest page on the site.
+
+---
+
+## BLOG INDEX PAGE
+
+### What's Working Well
+- "Blog & Resources" headline with subtext
+- Category filter tabs (All, Comparisons, AI in Recruitment, Agency Growth)
+- Two blog post cards with titles, excerpts, dates, category tags, and "Read more" links
+- Email subscription section at the bottom — good addition
+- Reading time estimates shown (12 min, 8 min) — good
+
+### What Needs Fixing
+
+**Issue 1: Blog card images are placeholder icons**
+Both blog cards show a generic teal icon on a light teal background instead of a real featured image. These look like broken placeholders.
+
+**Fix:** Create proper featured images for each blog post. These should be branded OG-style images:
+
+**Blog post 1 (ATS Comparison):** Teal background, white text reading "Best ATS for Recruitment Agencies" with the KineticRecruiter logo in the corner. Or a simple graphic showing 4 platform logos/names in a grid comparison layout.
+
+**Blog post 2 (AI in Recruitment):** Teal background, white text reading "How AI Is Changing Recruitment in 2026" with a simple AI/sparkle icon. Or a workplace photograph with a teal colour overlay.
+
+These images should be approximately 1200x630px (standard OG image ratio) and also serve as the Open Graph images for social sharing.
+
+**Issue 2: No "Read more" preview on hover**
+The cards are static. Adding a subtle hover effect (slight shadow increase, card lifts 2-3px) would improve interactivity.
+
+**Fix:** Add hover state: increased shadow and slight translateY(-3px) transform on the card.
+
+---
+
+## BLOG POST PAGE (ATS COMPARISON)
+
+### What's Working Well
+- Breadcrumb navigation (Home → Blog → Post Title)
+- Author info (KineticRecruiter Team) with avatar and date
+- Featured image/hero banner with "Best ATS for Recruitment Agencies" text on teal background — good
+- Article body is well-structured with clear headings
+- Comparison tables are clean and readable
+- "Who Should Choose What" section provides clear recommendations
+- Methodology disclosure at the bottom (transparency about KineticRecruiter being the author's product)
+- Author box at the bottom
+- CTA at the bottom: "Ready to try AI-powered recruitment?" — good
+- Content matches the approved blog post
+
+### What Needs Fixing
+
+**Issue 1: The featured image/banner**
+The banner shows "Best ATS for Recruitment Agencies / 2026 Comparison Guide" on a dark teal background. This is fine but could be more visually engaging.
+
+**Fix:** Low priority. The current banner works. If improving: add a subtle graphic element — a comparison grid icon or a magnifying glass — to the right side of the banner. Keep the text left-aligned and the graphic as a decorative accent.
+
+**Issue 2: Article width**
+The article text appears to span quite wide. For comfortable reading, body text should be constrained to approximately 680-720px max-width.
+
+**Fix:** If the text runs wider than ~720px, add a max-width constraint to the article body container. This improves readability significantly on large screens.
+
+**No other major issues.** The blog post page is well-executed.
+
+---
+
+## SOLUTIONS PAGES — PHOTO BACKGROUND APPROACH
+
+The dark teal overlay on real photographs for the Solutions page heroes is working well. This should be the consistent pattern for all Solutions-type pages. It creates a clear visual hierarchy:
+
+- **Feature pages** = product illustrations/mockups in heroes (clean, technical)
+- **Solutions pages** = real photographs with teal overlay in heroes (human, warm)
+- **Homepage** = product mockup (the flagship visual)
+- **Pricing** = no hero image (data-focused)
+- **Blog** = branded text banners
+
+This differentiation is good. Keep it.
+
+---
+
+## PRIORITY SUMMARY
+
+**Must fix (affects credibility):**
+1. Remove "Created by MiniMax Agent" from every page
+2. Increase footer logo size dramatically
+3. Set Login link to `https://app.kineticrecruiter.com`
+4. Remove "API Documentation" from footer
+5. Add blog post featured images (replace placeholder icons)
+6. Replace handshake photo on In-House Teams hero
+7. Change "Job Kanban" → "Job Shortlist" on Agency Workflow icon strip
+
+**Should fix (improves quality):**
+8. Add one human photo to the homepage
+9. Add visuals to text-only sections on Solutions pages
+10. Differentiate Team & Platform hero from section 1 visual
+11. Fix AI Candidate Intelligence hero illustration clipping
+12. Constrain blog article body to ~720px max-width
+
+**Nice to have:**
+13. Add hover states to blog cards
+14. Improve dark photo in Agency Workflow section 3
+15. Add small circular photo in homepage hero area

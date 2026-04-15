@@ -1,0 +1,494 @@
+# KineticRecruiter Website — Homepage Fixes & All Page Content
+
+---
+
+## PART 1: HOMEPAGE ISSUES TO FIX
+
+The rendered homepage has several problems that need correcting. Here's every issue, in order of appearance.
+
+---
+
+### Issue 1: "Trusted by 500+ Recruitment Agencies" (hero top)
+**Problem:** Fabricated social proof. The product hasn't launched. This is a credibility risk if anyone checks.
+**Fix:** Remove entirely. Replace with nothing, or use a softer line like "Built for recruitment agencies" if space needs filling. Do not invent user numbers.
+
+### Issue 2: "94% match accuracy" (hero bullet point)
+**Problem:** Unsubstantiated metric. There's no data to support this claim. If a prospect asks "how do you measure that?" there's no answer.
+**Fix:** Remove. Replace with "Transparent match scoring" or simply drop to three bullet points:
+- 7-day free trial
+- All AI features included
+- No add-on fees
+
+### Issue 3: Hero right-side image
+**Problem:** The rendered image appears to be a stock photo of people ("Recruitment team collaborating"). The brand guide specifies no stock photography of people — illustrations only.
+**Fix:** Replace with the illustrated pipeline graphic as specified in the Stitch prompt (candidate cards flowing through Sourcing → Interviewing → Offer stages with teal arrows). The AI Candidate Flow card mockup shown below the photo is good — that style of UI illustration should BE the hero image, not sit below a stock photo.
+
+### Issue 4: Testimonials section (Emma Richardson, Marcus Chen, Sarah Thompson)
+**Problem:** These are fabricated testimonials from people who don't exist at companies that don't exist. This is potentially illegal in Australia under the Australian Consumer Law (ACL) — misleading or deceptive conduct. It also destroys trust if anyone Googles "Talent Partners Australia" or "TechHire Solutions" and finds nothing.
+**Fix:** Remove the entire testimonials section. Replace with nothing for now. Add real testimonials only when you have real users who agree to be quoted.
+
+### Issue 5: Stats bar (500+ Agencies, 50,000+ Candidates Placed, 40% Faster Placements, 4.9/5 Customer Rating)
+**Problem:** All fabricated. Same legal and credibility risk as testimonials.
+**Fix:** Remove entirely. If you want a stats section post-launch, use real numbers. Until then, skip it.
+
+### Issue 6: CTA section near bottom — "No credit card required"
+**Problem:** Per your instruction, the 7-day trial should require a credit card. If they don't cancel in time, they get charged.
+**Fix:** Remove "No credit card required" from every CTA on the site. The CTA text should simply be "Start Free Trial" with subtext "7-day free trial. Full access to every feature." No mention of credit card either way.
+
+### Issue 7: FAQ — "How does the free trial work?" answer
+**Problem:** If the FAQ says "no credit card required" it needs updating to match the new trial policy.
+**Fix:** Update the answer to: "You get 7 days with 3 seats and full access to every feature on the Professional plan. Enter a payment method when you sign up, and if you don't cancel before the trial ends, your subscription begins automatically. You can cancel anytime during the trial at no charge."
+
+### Issue 8: No pricing section on the homepage
+**Problem:** The homepage doesn't include any pricing information. Visitors have to click through to a separate page. For a self-serve SaaS product, pricing visibility on the homepage reduces friction.
+**Fix:** Add a pricing preview section above the CTA section. Show three tier cards with plan name, price, and 3-4 key differentiators. "See full details" link to the pricing page. Don't duplicate the full pricing page — just a teaser.
+
+### Issue 9: Comparison tables — needs the "No Hidden Costs" strip
+**Problem:** The dark background "$0 / $0 / $0" strip is present but sitting below the comparison tables. It should feel more visually integrated.
+**Fix:** Keep as-is, but ensure the three cards clearly read:
+- "$0 Implementation fee" / "Bullhorn charges $1K-$15K+"
+- "$0 Training costs" / "Greenhouse charges $2K-$10K"
+- "$0 AI add-on fees" / "Bullhorn charges $39+/mo per add-on"
+
+### Issue 10: Footer "Created by MiniMax Agent"
+**Problem:** Build tool attribution in the footer.
+**Fix:** Remove.
+
+### Issue 11: Missing pages
+The navigation links to Features, Solutions, Pricing, and Resources pages that don't exist yet. These need to be built with the content below.
+
+---
+
+## PART 2: PRICING PAGE
+
+**URL:** /pricing
+
+**Page headline:** Simple pricing. Every AI feature included.
+
+**Page subtext:** No add-ons. No implementation fees. No per-feature charges. Pick a plan, add your team, start recruiting.
+
+**Toggle:** Monthly / Annual (save 17%)
+
+---
+
+### Tier 1: Starter — $29/user/month ($24 billed annually)
+
+"For solo and freelance recruiters"
+
+- **50 total candidates**
+- Up to 10 open jobs
+- Up to 10 clients
+- AI resume parsing
+- AI candidate matching and scoring
+- AI career highlights
+- Natural language search
+- Job shortlist Kanban (7 stages)
+- Client CRM with contacts
+- Chrome extension (LinkedIn import)
+- Email integration
+- Dashboard and analytics
+- Google and Microsoft OAuth
+- Email support
+
+CTA: Start Free Trial
+
+---
+
+### Tier 2: Professional — $59/user/month ($49 billed annually) ← "Most Popular" badge
+
+"For growing agencies and talent teams"
+
+Everything in Starter, plus:
+- **1,000 total candidates**
+- Unlimited jobs
+- Unlimited clients
+- Bulk resume upload (drag and drop)
+- Inbound email resume processing
+- AI client submission emails
+- Custom AI prompt configuration
+- Source breakdown reporting
+- 30-day trend analytics
+- API access (10K calls/day)
+- Priority email support
+
+CTA: Start Free Trial
+
+---
+
+### Tier 3: Agency — $99/user/month ($82 billed annually)
+
+"For established agencies scaling their team"
+
+Everything in Professional, plus:
+- **Unlimited candidates**
+- Custom report builder
+- White-label career page
+- Advanced API (100K calls/day)
+- Data retention controls
+- Dedicated account support
+- SSO (SAML)
+- Dedicated onboarding session
+- SLA (99.9% uptime)
+- Fair use AI policy (generous daily limits)
+
+CTA: Contact Us
+
+---
+
+### Pricing FAQ
+
+**Can I change plans at any time?**
+Yes. Upgrade or downgrade at any time. Upgrades take effect immediately. Downgrades apply at the end of your current billing period.
+
+**What happens when I hit my candidate limit?**
+You'll see a notification as you approach your limit. Once you reach it, you won't be able to add new candidates until you upgrade. Your existing data is never affected.
+
+**What happens when the trial ends?**
+If you don't cancel during the 7-day trial, your subscription begins automatically on the plan you selected. You can cancel anytime during the trial at no charge.
+
+**Is there a setup or implementation fee?**
+No. There are no setup fees, implementation fees, or training costs. You sign up and start using the platform immediately. Agency plan includes a dedicated onboarding session.
+
+**Do I need to pay extra for AI features?**
+No. Every AI feature (resume parsing, candidate matching, career highlights, submission emails, natural language search) is included in every plan.
+
+**How does seat-based billing work?**
+You pay per active user. Add or remove seats at any time. Owners and Admins manage seats from the billing dashboard. Deactivated users don't count toward your seat total.
+
+**Do you offer annual billing?**
+Yes. Annual billing saves approximately 17% compared to monthly. All plans are available on both cycles.
+
+**What payment methods do you accept?**
+All major credit cards via Stripe. Invoicing is available for Agency plan customers with 10 or more seats.
+
+**Is there a minimum contract?**
+No. Monthly plans have no minimum commitment. Annual plans are billed upfront for 12 months.
+
+---
+
+### Competitor Comparison Strip (below FAQ)
+
+**Headline:** See how we compare.
+
+| | KineticRecruiter Pro | Bullhorn Standard | Recruiterflow Base | Manatal Enterprise |
+|---|---|---|---|---|
+| Price/user/month | $59 | $99 | $119 | $35 |
+| AI matching included | Yes | $39+/mo add-on | AIRA plan extra | Yes |
+| AI career highlights | Yes | No | No | No |
+| Client CRM | Yes | Yes | Yes | Yes |
+| Implementation fee | $0 | $1K-15K+ | Paid migration | $0 |
+| Natural language search | Yes | No | No | No |
+
+---
+
+## PART 3: SOLUTIONS FOR RECRUITMENT AGENCIES
+
+**URL:** /solutions/recruitment-agencies
+
+**Hero headline:** Built for how agencies actually work.
+
+**Hero subtext:** Most ATS platforms are designed for in-house HR teams hiring into one company. KineticRecruiter is built for agencies managing multiple clients, multiple roles, and hundreds of candidates across them all.
+
+### Section 1
+
+**Headline:** You manage clients, not just candidates.
+
+Every day you're juggling client expectations, candidate pipelines across dozens of roles, and the pressure to submit quality profiles fast. Your current setup probably involves an ATS for candidates, a separate CRM for clients, a spreadsheet for tracking submissions, and your email inbox holding the rest together.
+
+KineticRecruiter puts all of it in one system.
+
+### Section 2
+
+**Headline:** Clients are first-class, not an afterthought.
+
+Create client profiles with company details, contacts, and hiring managers. Link jobs directly to clients. Track which candidates have been submitted, interviewed, and placed for each client. When you need to submit a candidate, the AI drafts the email, generates a candidate summary, and gets it ready to send in seconds.
+
+Key points:
+- Client profiles with contacts, industry, and company enrichment
+- Every job linked to a client and hiring manager
+- AI-generated submission emails with candidate summaries
+- Track the full lifecycle: sourcing through to placement
+
+### Section 3
+
+**Headline:** Find the right candidate before your competitor does.
+
+After a year of recruiting you've got thousands of candidates in your system. Most ATS platforms let you search by keyword, maybe filter by location or skills. KineticRecruiter lets you search in plain English: "senior Java developers with banking experience in Melbourne who are open to contract work." The AI understands context and returns ranked results with match scores and reasons.
+
+Key points:
+- Natural language search across your entire candidate pool
+- AI match scoring (0-100) with factor breakdowns
+- Career highlight generation for fast client submissions
+- Semantic matching finds candidates keyword search would miss
+
+### Section 4
+
+**Headline:** Resumes arrive from everywhere. They should all end up in the same place.
+
+A referral forwards you a CV. A candidate applies on a job board. You source 20 profiles on LinkedIn. KineticRecruiter handles all of it: single upload, bulk upload, email forwarding, and LinkedIn Chrome extension import. Every resume gets AI-parsed, checked for duplicates, and indexed for semantic search.
+
+### Section 5
+
+**Headline:** Add recruiters without adding line items.
+
+Bullhorn charges $99-315 per user per month, then adds $39+ for automation, more for LinkedIn integration, more for analytics. KineticRecruiter starts at $29 per user per month with every AI feature included. No add-ons. No implementation fees. No training costs.
+
+**CTA:** Start Free Trial
+
+---
+
+## PART 4: SOLUTIONS FOR IN-HOUSE TALENT TEAMS
+
+**URL:** /solutions/in-house-teams
+
+**Hero headline:** Hire smarter without hiring more recruiters.
+
+**Hero subtext:** KineticRecruiter gives small talent teams the AI-powered matching and candidate intelligence that enterprise platforms charge six figures for.
+
+### Section 1
+
+**Headline:** You're a team of two doing the work of ten.
+
+Small in-house talent teams are expected to fill every open role, build a candidate pipeline, coordinate with hiring managers, and keep track of it all. You don't have the budget for Greenhouse or the headcount to justify Workable. But you still need an ATS that actually helps you recruit, not just store applications.
+
+### Section 2
+
+**Headline:** AI matching that works while you're in meetings.
+
+When a new role opens, KineticRecruiter scans your existing candidate database and surfaces candidates who match. Not just by keywords but by understanding the role requirements and the candidate's actual experience. Each match comes with a score, a factor breakdown, and a plain-English explanation you can share with the hiring manager. You spend 5 minutes reviewing AI suggestions instead of 2 hours manually searching.
+
+Key points:
+- AI-suggested candidates for every new role
+- Match scores with full transparency and written reasons
+- Career highlights auto-generated for hiring manager review
+- Natural language search when you want to dig deeper
+
+### Section 3
+
+**Headline:** Keep hiring managers in the loop without extra meetings.
+
+Every role has a visual shortlist board showing exactly where each candidate sits: sourcing, screening, interview, offer, hired. Hiring managers can see progress without asking for an update. Star ratings and suitability scores make it easy to compare candidates at a glance.
+
+### Section 4
+
+**Headline:** No implementation project. No training budget.
+
+Sign up, create your first job, and start adding candidates. KineticRecruiter is designed to be useful on day one, not after a 6-week implementation. Upload your existing resumes in bulk, let the AI parse them, and you've got a searchable database by the end of the afternoon.
+
+Key points:
+- 7-day free trial with full access
+- Bulk resume upload with AI parsing
+- No implementation fee, no training cost
+- Dashboard and analytics from day one
+
+### Section 5
+
+**Headline:** Enterprise AI at startup pricing.
+
+Greenhouse starts at $50,000 per year before implementation and training. KineticRecruiter's Professional plan is $59 per user per month with every AI feature included. For a 3-person talent team, that's $2,124 per year versus $50,000+.
+
+**CTA:** Start Free Trial
+
+---
+
+## PART 5: FEATURE PAGES
+
+### PAGE: AI Candidate Intelligence
+
+**URL:** /features/ai-candidate-intelligence
+
+**Hero headline:** The AI that finds, scores, and explains.
+
+**Hero subtext:** Search your database in plain English. Get ranked results with match scores, factor breakdowns, and written reasons. Generate client-ready career summaries in one click.
+
+#### Section 1: Natural Language Discovery
+
+**Headline:** Stop writing Boolean. Start describing what you need.
+
+Type what you're looking for the way you'd describe it to a colleague: "Full-stack developers with React and Node experience, at least 4 years, based in Sydney or open to remote." KineticRecruiter's semantic search engine understands the meaning behind your words, not just the keywords. It returns candidates ranked by relevance, with scores that reflect how well they actually fit.
+
+This isn't keyword matching with a fancy interface. The platform builds semantic embeddings for every candidate profile, capturing the full context of their experience, skills, and career trajectory. When you search, it compares meaning, not strings. A candidate whose resume says "frontend engineering" and "server-side JavaScript" will surface for a "full-stack developer" search, even though the exact phrase never appears.
+
+#### Section 2: Explainable Match Scoring
+
+**Headline:** A number means nothing without the reasoning behind it.
+
+Every candidate matched to a job receives a score from 0 to 100. But a score alone doesn't help you make decisions or explain them to clients. KineticRecruiter breaks down every score into contributing factors, shows how each factor was weighted, and provides a plain-English explanation of why this candidate was surfaced.
+
+When a client asks "why did you put this person forward?", the answer is already written.
+
+Key callouts:
+- Factor-by-factor breakdown (skills match, experience level, location, industry alignment)
+- Weight visibility so you understand what drove the score
+- Written match reasons ready for client communication
+- Suggested candidates ranked by score for every open role
+
+#### Section 3: AI Career Highlights
+
+**Headline:** Candidate summaries in seconds, not minutes.
+
+Every recruiter knows the drill: open the resume, read through the entire work history, pick out the most relevant achievements, rewrite them as bullet points, paste into an email. For every single candidate. For every single submission.
+
+KineticRecruiter generates career highlight bullet points automatically from the candidate's parsed resume. Action-driven. Context-aware. Ready to drop into a client submission email or review with a hiring manager.
+
+No other ATS on the market generates client-ready career summaries.
+
+**CTA:** Start Free Trial
+
+---
+
+### PAGE: Multi-Channel Candidate Intake
+
+**URL:** /features/candidate-intake
+
+**Hero headline:** Three ways in. Zero resumes lost.
+
+**Hero subtext:** Upload one, drop fifty, or forward from your inbox. Every resume gets AI-parsed, deduplicated, and made searchable.
+
+#### Section 1: Single and Bulk Upload
+
+**Headline:** Drag, drop, done.
+
+Upload a single resume or drop a batch of fifty. KineticRecruiter processes each file using Google Gemini AI to extract name, email, phone, location, skills, experience, education, work history, and LinkedIn URL into a structured candidate profile. PDF, DOC, and DOCX all supported.
+
+If the AI parser is temporarily unavailable, a regex fallback parser still extracts core fields. No resume gets stuck in a queue or silently dropped. Progress tracking shows real-time status for every file in a bulk upload.
+
+#### Section 2: Email Forwarding
+
+**Headline:** Forward a resume. Get a candidate.
+
+Receive a CV from a referral? Get an application notification from a job board? Forward the email to your KineticRecruiter inbox. The system extracts the attachment, validates the file type, runs AI parsing, and creates or updates the candidate profile.
+
+If the candidate already exists (matched by email or name), their record gets updated with any new information without creating a duplicate. If they're new, a full profile is created, their LinkedIn photo is fetched, and a semantic embedding is generated so they're immediately searchable.
+
+#### Section 3: LinkedIn Chrome Extension
+
+**Headline:** See a profile. Import it.
+
+The KineticRecruiter Chrome Extension sits on any LinkedIn profile page. Click import, and the candidate's name, photo, headline, work history, skills, and education are pulled into your ATS via API. One click. No PDF downloads. No manual entry.
+
+#### Section 4: Smart Deduplication
+
+**Headline:** One candidate. One record. Always.
+
+Every intake channel checks for duplicates before creating a new record. Primary match is by email. Secondary match is by name. If a match is found, existing empty fields get updated with new data, and the resume file is replaced with the latest version.
+
+**CTA:** Start Free Trial
+
+---
+
+### PAGE: Agency Workflow
+
+**URL:** /features/agency-workflow
+
+**Hero headline:** Clients, candidates, and submissions. One system.
+
+**Hero subtext:** KineticRecruiter is built for recruitment agencies who manage multiple clients, not HR teams hiring into one company.
+
+#### Section 1: Client CRM
+
+**Headline:** Every client. Every contact. Every role. Linked.
+
+Create client company profiles with industry, website, logo, and contact details. Add contacts with titles, email, phone, LinkedIn, and reporting structure. Assign jobs to clients and link hiring managers. Enrich company profiles automatically from their website.
+
+Clients are a core entity in KineticRecruiter. Every job belongs to a client. Every submission is tracked against a client. Your entire book of business lives alongside your candidate data.
+
+#### Section 2: Job Shortlist
+
+**Headline:** Seven stages. Complete visibility.
+
+Every job has a visual shortlist board: Sourcing, Screened, Client Submitted, Interviewed, Offer, Placed, Closed. Drag candidates between stages. Track outcomes for closed candidates (hired, rejected, withdrawn). Star ratings (1-5) and suitability scores (0-100) let you compare candidates within a stage.
+
+Add candidates from your existing database, from AI-suggested matches, or from new applications.
+
+#### Section 3: AI Client Submission
+
+**Headline:** Draft, review, send. Under 30 seconds.
+
+Select a candidate on your shortlist, click "Submit to Client", and KineticRecruiter drafts a professional email. The AI uses your organisation's custom prompt settings to match your team's tone and structure. A candidate summary is auto-generated and included. Review, tweak if needed, and send via your default email client.
+
+#### Section 4: Pipeline Tracking
+
+**Headline:** From first contact to placement. Tracked.
+
+Dashboard metrics show your pipeline health across all clients and roles. Total jobs, active jobs, candidates in pipeline, and placement rate at a glance. 30-day trends track new candidates, applications, and hires over time. Source breakdown reporting shows which channels deliver results.
+
+**CTA:** Start Free Trial
+
+---
+
+### PAGE: Team and Platform
+
+**URL:** /features/team-platform
+
+**Hero headline:** Built to run as a product, not a prototype.
+
+**Hero subtext:** Multi-tenant architecture, Stripe billing, role-based access, and platform administration. Commercial-grade SaaS from day one.
+
+#### Section 1: Team Management
+
+**Headline:** Four roles. One organisation. Full control.
+
+Owner, Admin, Standard, and Readonly roles give you precise control over who can do what. Invite team members by email or share an open invite code. When someone signs up with a matching email domain, they're automatically routed to your organisation for approval.
+
+Google and Microsoft OAuth sign-in mean one less password for your team.
+
+#### Section 2: Dashboard and Analytics
+
+**Headline:** The numbers that matter.
+
+Real-time counts across jobs, candidates, applications, and clients. Pipeline stage visualisation showing where candidates sit across all active roles. 30-day activity trends. Source breakdown reporting. Recent activity feed. All built in.
+
+#### Section 3: API and Integration
+
+**Headline:** Connect to your stack.
+
+RESTful API with key-based authentication for custom integrations. Global search via Command+K palette. Email integration supporting Brevo, Gmail, and SendGrid. Chrome extension for LinkedIn. Inbound webhook for email resume processing.
+
+#### Section 4: Security and Infrastructure
+
+**Headline:** Multi-tenant by design.
+
+Every query is scoped to your organisation. Every action is logged. Sessions secured with 7-day TTL cookies. Resume files stored in Google Cloud Storage with signed URLs. API keys validated via hash comparison.
+
+**CTA:** Start Free Trial
+
+---
+
+## PART 6: NAVIGATION STRUCTURE
+
+Update the site navigation to match this page structure:
+
+```
+Features (dropdown)
+├── AI Candidate Intelligence    → /features/ai-candidate-intelligence
+├── Candidate Intake             → /features/candidate-intake
+├── Agency Workflow              → /features/agency-workflow
+└── Team & Platform              → /features/team-platform
+
+Solutions (dropdown)
+├── Recruitment Agencies         → /solutions/recruitment-agencies
+└── In-House Talent Teams        → /solutions/in-house-teams
+
+Pricing                          → /pricing
+
+Resources (dropdown)
+├── Blog                         → /blog (placeholder)
+├── Documentation                → /docs (placeholder)
+└── API Docs                     → /api-docs (placeholder)
+```
+
+---
+
+## SUMMARY OF ALL HOMEPAGE CHANGES
+
+1. Remove "Trusted by 500+ Recruitment Agencies" — replace with "Built for recruitment agencies" or remove entirely
+2. Remove "94% match accuracy" — unsubstantiated
+3. Replace stock photo with illustrated pipeline graphic
+4. Remove entire testimonials section — fabricated people and companies
+5. Remove stats bar (500+, 50,000+, 40%, 4.9/5) — fabricated numbers
+6. Remove "No credit card required" from every CTA on the site
+7. Update FAQ trial answer to reflect credit card requirement
+8. Add pricing preview section (three tier cards: $29/$59/$99 with key differentiators)
+9. Remove "Created by MiniMax Agent" from footer
+10. Ensure all navigation links point to real pages with the content above

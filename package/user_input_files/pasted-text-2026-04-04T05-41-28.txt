@@ -1,0 +1,321 @@
+KineticRecruiter Marketing Website
+BRAND IDENTITY
+Brand name: KineticRecruiter (written as one word, "Kinetic" in teal, "Recruiter" in dark navy)
+Short name: Kinetic (used in compact layouts)
+Logo: Use the attached logo file exactly as provided. Do not recreate, redraw, or approximate it. Place it as an image asset wherever the logo appears (navbar, footer, favicon crop). The logo is a horizontal lockup: a stylised teal "K" icon with motion lines on the left, followed by the wordmark "KineticRecruiter" where "Kinetic" is in the teal brand colour and "Recruiter" is in dark navy. Use the full lockup in the navbar and footer. For the favicon, crop to just the "K" icon.
+Brand colours:
+
+Kinetic Teal: #0d8488 (primary brand colour — used for CTAs, icons, accents, and the logo)
+Kinetic Teal Dark: a darker shade of the teal (used for hover states, dark backgrounds, footer)
+Motion Amber: warm amber/gold (used sparingly for highlights, badges, notification dots, or secondary accents)
+Momentum Violet: muted purple (used for tertiary accents, chart elements, or feature category differentiation)
+Flow Cyan: light cyan/aqua (used for light backgrounds, subtle gradients, illustration accents)
+Dark Navy: #1a2332 or similar very dark blue-black (primary text colour, "Recruiter" in the wordmark)
+White: #FFFFFF (backgrounds, reversed text on dark sections)
+Light Grey: #F7F8FA (alternate section backgrounds for visual rhythm)
+
+Typography:
+
+Headings: Inter or similar clean geometric sans-serif, bold weight
+Body: Inter or similar, regular weight, 16-18px base size
+Code/technical: JetBrains Mono or similar monospace (only if showing API examples)
+
+Design feel: Clean, modern, confident. Not playful SaaS startup. Not corporate enterprise. The tone sits between — professional enough for agency founders, modern enough to signal the product is built with current technology. Think Stripe's clarity meets Linear's density. Generous whitespace. Teal as the throughline, not overwhelming.
+
+SITE STRUCTURE
+Navigation (sticky top bar):
+├── Logo (icon + wordmark, links to home)
+├── Features (dropdown or link to features section)
+├── Solutions (dropdown: Recruitment Agencies, In-House Talent Teams)
+├── Pricing (link to pricing section/page)
+├── Resources (dropdown: Blog, Documentation, API Docs)
+├── Start Free Trial (teal CTA button, top right)
+└── Login (text link, right of CTA)
+
+Pages to build:
+1. Home / Landing Page (this is the primary page — all content below)
+2. Pricing Page (placeholder — "Coming Soon" or simple tier layout)
+
+HOME PAGE — SECTION BY SECTION
+SECTION 1: Hero
+Layout: Two-column, vertically centred. Left column (roughly 45% width): headline, subtext, two CTA buttons stacked or side-by-side. Right column (roughly 55% width): illustrated hero graphic (described in detail below). The left column should have comfortable left padding aligned with the site's max-width container. The right column graphic can bleed slightly beyond the container edge on the right for visual impact.
+Headline:
+"The ATS that actually understands your candidates."
+Subtext:
+"KineticRecruiter uses AI to match, score, and surface the right candidates for every role. No add-ons. No per-feature charges. Just a faster path from resume to placement."
+Primary CTA button: "Start Free Trial" (teal filled button, rounded corners, ~16px text, generous padding)
+Secondary CTA: "Watch 2-min Demo" (inline text link with a small circled play icon to its left, positioned to the right of or below the primary button)
+Background: Very light teal-to-white gradient wash starting from the top-right corner and fading toward the bottom-left. Subtle and airy, not a solid colour block. The overall feel should be light and open, not heavy.
+HERO ILLUSTRATION — SPECIFIC VISUAL DIRECTION
+This is the most important visual on the page. It must convey the concept of candidates flowing through a recruitment pipeline powered by AI. Match the style and feel of the reference mockup provided.
+Composition:
+The illustration shows a diagonal or gently curving flow from the bottom-left to the top-right of the graphic area. Three visible pipeline stages are labelled along this flow: "Sourcing" (bottom-left), "Interviewing" (middle), and "Offer" (top-right). The flow moves upward and to the right, suggesting forward momentum and progression.
+Candidate cards:
+At each stage, place 1-2 candidate card elements. Each card is a small white rounded rectangle with a subtle drop shadow, containing:
+
+A circular avatar placeholder (use simple coloured circles with abstract person silhouettes — teal, amber, or muted violet fills)
+2-3 short horizontal lines below the avatar representing name/details (like a wireframe placeholder)
+Some cards should have a small teal badge in the corner suggesting a match score or AI indicator
+
+The cards should feel like they're "in motion" — slightly rotated (2-3 degrees), with some overlap, as if they're being carried along the flow.
+Flow arrows / path:
+Connect the stages with smooth, flowing curved arrows or swooping lines in teal and light cyan. These are not rigid straight arrows — they should be organic, sweeping curves that feel like a river or a breeze carrying the cards forward. Use varying opacity (some arrows more solid, some faded) and varying thickness to create depth. Some arrows can have a slight gradient from teal to cyan.
+The arrows are the primary visual device conveying "kinetic" energy and momentum. They should feel dynamic, not static.
+Stage labels:
+"Sourcing", "Interviewing", and "Offer" appear as small text labels near their respective card clusters. Use dark navy text, small/medium weight, not inside boxes — just floating labels positioned near the relevant point in the flow.
+Decorative elements:
+
+Small teal dots or circles scattered along the flow path (like particles or data points in motion)
+A subtle document/resume icon near the Sourcing stage (a small page icon with lines on it)
+A subtle sparkle or AI star icon near one of the candidate cards to suggest AI processing
+Light cyan or teal abstract shapes in the background of the illustration area (soft blurred circles or gradient blobs) to add depth without clutter
+
+Colour palette for the illustration:
+
+Teal (#0d8488) for primary arrows and accents
+Flow Cyan (light aqua) for secondary arrows and background shapes
+White for candidate cards
+Amber for one or two avatar circles (adds warmth and variety)
+Muted violet for one avatar circle
+Dark navy for label text
+Very light teal/cyan for background gradient blobs
+
+Style:
+Clean, modern, flat with subtle depth (soft shadows on cards, gradient on arrows). NOT 3D. NOT isometric. NOT hand-drawn or sketchy. Think product illustration style — the kind you'd see on Linear, Notion, or Vercel's marketing pages. Airy, spacious, confident.
+What to avoid:
+
+No stock photos of people
+No laptop/phone device mockups in the hero
+No screenshots of the actual product UI
+No rigid flowchart or box-and-arrow diagrams
+No heavy gradients or dark backgrounds in the hero area
+No clip art or overly cartoonish illustration style
+
+Below hero: Subtle social proof bar — "TRUSTED BY TEAMS THAT MOVE FAST" in small caps grey text, centred. Below it, 4-5 generic greyscale placeholder logo shapes (simple rounded rectangles or abstract marks — NOT real brand logos like Microsoft or Spotify). This section is a placeholder that will be updated with real client logos later.
+
+SECTION 2: Feature Overview Strip
+Layout: Horizontal strip with 4 icon-stat pairs. Light grey background (#F7F8FA).
+Items (with small teal icons):
+
+"AI-Powered Matching" — brain/sparkle icon
+"Semantic Search" — magnifying glass icon
+"Client CRM Built In" — building/people icon
+"No Add-On Fees" — dollar/shield icon
+
+These are just quick visual anchors, not full feature descriptions. Each is an icon + a short 2-3 word label. Centered, evenly spaced.
+
+SECTION 3: Primary Features (Alternating Layout)
+Layout: Alternating left-right sections. Each feature has: a headline, 2-3 sentence body text, 3 bullet points, and a visual (screenshot placeholder, illustration, or abstract graphic). Alternate which side the text is on for visual rhythm.
+Feature 3.1: AI Candidate Discovery
+
+Headline: "Search your database the way you actually think."
+Body: "Stop writing Boolean strings. Type what you need in plain English — 'Find backend developers with fintech experience in Sydney' — and get ranked results in seconds. KineticRecruiter uses semantic embeddings to understand what candidates actually do, not just what words appear on their resume."
+Bullets: Natural language search across your entire database | Semantic matching that understands context, not just keywords | Results ranked by relevance with AI match scores
+Visual: Abstract search interface illustration — a search bar with natural language text, and candidate cards appearing below with match percentage badges
+
+Feature 3.2: AI Match Scoring with Full Transparency
+
+Headline: "Know exactly why a candidate fits. Or doesn't."
+Body: "Every candidate matched to a job gets a score from 0 to 100. Unlike other platforms that give you a number and nothing else, KineticRecruiter breaks down the score. You see which factors contributed, what weighted highest, and a plain-English explanation of why this candidate was surfaced."
+Bullets: 0-100 match score for every candidate-job pairing | Full factor breakdown showing what drove the score | Written match reasons you can share directly with clients
+Visual: Score card illustration — a candidate card showing "87/100" with a breakdown bar chart and a "Why this candidate" text snippet
+
+Feature 3.3: AI Career Highlights
+
+Headline: "Candidate summaries that write themselves."
+Body: "Stop spending 15 minutes per candidate writing profile summaries for client submissions. KineticRecruiter analyses each resume and generates career highlight bullet points automatically. Action-driven, context-aware, and ready to drop into your client emails."
+Bullets: AI-generated career highlights per candidate | Built for client-facing submissions | Edit and refine, or use as-is
+Visual: Before/after illustration — a resume on the left, and clean formatted bullet points on the right with a sparkle/AI icon
+
+Feature 3.4: Built-In Client CRM
+
+Headline: "Manage clients and candidates in one system."
+Body: "Recruitment agencies need more than candidate tracking. KineticRecruiter includes full client management — company profiles, contact directories, job assignments, and AI-powered client submission emails. No separate CRM required."
+Bullets: Client company profiles with contacts and hiring managers | AI-composed client submission emails | Company enrichment from website data
+Visual: Client management UI illustration — a company card with contacts listed below and linked jobs
+
+Feature 3.5: Job Shortlist (Kanban Board)
+
+Headline: "See every candidate's status at a glance."
+Body: "Each job has a visual shortlist board with seven stages. Drag candidates between stages, track outcomes, and add candidates from your database or from AI-suggested matches. Star ratings and suitability scores let you compare candidates within a stage."
+Bullets: 7-stage Kanban board per job | Drag-and-drop stage progression | AI-suggested candidates with match scores
+Visual: Kanban board illustration — columns for Sourcing, Screened, Client Submitted, Interviewed, Offer with candidate cards in each (use the teal colour for the column headers, candidate cards in white with subtle shadows)
+
+Feature 3.6: Resume Processing (Multi-Channel)
+
+Headline: "Resumes in. Structured profiles out. Every time."
+Body: "Upload one resume, bulk upload fifty, or forward them from your inbox. AI parsing extracts names, contact details, skills, experience, and work history into structured profiles. If the AI parser is unavailable, a regex fallback still extracts core fields. No resume gets dropped."
+Bullets: AI parsing from PDF, DOC, DOCX | Bulk upload with drag-and-drop | Inbound email processing — forward resumes and candidates appear automatically
+Visual: Three input channels illustration — an upload icon, a stack of files icon, and an email icon, all flowing into a single structured candidate profile card
+
+
+SECTION 4: Competitive Comparison
+Layout: Full-width section with white background. Section heading centered at top, then comparison tables below.
+Section heading: "How KineticRecruiter compares where it counts."
+Section subtext: "We built the AI features other platforms charge extra for. Here's the difference."
+Comparison Table 1: AI That's Actually Included
+Use a clean comparison table with the KineticRecruiter column highlighted (light teal background or teal header). Checkmarks in teal, X marks in light grey or red.
+FeatureKineticRecruiterBullhornRecruiterflowAI candidate matching✅ Included❌ $39+/mo add-on❌ Locked behind AIRA planAI resume parsing✅ Included❌ Add-on✅ IncludedAI email composition✅ Included❌ Not available❌ AIRA plan onlyAI career highlights✅ Included❌ Not available❌ Not availableNatural language search✅ Included❌ Not available❌ Not availableSemantic embeddings✅ Included❌ Not available❌ Not available
+Comparison Table 2: Built for Agencies, Not Just HR Teams
+FeatureKineticRecruiterWorkableGreenhouseClient company management✅ Built-in❌ Not available❌ Not availableContact directory per client✅ Built-in❌ Not available❌ Not availableClient submission emails (AI)✅ Built-in❌ Not available❌ Not availableCompany enrichment✅ Built-in❌ Not available❌ Not available
+Style these tables cleanly. The KineticRecruiter column should feel visually dominant — use a subtle teal tint on the column background or a teal top border on the header cell. Competitor columns in neutral grey. Checkmarks are teal. X marks are muted grey.
+
+SECTION 5: No Hidden Costs Strip
+Layout: Dark background section (dark navy or very dark teal). White text. Three stat/fact cards in a row.
+Card 1:
+
+Large number: "$0"
+Label: "Implementation fee"
+Subtext: "Bullhorn charges $1K-$15K+"
+
+Card 2:
+
+Large number: "$0"
+Label: "Training costs"
+Subtext: "Greenhouse charges $2K-$10K"
+
+Card 3:
+
+Large number: "$0"
+Label: "AI add-on fees"
+Subtext: "Bullhorn charges $39+/mo per add-on"
+
+
+SECTION 6: Additional Features Grid
+Layout: 2x3 or 3x2 grid of feature cards on light grey background. Each card has a teal icon, a headline, and 2 sentences of description. Cards have white backgrounds with subtle shadow/border.
+Card 1: Chrome Extension
+
+Icon: Chrome/puzzle piece icon
+Headline: "LinkedIn Import in One Click"
+Body: "See a great profile on LinkedIn? The Chrome Extension pulls their name, photo, work history, skills, and education straight into your ATS."
+
+Card 2: Team Management
+
+Icon: People/shield icon
+Headline: "Your Team, Your Rules"
+Body: "Four role levels, Google and Microsoft OAuth, email invitations, and automatic domain matching for frictionless team onboarding."
+
+Card 3: Dashboard & Analytics
+
+Icon: Chart/bar graph icon
+Headline: "The Numbers That Matter"
+Body: "Real-time counts, pipeline visualisation, 30-day trends, and source breakdown reporting. All built in."
+
+Card 4: Inbound Email Processing
+
+Icon: Email/inbox icon
+Headline: "Forward a Resume, Get a Candidate"
+Body: "Forward resumes from any email client. AI parsing creates the candidate, fetches their LinkedIn photo, and generates a semantic embedding. Automatic."
+
+Card 5: Multi-Tenant SaaS
+
+Icon: Building/layers icon
+Headline: "Built to Scale"
+Body: "Full multi-tenant isolation, Stripe billing, seat management, API keys, and a superadmin portal. This is a platform, not a prototype."
+
+Card 6: Duplicate Detection
+
+Icon: Copy/check icon
+Headline: "No Double-Ups"
+Body: "Every resume upload, email import, and LinkedIn import checks for duplicates by email and name. Existing candidates get updated, not duplicated."
+
+
+SECTION 7: CTA Section
+Layout: Full-width section with a light teal gradient background (light, not overpowering). Centered text.
+Headline: "Ready to stop paying for add-ons?"
+Subtext: "Start your 7-day free trial with 3 seats. No credit card required. Full access to every feature."
+Primary CTA: "Start Free Trial" (large teal button)
+Secondary CTA: "Book a Demo" (text link below the button)
+
+SECTION 8: FAQ Accordion
+Layout: White background, centered single column, max-width 700px. Accordion-style expand/collapse.
+Questions:
+Q: "What types of teams is KineticRecruiter built for?"
+A: "Agency recruiters, boutique staffing firms, and small in-house talent teams who need candidate management, client tracking, and AI-powered matching without enterprise complexity or pricing."
+Q: "What AI capabilities are included?"
+A: "Every plan includes AI resume parsing, natural language candidate search, semantic matching, AI candidate-job scoring with breakdowns, AI career highlight generation, and AI-powered client submission email drafting. No AI add-ons or premium tiers."
+Q: "How does the free trial work?"
+A: "7 days, 3 seats, full access to every feature. No credit card required. At the end, choose a plan or your account pauses."
+Q: "Can I import my existing candidates?"
+A: "Yes. Bulk upload resumes via drag-and-drop, forward resumes via email, or import from LinkedIn using the Chrome extension. AI parsing extracts structured data. Duplicate detection prevents double-ups."
+Q: "How does billing work?"
+A: "Stripe-powered, seat-based pricing. Monthly or annual. Add or remove seats anytime."
+Q: "Is there a mobile app?"
+A: "KineticRecruiter is a responsive web application accessible from any browser on any device. A dedicated mobile app is on the roadmap."
+
+SECTION 9: Footer
+Layout: Dark navy background, white/light grey text. Three or four columns.
+Column 1: Brand
+
+Logo (white version of the icon + wordmark)
+One-liner: "AI-powered ATS for recruitment agencies."
+Social links: LinkedIn icon (placeholder)
+
+Column 2: Product
+
+Features
+Pricing
+Chrome Extension
+API Documentation
+Login
+
+Column 3: Company
+
+About
+Blog
+Contact
+Privacy Policy
+Terms of Service
+
+Column 4: Get Started
+
+"Start Free Trial" button (teal, small)
+"Book a Demo" text link
+Support email: support@kineticrecruiter.com (placeholder)
+
+Bottom bar: "© 2026 KineticRecruiter. All rights reserved." — small text, centered or left-aligned.
+
+DESIGN SPECIFICATIONS
+General:
+
+Maximum content width: 1200px, centered
+Section vertical padding: 80-100px top and bottom
+Consistent use of teal (#0d8488) for all primary interactive elements (buttons, links, icons, active states)
+Buttons: Rounded corners (6-8px radius), teal fill for primary, white/outline for secondary, dark navy for tertiary
+Cards: White background, 8-12px border radius, subtle box shadow (0 2px 8px rgba(0,0,0,0.06))
+Hover states on cards: slightly elevated shadow
+Hover states on buttons: darker teal
+Section backgrounds alternate between white and light grey (#F7F8FA) for rhythm
+The dark section (No Hidden Costs strip) uses dark navy or #1a2332
+
+Responsive:
+
+Mobile: single column layout, stacked features, hamburger nav
+Tablet: two-column where possible, full-width comparison tables with horizontal scroll
+Desktop: full layout as described
+
+Illustrations/Visuals:
+
+Use abstract, clean illustrations in the brand colour palette (teal, cyan, amber accents on white)
+Candidate cards in illustrations should show: circular avatar placeholder, name line, subtitle line, match score badge
+Pipeline/Kanban illustrations should use teal column headers with white cards
+Style should match the mockup concept: light, airy, with flowing arrow elements suggesting movement/momentum
+Do NOT use stock photography of people. Use illustrations or abstract graphics only.
+
+Icons:
+
+Use a consistent icon set (Lucide, Heroicons, or Phosphor — outline style)
+Icons in teal for feature sections, white on dark backgrounds
+24px default size for inline, 32-40px for feature cards
+
+
+IMPORTANT NOTES
+
+This is a marketing/landing page, not the actual ATS application. It should feel like a product website (think stripe.com, linear.app, notion.so) — not a web app.
+Logo: Use the attached PNG file exactly as provided. Do not attempt to recreate, redraw, or restyle the logo. Place it as an image wherever the logo appears. For the favicon, crop to just the teal "K" icon portion.
+The hero illustration is the most critical visual on the page. Follow the detailed specification above precisely — flowing candidate cards through Sourcing → Interviewing → Offer stages with sweeping teal/cyan arrows conveying momentum. Reference the attached brand mockup for the intended style and energy.
+The website mockup concept in the brand assets shows "Put momentum behind your hiring" as a headline — use "The ATS that actually understands your candidates" instead as the primary headline. The momentum language can be used elsewhere on the site.
+Do not include fake client logos (Microsoft, Spotify, etc.) as shown in the mockup concept placeholder. Use generic grey placeholder shapes or remove the social proof bar until real logos are available.
+All copy is written in Australian/British English (organisation, not organization; colour, not color; analyse, not analyze).
+Keep the page fast. Minimise heavy animations. Subtle fade-in on scroll is fine. No parallax. No auto-playing video.
+The comparison tables are critical — they need to be scannable and make KineticRecruiter the obvious winner visually (teal column highlight, competitor columns muted).
