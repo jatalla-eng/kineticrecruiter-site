@@ -24,14 +24,14 @@ ENV HOSTNAME="0.0.0.0"
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy standalone server
-COPY --from=builder /app/.next/standalone ./
+# Copy standalone server (chown to nextjs so it can read)
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 # Copy static assets (required — standalone does NOT include these)
-COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Copy public directory (images, blog assets, OG images, admin CMS)
-COPY --from=builder /app/public ./public
-# Copy content directory (blog markdown files)
-COPY --from=builder /app/content ./content
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+# Copy content directory (blog + legal markdown files) — chown allows admin CMS to edit
+COPY --from=builder --chown=nextjs:nodejs /app/content ./content
 
 USER nextjs
 
