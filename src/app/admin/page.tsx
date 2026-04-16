@@ -98,6 +98,36 @@ export default function AdminDashboard() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-8">
+        {/* Legal Pages */}
+        <div className="mb-10">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Legal Pages</h2>
+          <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="divide-y divide-gray-200">
+              {[
+                { slug: 'privacy', title: 'Privacy Policy', path: '/privacy' },
+                { slug: 'terms', title: 'Terms of Service', path: '/terms' },
+              ].map(page => (
+                <div key={page.slug} className="p-5 hover:bg-gray-50 flex items-center justify-between">
+                  <div>
+                    <h3 className="font-semibold text-gray-900">{page.title}</h3>
+                    <p className="text-sm text-gray-500 mt-0.5">
+                      Public URL: <span className="font-mono">{page.path}</span>
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Link href={page.path} target="_blank">
+                      <Button variant="secondary" size="sm">View</Button>
+                    </Link>
+                    <Link href={`/admin/legal/${page.slug}/edit`}>
+                      <Button variant="secondary" size="sm">Edit</Button>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-xl font-semibold text-gray-900">Blog Posts</h2>
           <Link href="/admin/posts/new">
