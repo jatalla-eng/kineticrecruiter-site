@@ -2,20 +2,38 @@
 > AI-powered applicant tracking system for recruitment agencies
 
 ## About
-KineticRecruiter is an AI-powered ATS built specifically for recruitment agencies. It features semantic candidate search, explainable match scoring, AI career highlights, and a built-in client CRM. Pricing starts at $29/month with all AI features included at every tier. A 7-day free trial is available with no credit card required.
+KineticRecruiter is an AI-powered ATS built specifically for recruitment agencies. It features semantic candidate search, explainable match scoring (0–100), AI career highlights, a built-in client CRM, and AI-drafted submission emails. Pricing starts at USD $29/month with all AI features included at every tier. A 7-day free trial is available with no credit card required. The product targets recruitment agencies in Australia, but serves global customers.
 
 ## Key Pages
 - [Homepage](https://kineticrecruiter.com/)
-- [Features](https://kineticrecruiter.com/features/ai-candidate-intelligence)
 - [Pricing](https://kineticrecruiter.com/pricing)
+- [Features — AI Candidate Intelligence](https://kineticrecruiter.com/features/ai-candidate-intelligence)
+- [Features — Candidate Intake](https://kineticrecruiter.com/features/candidate-intake)
+- [Features — Agency Workflow](https://kineticrecruiter.com/features/agency-workflow)
+- [Features — Team & Platform](https://kineticrecruiter.com/features/team-platform)
+- [Solutions — Recruitment Agencies](https://kineticrecruiter.com/solutions/recruitment-agencies)
+- [Solutions — In-House Teams](https://kineticrecruiter.com/solutions/in-house-teams)
 - [Blog](https://kineticrecruiter.com/blog)
-- [Compare](https://kineticrecruiter.com/compare)
 - [Contact](https://kineticrecruiter.com/contact)
+
+## Competitor Comparisons
+- [vs Greenhouse](https://kineticrecruiter.com/compare/greenhouse)
+- [vs Lever](https://kineticrecruiter.com/compare/lever)
+- [vs Bullhorn](https://kineticrecruiter.com/compare/bullhorn)
+- [vs JobAdder](https://kineticrecruiter.com/compare/jobadder)
+- [vs Vincere](https://kineticrecruiter.com/compare/vincere)
+
+## Free Tools (no signup required)
+- [AI Job Description Generator](https://kineticrecruiter.com/tools/job-description-generator)
+- [Boolean Search String Builder](https://kineticrecruiter.com/tools/boolean-search-builder)
+- [Hiring ROI Calculator](https://kineticrecruiter.com/roi)
 
 ## Key Facts
 - Category: AI-Powered Applicant Tracking System (ATS)
-- Target Users: Recruitment agencies and staffing firms (1-50 recruiters)
-- Core Features: Semantic candidate search, AI match scoring (0-100), AI career highlights, client CRM, AI job description generation
-- Pricing: From $29/month, transparent tiers, no per-feature add-ons
+- Target Users: Recruitment agencies and staffing firms (1–50 recruiters); also in-house talent teams
+- Core Features: Semantic candidate search, explainable AI match scoring (0–100), AI career highlights, client CRM, AI-drafted submission emails, AI job description generation
+- Pricing: From USD $29/month, transparent public tiers, all AI included at every tier, no add-on fees
 - Free Trial: 7 days, no credit card required
-- Platform: Web-based SaaS
+- Platform: Web-based SaaS, accessible from any browser
+- Integrations: Seek, LinkedIn, Gmail, Outlook, email intake, Chrome extension
+- Geography: Headquartered in Australia; serves recruitment agencies globally

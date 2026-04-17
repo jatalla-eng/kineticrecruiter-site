@@ -3,15 +3,45 @@ import { generatePageMetadata } from '@/lib/metadata';
 import ContactForm from '@/components/contact/ContactForm';
 
 export const metadata = generatePageMetadata({
-  title: 'Contact Us',
+  title: 'Contact KineticRecruiter',
   description:
     'Questions about KineticRecruiter plans, features, or demos? Get in touch and our team will respond within 1 business day.',
   path: '/contact',
 });
 
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kineticrecruiter.com' },
+    { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://kineticrecruiter.com/contact' },
+  ],
+};
+
+const contactPointSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact KineticRecruiter',
+  url: 'https://kineticrecruiter.com/contact',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'KineticRecruiter',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Sales',
+      areaServed: 'AU',
+      availableLanguage: ['English'],
+    },
+  },
+};
+
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([contactSchema, contactPointSchema]) }}
+      />
       {/* Hero strip */}
       <section className="bg-kinetic-navy py-16">
         <div className="mx-auto max-w-[1200px] px-6">

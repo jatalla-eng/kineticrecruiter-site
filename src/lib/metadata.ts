@@ -30,7 +30,13 @@ export function generatePageMetadata({
   return {
     title: fullTitle,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: {
+        'en-AU': url,
+        'x-default': url,
+      },
+    },
     openGraph: {
       title: fullTitle,
       description,

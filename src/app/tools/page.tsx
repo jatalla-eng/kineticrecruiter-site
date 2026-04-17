@@ -5,11 +5,20 @@ import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 
 export const metadata = generatePageMetadata({
-  title: 'Free Recruiter Tools',
+  title: 'Free AI Tools for Recruiters',
   description:
-    'Free AI-powered recruiting tools. Generate job descriptions, calculate hiring ROI, and more. No signup required — try them now.',
+    'Free AI-powered recruiting tools. Generate job descriptions, build Boolean search strings, calculate hiring ROI. No signup required — try them now.',
   path: '/tools',
 });
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kineticrecruiter.com' },
+    { '@type': 'ListItem', position: 2, name: 'Free Tools', item: 'https://kineticrecruiter.com/tools' },
+  ],
+};
 
 const tools = [
   {
@@ -20,11 +29,31 @@ const tools = [
     badge: 'Free',
     badgeVariant: 'teal' as const,
   },
+  {
+    title: 'Boolean Search String Builder',
+    description:
+      'Build Boolean search strings for LinkedIn, Google X-Ray, Seek, Indeed, and GitHub in seconds. Supports AND, OR, NOT, and platform-specific operators.',
+    href: '/tools/boolean-search-builder',
+    badge: 'Free',
+    badgeVariant: 'teal' as const,
+  },
+  {
+    title: 'Hiring ROI Calculator',
+    description:
+      'Estimate time saved, cost reduction, and payback period from switching to an AI-powered ATS. See real numbers for your agency.',
+    href: '/roi',
+    badge: 'Free',
+    badgeVariant: 'teal' as const,
+  },
 ];
 
 export default function ToolsPage() {
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-kinetic-teal to-kinetic-teal-dark py-16">
         <div className="mx-auto max-w-[1200px] px-6">

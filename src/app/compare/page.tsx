@@ -2,6 +2,15 @@ import Link from 'next/link';
 import { generatePageMetadata } from '@/lib/metadata';
 import CTASection from '@/components/sections/CTASection';
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kineticrecruiter.com' },
+    { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://kineticrecruiter.com/compare' },
+  ],
+};
+
 export const metadata = generatePageMetadata({
   title: 'KineticRecruiter vs Greenhouse vs Lever: Agency ATS Comparison',
   description:
@@ -69,6 +78,10 @@ const comparisonData = [
 export default function ComparePage() {
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-kinetic-teal to-kinetic-teal-dark py-16">
         <div className="mx-auto max-w-[1200px] px-6">

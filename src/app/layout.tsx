@@ -9,6 +9,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-3TJGZ1PEJ4';
 const GSC_TOKEN = process.env.GOOGLE_SITE_VERIFICATION;
+const BING_TOKEN = process.env.BING_SITE_VERIFICATION;
+const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
 
 export const metadata: Metadata = {
   title: {
@@ -17,6 +19,13 @@ export const metadata: Metadata = {
   },
   description: 'AI-powered applicant tracking system built for recruitment agencies. Semantic search, match scoring with full transparency, and AI career highlights. No add-on fees.',
   metadataBase: new URL('https://kineticrecruiter.com'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-AU': 'https://kineticrecruiter.com',
+      'x-default': 'https://kineticrecruiter.com',
+    },
+  },
   robots: {
     index: true,
     follow: true,
@@ -24,7 +33,10 @@ export const metadata: Metadata = {
     'max-image-preview': 'large' as const,
     'max-video-preview': -1,
   },
-  ...(GSC_TOKEN ? { verification: { google: GSC_TOKEN } } : {}),
+  verification: {
+    ...(GSC_TOKEN ? { google: GSC_TOKEN } : {}),
+    ...(BING_TOKEN ? { other: { 'msvalidate.01': BING_TOKEN } } : {}),
+  },
   other: {
     'Cache-Control': 'no-cache, no-store, must-revalidate',
     'Pragma': 'no-cache',
@@ -64,7 +76,7 @@ const webSiteSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-AU">
       <body className={`${inter.className} min-h-screen flex flex-col`}>
         <script
           type="application/ld+json"
@@ -82,7 +94,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               gtag('js', new Date());
               gtag('config', '${GA_ID}');`}
             </Script>
+            <Script id="ga4-conversions" strategy="afterInteractive">
+              {`document.addEventListener('click', function(e) {
+                var a = e.target.closest('a');
+                if (!a || !a.href) return;
+                if (a.href.indexOf('app.kineticrecruiter.com/register') !== -1) {
+                  gtag('event', 'start_trial_click', { event_category: 'conversion', link_location: a.getAttribute('data-cta') || 'page', page_path: location.pathname });
+                } else if (a.href.indexOf('/contact') !== -1 && a.hostname === location.hostname) {
+                  gtag('event', 'demo_request_click', { event_category: 'conversion', page_path: location.pathname });
+                }
+              });`}
+            </Script>
           </>
+        )}
+        {CLARITY_ID && (
+          <Script id="clarity-init" strategy="afterInteractive">
+            {`(function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "${CLARITY_ID}");`}
+          </Script>
         )}
         <Navbar />
         <main className="flex-1">{children}</main>
