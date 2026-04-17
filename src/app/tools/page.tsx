@@ -28,9 +28,9 @@ export default function ToolsPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-kinetic-teal to-kinetic-teal-dark py-16">
         <div className="mx-auto max-w-[1200px] px-6">
-          <h1 className="text-4xl font-bold text-white">Recruiter Tools</h1>
+          <h1 className="text-4xl font-bold text-white">Free AI Tools for Recruiters</h1>
           <p className="mt-3 max-w-xl text-lg text-white/90">
-            Free tools to help you hire faster and smarter.
+            Free AI-powered tools to help you hire faster and smarter. No signup required.
           </p>
         </div>
       </section>

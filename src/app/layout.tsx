@@ -1,10 +1,14 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-3TJGZ1PEJ4';
+const GSC_TOKEN = process.env.GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   title: {
@@ -20,6 +24,7 @@ export const metadata: Metadata = {
     'max-image-preview': 'large' as const,
     'max-video-preview': -1,
   },
+  ...(GSC_TOKEN ? { verification: { google: GSC_TOKEN } } : {}),
   other: {
     'Cache-Control': 'no-cache, no-store, must-revalidate',
     'Pragma': 'no-cache',
@@ -34,6 +39,11 @@ const organizationSchema = {
   url: 'https://kineticrecruiter.com',
   logo: 'https://kineticrecruiter.com/images/logo.png',
   description: 'AI-powered applicant tracking system built for recruitment agencies.',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'AU',
+  },
+  areaServed: { '@type': 'Country', name: 'Australia' },
   sameAs: [
     'https://linkedin.com/company/kineticrecruiter',
     'https://twitter.com/kineticrecruiter',
@@ -60,6 +70,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, webSiteSchema]) }}
         />
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}');`}
+            </Script>
+          </>
+        )}
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

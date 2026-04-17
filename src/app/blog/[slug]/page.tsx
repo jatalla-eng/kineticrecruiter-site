@@ -4,9 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Badge from '@/components/ui/Badge';
 import CTASection from '@/components/sections/CTASection';
+import { generatePageMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 
-// Build-time static generation — called once during npm run build
 export async function generateStaticParams() {
   const slugs = getAllSlugs();
   return slugs.map((slug) => ({ slug }));
@@ -17,19 +17,14 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
-  if (!post) return { title: 'Post Not Found' };
-  return {
-    title: `${post.title} | KineticRecruiter Blog`,
+  if (!post) return { title: 'Post Not Found', robots: 'noindex, follow' };
+  return generatePageMetadata({
+    title: post.title,
     description: post.description,
-    openGraph: {
-      type: 'article',
-      title: post.title,
-      description: post.description,
-      images: post.image ? [{ url: post.image }] : [],
-      publishedTime: post.date,
-      authors: [post.author],
-    },
-  };
+    path: `/blog/${slug}`,
+    image: post.image,
+    type: 'article',
+  });
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -37,7 +32,6 @@ export default async function BlogPostPage({ params }: Props) {
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
-  // Article JSON-LD structured data
   const wordCount = post.content ? post.content.replace(/<[^>]*>/g, '').split(/\s+/).length : 0;
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -72,11 +66,21 @@ export default async function BlogPostPage({ params }: Props) {
     },
   };
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kineticrecruiter.com' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://kineticrecruiter.com/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `https://kineticrecruiter.com/blog/${slug}` },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([articleSchema, breadcrumbSchema]) }}
       />
       <main>
         <article className="max-w-3xl mx-auto px-4 py-12">

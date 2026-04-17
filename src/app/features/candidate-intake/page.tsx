@@ -1,4 +1,5 @@
 import { generatePageMetadata } from '@/lib/metadata';
+import { softwareApplicationSchema } from '@/lib/schema';
 import FeatureSection from '@/components/ui/FeatureSection';
 import CTASection from '@/components/sections/CTASection';
 import { ArrowRight, Upload } from 'lucide-react';
@@ -20,12 +21,19 @@ const breadcrumbSchema = {
   ],
 };
 
+const productSchema = softwareApplicationSchema({
+  name: 'KineticRecruiter — Multi-Channel Candidate Intake',
+  description: 'Bulk resume uploads, inbound email parsing, and LinkedIn Chrome extension to fill your candidate pipeline automatically.',
+  url: 'https://kineticrecruiter.com/features/candidate-intake',
+  featureList: ['Bulk resume upload', 'Inbound email resume parsing', 'LinkedIn Chrome extension', 'AI resume parsing', 'Duplicate detection'],
+});
+
 export default function CandidateIntakePage() {
   return (
     <main>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, productSchema]) }}
       />
       {/* Hero */}
       <section className="bg-gradient-to-br from-kinetic-teal-light via-white to-white py-20 md:py-28">

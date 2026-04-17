@@ -1,4 +1,5 @@
 import { generatePageMetadata } from '@/lib/metadata';
+import { softwareApplicationSchema } from '@/lib/schema';
 import FeatureSection from '@/components/ui/FeatureSection';
 import CTASection from '@/components/sections/CTASection';
 import { ArrowRight, Users } from 'lucide-react';
@@ -20,12 +21,19 @@ const breadcrumbSchema = {
   ],
 };
 
+const productSchema = softwareApplicationSchema({
+  name: 'KineticRecruiter — Team & Platform',
+  description: 'Multi-seat access, role-based permissions, and API integrations for growing recruitment agencies.',
+  url: 'https://kineticrecruiter.com/features/team-platform',
+  featureList: ['Multi-seat user management', 'Role-based permissions', 'REST API access', 'SSO support', 'Audit log'],
+});
+
 export default function TeamPlatformPage() {
   return (
     <main>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, productSchema]) }}
       />
       {/* Hero */}
       <section className="bg-gradient-to-br from-kinetic-teal-light via-white to-white py-20 md:py-28">

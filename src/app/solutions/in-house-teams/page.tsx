@@ -1,4 +1,5 @@
 import { generatePageMetadata } from '@/lib/metadata';
+import { softwareApplicationSchema } from '@/lib/schema';
 import FeatureSection from '@/components/ui/FeatureSection';
 import CTASection from '@/components/sections/CTASection';
 import { ArrowRight, Check } from 'lucide-react';
@@ -20,12 +21,19 @@ const breadcrumbSchema = {
   ],
 };
 
+const productSchema = softwareApplicationSchema({
+  name: 'KineticRecruiter for In-House Talent Teams',
+  description: 'ATS for internal talent teams. Streamline hiring with AI candidate scoring, structured intake, and team collaboration.',
+  url: 'https://kineticrecruiter.com/solutions/in-house-teams',
+  featureList: ['AI candidate scoring', 'Structured intake forms', 'Team collaboration', 'Hiring manager workflows', 'Interview coordination'],
+});
+
 export default function InHouseTeamsPage() {
   return (
     <main>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, productSchema]) }}
       />
       {/* Hero */}
       <section className="bg-gradient-to-br from-kinetic-navy to-[#243447] py-20 md:py-28">

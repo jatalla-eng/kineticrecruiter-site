@@ -15,10 +15,11 @@ const footerLinks = {
   ],
   resources: [
     { label: 'Blog', href: '/blog' },
-    { label: 'Documentation', href: '/docs' },
+    { label: 'Free Tools', href: '/tools' },
+    { label: 'ROI Calculator', href: '/roi' },
+    { label: 'Compare', href: '/compare' },
   ],
   company: [
-    { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
@@ -145,7 +146,7 @@ export default function Footer() {
           style={{ borderColor: 'rgba(255,255,255,0.1)' }}
         >
           <p className="text-gray-500 text-sm">
-            &copy; 2024 KineticRecruiter. All rights reserved.
+            &copy; {new Date().getFullYear()} KineticRecruiter. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-gray-500 hover:text-gray-300 transition-colors text-sm">

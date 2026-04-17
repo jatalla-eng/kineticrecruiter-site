@@ -1,4 +1,5 @@
 import { generatePageMetadata } from '@/lib/metadata';
+import { softwareApplicationSchema } from '@/lib/schema';
 import FeatureSection from '@/components/ui/FeatureSection';
 import CTASection from '@/components/sections/CTASection';
 import { ArrowRight, Sparkles } from 'lucide-react';
@@ -20,12 +21,19 @@ const breadcrumbSchema = {
   ],
 };
 
+const productSchema = softwareApplicationSchema({
+  name: 'KineticRecruiter — AI Candidate Intelligence',
+  description: 'Semantic candidate search, explainable AI match scoring (0–100), and AI-generated career highlights for recruitment agencies.',
+  url: 'https://kineticrecruiter.com/features/ai-candidate-intelligence',
+  featureList: ['Semantic candidate search', 'AI match scoring with explanations', 'AI career highlights', 'Natural language queries'],
+});
+
 export default function AICandidateIntelligencePage() {
   return (
     <main>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, productSchema]) }}
       />
       {/* Hero */}
       <section className="bg-gradient-to-br from-kinetic-teal-light via-white to-white py-20 md:py-28">

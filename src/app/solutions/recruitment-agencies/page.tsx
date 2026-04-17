@@ -1,4 +1,5 @@
 import { generatePageMetadata } from '@/lib/metadata';
+import { softwareApplicationSchema } from '@/lib/schema';
 import FeatureSection from '@/components/ui/FeatureSection';
 import CTASection from '@/components/sections/CTASection';
 import { ArrowRight, Check } from 'lucide-react';
@@ -20,12 +21,19 @@ const breadcrumbSchema = {
   ],
 };
 
+const productSchema = softwareApplicationSchema({
+  name: 'KineticRecruiter for Recruitment Agencies',
+  description: 'AI-powered ATS for recruitment agencies. Manage candidates across multiple clients, track placements, and close roles faster.',
+  url: 'https://kineticrecruiter.com/solutions/recruitment-agencies',
+  featureList: ['Multi-client candidate management', 'Placement tracking', 'Client CRM', 'AI candidate matching', 'Agency-specific workflows'],
+});
+
 export default function RecruitmentAgenciesPage() {
   return (
     <main>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, productSchema]) }}
       />
       {/* Hero */}
       <section className="bg-gradient-to-br from-kinetic-navy to-[#243447] py-20 md:py-28">

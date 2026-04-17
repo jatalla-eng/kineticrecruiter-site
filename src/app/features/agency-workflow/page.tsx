@@ -1,4 +1,5 @@
 import { generatePageMetadata } from '@/lib/metadata';
+import { softwareApplicationSchema } from '@/lib/schema';
 import FeatureSection from '@/components/ui/FeatureSection';
 import CTASection from '@/components/sections/CTASection';
 import { ArrowRight, LayoutGrid } from 'lucide-react';
@@ -20,12 +21,19 @@ const breadcrumbSchema = {
   ],
 };
 
+const productSchema = softwareApplicationSchema({
+  name: 'KineticRecruiter — Agency Workflow',
+  description: 'Built-in client CRM, Kanban job shortlists, and AI-drafted submission emails for recruitment agencies.',
+  url: 'https://kineticrecruiter.com/features/agency-workflow',
+  featureList: ['Client CRM', 'Kanban job shortlists', 'AI submission emails', 'Placement tracking', 'Multi-client candidate management'],
+});
+
 export default function AgencyWorkflowPage() {
   return (
     <main>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, productSchema]) }}
       />
       {/* Hero */}
       <section className="bg-gradient-to-br from-kinetic-teal-light via-white to-white py-20 md:py-28">

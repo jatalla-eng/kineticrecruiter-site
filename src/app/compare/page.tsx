@@ -1,8 +1,9 @@
+import Link from 'next/link';
 import { generatePageMetadata } from '@/lib/metadata';
 import CTASection from '@/components/sections/CTASection';
 
 export const metadata = generatePageMetadata({
-  title: 'ATS Comparison: vs Greenhouse & Lever',
+  title: 'KineticRecruiter vs Greenhouse vs Lever: Agency ATS Comparison',
   description:
     'Compare KineticRecruiter, Greenhouse, and Lever side by side on pricing, AI features, and ease of use. See which ATS fits your team.',
   path: '/compare',
@@ -71,11 +72,19 @@ export default function ComparePage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-kinetic-teal to-kinetic-teal-dark py-16">
         <div className="mx-auto max-w-[1200px] px-6">
-          <h1 className="text-4xl font-bold text-white">ATS Comparison</h1>
+          <h1 className="text-4xl font-bold text-white">KineticRecruiter vs Greenhouse vs Lever</h1>
           <p className="mt-3 max-w-xl text-lg text-white/90">
-            An honest side-by-side comparison of KineticRecruiter, Greenhouse, and Lever —
+            An honest side-by-side ATS comparison on pricing, AI features, and fit for agencies —
             including where we fall short.
           </p>
+          <nav className="mt-6 flex flex-wrap gap-3 text-sm">
+            <span className="text-white/70">Compare against:</span>
+            <Link href="/compare/greenhouse" className="text-white underline hover:text-kinetic-teal-light">Greenhouse</Link>
+            <Link href="/compare/lever" className="text-white underline hover:text-kinetic-teal-light">Lever</Link>
+            <Link href="/compare/bullhorn" className="text-white underline hover:text-kinetic-teal-light">Bullhorn</Link>
+            <Link href="/compare/jobadder" className="text-white underline hover:text-kinetic-teal-light">JobAdder</Link>
+            <Link href="/compare/vincere" className="text-white underline hover:text-kinetic-teal-light">Vincere</Link>
+          </nav>
         </div>
       </section>
 

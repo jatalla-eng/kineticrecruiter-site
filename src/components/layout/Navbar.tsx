@@ -32,7 +32,9 @@ const navItems = [
     dropdown: true,
     items: [
       { label: 'Blog', href: '/blog' },
-      { label: 'Documentation', href: '/docs' },
+      { label: 'Free Tools', href: '/tools' },
+      { label: 'Compare', href: '/compare' },
+      { label: 'ROI Calculator', href: '/roi' },
     ],
   },
 ];
