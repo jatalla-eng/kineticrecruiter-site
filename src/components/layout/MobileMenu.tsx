@@ -40,10 +40,10 @@ export default function MobileMenu({ navItems }: MobileMenuProps) {
 
   return (
     <>
-      {/* Hamburger button — z-[60] to sit above everything */}
+      {/* Hamburger button — z-[110] to sit above everything */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative z-[60] p-2 transition-colors text-kinetic-navy hover:text-kinetic-teal"
+        className="relative z-[110] p-2 transition-colors text-kinetic-navy hover:text-kinetic-teal"
         aria-label="Toggle navigation menu"
         aria-expanded={isOpen}
       >
@@ -53,7 +53,7 @@ export default function MobileMenu({ navItems }: MobileMenuProps) {
       {/* Backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-[55] bg-black/20"
+          className="fixed inset-0 z-[105] bg-black/20"
           onClick={closeMenu}
           aria-hidden="true"
         />
@@ -61,7 +61,7 @@ export default function MobileMenu({ navItems }: MobileMenuProps) {
 
       {/* Menu panel — slides down from top */}
       <div
-        className={`fixed left-0 right-0 z-[55] bg-white shadow-xl overflow-y-auto transition-all duration-300 ease-in-out ${
+        className={`fixed left-0 right-0 z-[105] bg-white shadow-xl overflow-y-auto transition-all duration-300 ease-in-out ${
           isOpen
             ? 'top-16 bottom-0 opacity-100'
             : 'top-16 bottom-full opacity-0 pointer-events-none'
