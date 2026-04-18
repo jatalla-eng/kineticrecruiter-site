@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] });
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-3TJGZ1PEJ4';
 const GSC_TOKEN = process.env.GOOGLE_SITE_VERIFICATION;
 const BING_TOKEN = process.env.BING_SITE_VERIFICATION;
-const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
+const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || 'wdcxcgphrx';
 
 export const metadata: Metadata = {
   title: {
