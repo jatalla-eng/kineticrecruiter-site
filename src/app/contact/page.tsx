@@ -29,7 +29,6 @@ const contactPointSchema = {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Sales',
-      areaServed: 'AU',
       availableLanguage: ['English'],
     },
   },

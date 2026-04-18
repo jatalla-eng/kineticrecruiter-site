@@ -36,4 +36,4 @@ KineticRecruiter is an AI-powered ATS built specifically for recruitment agencie
 - Free Trial: 7 days, no credit card required
 - Platform: Web-based SaaS, accessible from any browser
 - Integrations: Seek, LinkedIn, Gmail, Outlook, email intake, Chrome extension
-- Geography: Headquartered in Australia; serves recruitment agencies globally
+- Geography: Primary market United States; serves recruitment agencies globally

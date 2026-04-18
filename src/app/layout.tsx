@@ -21,10 +21,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://kineticrecruiter.com'),
   alternates: {
     canonical: '/',
-    languages: {
-      'en-AU': 'https://kineticrecruiter.com',
-      'x-default': 'https://kineticrecruiter.com',
-    },
   },
   robots: {
     index: true,
@@ -51,11 +47,6 @@ const organizationSchema = {
   url: 'https://kineticrecruiter.com',
   logo: 'https://kineticrecruiter.com/images/logo.png',
   description: 'AI-powered applicant tracking system built for recruitment agencies.',
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'AU',
-  },
-  areaServed: { '@type': 'Country', name: 'Australia' },
   sameAs: [
     'https://linkedin.com/company/kineticrecruiter',
     'https://twitter.com/kineticrecruiter',
@@ -76,7 +67,7 @@ const webSiteSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-AU">
+    <html lang="en-US">
       <body className={`${inter.className} min-h-screen flex flex-col`}>
         <script
           type="application/ld+json"
