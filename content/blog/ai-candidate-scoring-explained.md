@@ -3,7 +3,7 @@ title: "AI Candidate Scoring Explained: How Match Scores Actually Work"
 date: "2026-04-07"
 category: "AI in Recruitment"
 description: "What do AI match scores really mean? A detailed breakdown of how candidate scoring works, why explainability matters, and how to evaluate a scoring engine before you trust it."
-image: "/images/blog/candidate-scoring-explained.jpg"
+image: "/images/blog/candidate-review.jpg"
 author: "KineticRecruiter Team"
 ---
 

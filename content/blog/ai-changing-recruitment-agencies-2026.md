@@ -3,7 +3,7 @@ title: "How AI Is Transforming Recruitment Agencies in 2026"
 date: "2026-02-20"
 category: AI in Recruitment
 description: How artificial intelligence is reshaping US recruitment agencies — from automated screening to predictive candidate matching. A practical look at what's changing, what it costs, and what agencies gain.
-image: "/images/blog/ai-recruitment-2026.jpg"
+image: "/images/blog/team-working.jpg"
 author: KineticRecruiter Team
 ---
 

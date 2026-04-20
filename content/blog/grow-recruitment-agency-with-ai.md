@@ -3,7 +3,7 @@ title: "How to Grow Your Recruitment Agency in 2026: The AI Playbook"
 date: "2026-04-03"
 category: "Agency Growth"
 description: "A practical playbook for US recruitment agency owners looking to scale with AI tools — from database mining to automated submissions. Real numbers on ROI and a week-by-week implementation plan."
-image: "/images/blog/recruitment-agency-growth.jpg"
+image: "/images/blog/presenting-success.jpg"
 author: "KineticRecruiter Team"
 ---
 

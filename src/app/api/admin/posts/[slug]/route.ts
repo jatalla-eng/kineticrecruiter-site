@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getPostBySlug } from '@/lib/blog';
+import { getRawPostBySlug } from '@/lib/blog';
 import { updatePost, deletePost, createSlug, BlogPostInput } from '@/lib/blog-admin';
 import { isAuthenticated } from '@/lib/auth';
 
@@ -12,7 +12,7 @@ export async function GET(request: NextRequest, { params }: Params) {
 
   try {
     const { slug } = await params;
-    const post = await getPostBySlug(slug);
+    const post = getRawPostBySlug(slug);
 
     if (!post) {
       return NextResponse.json({ error: 'Post not found' }, { status: 404 });

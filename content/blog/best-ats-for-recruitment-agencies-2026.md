@@ -3,7 +3,7 @@ title: "Best ATS for Recruitment Agencies in 2026: KineticRecruiter vs Greenhous
 date: "2026-03-15"
 category: Comparisons
 description: A detailed comparison of the top ATS platforms for agency recruiters — covering pricing, AI features, workflow fit, and real-world trade-offs for US agencies.
-image: "/images/blog/best-ats-agencies.jpg"
+image: "/images/blog/agency-office.jpg"
 author: KineticRecruiter Team
 ---
 

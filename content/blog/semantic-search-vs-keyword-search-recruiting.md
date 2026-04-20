@@ -3,7 +3,7 @@ title: "Semantic Search vs Keyword Search in Recruiting: Why Boolean Is Dying"
 date: "2026-04-10"
 category: "AI in Recruitment"
 description: "Boolean and keyword search misses 30-40% of qualified candidates. A technical breakdown of how semantic search uses AI to understand meaning, and what the shift means for recruiters."
-image: "/images/blog/semantic-search-recruiting.jpg"
+image: "/images/blog/recruitment-meeting.jpg"
 author: "KineticRecruiter Team"
 ---
 

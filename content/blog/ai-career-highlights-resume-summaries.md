@@ -3,7 +3,7 @@ title: "AI Career Highlights: How Automated Resume Summaries Save Recruiters 10 
 date: "2026-03-22"
 category: "Guides"
 description: "Manual resume summarization is recruitment's biggest hidden time sink. AI career highlights auto-generate client-ready, role-specific summaries in seconds. Here's how they work, what the output looks like, and the real time savings."
-image: "/images/blog/ai-career-highlights.jpg"
+image: "/images/blog/recruiter-handshake.jpg"
 author: "KineticRecruiter Team"
 ---
 

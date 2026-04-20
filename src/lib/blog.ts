@@ -78,3 +78,29 @@ export function getAllSlugs(): string[] {
     .filter(f => f.endsWith('.md'))
     .map(f => f.replace(/\.md$/, ''));
 }
+
+/**
+ * Returns the post with RAW markdown content (no remark/HTML processing).
+ * Used by the admin edit form so the textarea shows editable markdown,
+ * not rendered HTML. Public rendering paths should keep using getPostBySlug.
+ */
+export function getRawPostBySlug(slug: string): BlogPost | null {
+  const fullPath = path.join(postsDirectory, `${slug}.md`);
+  if (!fs.existsSync(fullPath)) return null;
+
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
+  const stats = readingTime(content);
+
+  return {
+    slug,
+    title: data.title,
+    date: data.date,
+    category: data.category,
+    description: data.description,
+    image: data.image || '',
+    author: data.author || 'KineticRecruiter Team',
+    readingTime: stats.text,
+    content, // raw markdown, not HTML-processed
+  };
+}

@@ -1,6 +1,15 @@
 import Link from 'next/link';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { generatePageMetadata } from '@/lib/metadata';
+import { competitors } from '@/lib/competitors';
 import CTASection from '@/components/sections/CTASection';
+
+export const metadata = generatePageMetadata({
+  title: 'ATS Comparisons: KineticRecruiter vs Greenhouse, Lever, Bullhorn, JobAdder, Vincere',
+  description:
+    'Compare KineticRecruiter against the major agency ATS platforms. Side-by-side breakdowns on pricing, AI features, setup, and agency workflow fit — including where each competitor still wins.',
+  path: '/compare',
+});
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -11,190 +20,90 @@ const breadcrumbSchema = {
   ],
 };
 
-export const metadata = generatePageMetadata({
-  title: 'KineticRecruiter vs Greenhouse vs Lever: Agency ATS Comparison',
-  description:
-    'Compare KineticRecruiter, Greenhouse, and Lever side by side on pricing, AI features, and ease of use. See which ATS fits your team.',
-  path: '/compare',
-});
-
-const comparisonData = [
-  {
-    category: 'Pricing',
-    kinetic:
-      'From $29/mo, transparent tiers. No per-seat add-on fees.',
-    greenhouse:
-      'Custom pricing, typically $6,000–$25,000+/yr for SMBs. Seat-based add-ons.',
-    lever:
-      'Custom pricing, typically $3,500–$15,000+/yr. Module add-ons.',
-  },
-  {
-    category: 'AI Features',
-    kinetic:
-      'AI candidate intelligence, AI-powered job description generation, smart intake forms.',
-    greenhouse:
-      'Basic AI matching add-on (Greenhouse Intelligence). Limited native AI.',
-    lever:
-      'Basic AI sourcing via Lever Nurture. No native JD generation.',
-  },
-  {
-    category: 'Ease of Use',
-    kinetic:
-      'Modern UI, quick setup (~1 day). Limited onboarding resources vs established platforms.',
-    greenhouse:
-      'Well-documented, large community. Can be complex to configure.',
-    lever:
-      'Clean interface. Mid-market complexity.',
-  },
-  {
-    category: 'Best For',
-    kinetic:
-      'Recruitment agencies and in-house teams of 1–50 people who want AI features without enterprise pricing.',
-    greenhouse:
-      'Mid-to-large enterprises with complex hiring workflows and compliance needs.',
-    lever:
-      'Growing mid-market companies wanting structured hiring pipelines.',
-  },
-  {
-    category: 'Integrations',
-    kinetic:
-      'Core integrations (Seek, LinkedIn, email). Fewer than Greenhouse/Lever.',
-    greenhouse:
-      '500+ integrations via Greenhouse Harvest API. Mature ecosystem.',
-    lever:
-      '300+ integrations. Strong HRIS connectivity.',
-  },
-  {
-    category: 'Support',
-    kinetic:
-      'Email and in-app support. No dedicated CSM for lower tiers.',
-    greenhouse:
-      'Dedicated CSM on higher tiers. Extensive knowledge base.',
-    lever:
-      'Email + dedicated support. Good documentation.',
-  },
-];
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: competitors.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `KineticRecruiter vs ${c.name}`,
+    url: `https://kineticrecruiter.com/compare/${c.slug}`,
+  })),
+};
 
 export default function ComparePage() {
   return (
     <main className="min-h-screen bg-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, itemListSchema]) }}
       />
+
       {/* Hero */}
-      <section className="bg-gradient-to-br from-kinetic-teal to-kinetic-teal-dark py-16">
+      <section className="bg-gradient-to-br from-kinetic-teal to-kinetic-teal-dark py-16 md:py-20">
         <div className="mx-auto max-w-[1200px] px-6">
-          <h1 className="text-4xl font-bold text-white">KineticRecruiter vs Greenhouse vs Lever</h1>
-          <p className="mt-3 max-w-xl text-lg text-white/90">
-            An honest side-by-side ATS comparison on pricing, AI features, and fit for agencies —
-            including where we fall short.
+          <p className="text-sm font-semibold text-white/80 mb-3 uppercase tracking-wider">ATS Comparisons</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+            How KineticRecruiter compares.
+          </h1>
+          <p className="mt-3 max-w-2xl text-lg md:text-xl text-white/90">
+            Honest, side-by-side comparisons against the major agency ATS platforms — pricing,
+            AI features, setup friction, and where each competitor still wins.
           </p>
-          <nav className="mt-6 flex flex-wrap gap-3 text-sm">
-            <span className="text-white/70">Compare against:</span>
-            <Link href="/compare/greenhouse" className="text-white underline hover:text-kinetic-teal-light">Greenhouse</Link>
-            <Link href="/compare/lever" className="text-white underline hover:text-kinetic-teal-light">Lever</Link>
-            <Link href="/compare/bullhorn" className="text-white underline hover:text-kinetic-teal-light">Bullhorn</Link>
-            <Link href="/compare/jobadder" className="text-white underline hover:text-kinetic-teal-light">JobAdder</Link>
-            <Link href="/compare/vincere" className="text-white underline hover:text-kinetic-teal-light">Vincere</Link>
-          </nav>
         </div>
       </section>
 
-      {/* Comparison Table */}
+      {/* Comparison grid */}
       <section className="mx-auto max-w-[1200px] px-6 py-16">
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse text-sm">
-            <thead>
-              <tr>
-                <th className="w-1/4 py-4 px-4 text-left text-gray-500 font-medium border-b border-gray-200">
-                  Category
-                </th>
-                <th className="w-1/4 py-4 px-4 text-left font-semibold text-kinetic-navy bg-kinetic-teal-light border-b border-kinetic-teal">
-                  <span className="text-kinetic-teal">KineticRecruiter</span>
-                </th>
-                <th className="w-1/4 py-4 px-4 text-left font-semibold text-kinetic-navy border-b border-gray-200">
-                  Greenhouse
-                </th>
-                <th className="w-1/4 py-4 px-4 text-left font-semibold text-kinetic-navy border-b border-gray-200">
-                  Lever
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonData.map((row, i) => (
-                <tr key={row.category} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                  <td className="py-5 px-4 font-semibold text-kinetic-navy align-top border-b border-gray-100">
-                    {row.category}
-                  </td>
-                  <td className="py-5 px-4 text-gray-700 align-top border-b border-gray-100 bg-kinetic-teal-light/40">
-                    {row.kinetic}
-                  </td>
-                  <td className="py-5 px-4 text-gray-700 align-top border-b border-gray-100">
-                    {row.greenhouse}
-                  </td>
-                  <td className="py-5 px-4 text-gray-700 align-top border-b border-gray-100">
-                    {row.lever}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {competitors.map((c) => (
+            <Link
+              key={c.slug}
+              href={`/compare/${c.slug}`}
+              className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 hover:border-kinetic-teal hover:shadow-md transition-all"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-bold text-kinetic-navy group-hover:text-kinetic-teal transition-colors">
+                  vs {c.name}
+                </h2>
+                <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-kinetic-teal group-hover:translate-x-0.5 transition-all" />
+              </div>
+              <p className="text-sm text-gray-600 mb-5 leading-relaxed">{c.tagline}</p>
+              <div className="mt-auto pt-4 border-t border-gray-100">
+                <p className="text-xs font-semibold text-kinetic-navy uppercase tracking-wider mb-2">Best for</p>
+                <p className="text-sm text-gray-700">{c.rows.find((r) => r.category === 'Best for')?.kinetic || c.verdict.split('.')[1]?.trim() || 'Agencies that want AI-native workflows'}</p>
+              </div>
+            </Link>
+          ))}
         </div>
-
-        <p className="mt-6 text-xs text-gray-500">
-          * Competitor pricing and features are based on publicly available information as of 2026.
-          Verify current pricing at each vendor&apos;s website.
-        </p>
       </section>
 
-      {/* FAQ — structured for AI search engines */}
-      <section className="mx-auto max-w-[1200px] px-6 pb-16">
-        <h2 className="text-2xl font-bold text-kinetic-navy mb-8">
-          Frequently Asked Questions About ATS Comparison
-        </h2>
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-lg font-semibold text-kinetic-navy">
-              What is the best ATS for recruitment agencies?
-            </h3>
-            <p className="mt-2 text-gray-700">
-              The best ATS for recruitment agencies depends on team size and budget.
-              KineticRecruiter is designed specifically for agencies with 1-50 recruiters who want
-              AI-powered candidate matching and scoring without enterprise pricing. Greenhouse and
-              Lever are better suited for mid-to-large enterprises with complex compliance needs.
+      {/* Why KineticRecruiter */}
+      <section className="bg-gray-50 py-16">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-kinetic-navy mb-4">
+              Why agencies pick KineticRecruiter.
+            </h2>
+            <p className="text-lg text-gray-600">
+              Built for recruitment agencies from day one — not an in-house ATS with agency features bolted on.
             </p>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold text-kinetic-navy">
-              How does KineticRecruiter compare to Greenhouse?
-            </h3>
-            <p className="mt-2 text-gray-700">
-              KineticRecruiter starts at $29/month with all AI features included, while Greenhouse
-              typically costs $6,000-$25,000+ per year with AI as a paid add-on. KineticRecruiter
-              offers native AI candidate scoring and semantic search; Greenhouse has a larger
-              integration ecosystem with 500+ partners.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-kinetic-navy">
-              How does KineticRecruiter compare to Lever?
-            </h3>
-            <p className="mt-2 text-gray-700">
-              KineticRecruiter offers transparent pricing starting at $29/month, while Lever uses
-              custom pricing typically starting at $3,500+/year. KineticRecruiter includes AI match
-              scoring and job description generation natively; Lever focuses on structured hiring
-              pipelines and has stronger HRIS integrations.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-kinetic-navy">
-              Does KineticRecruiter offer a free trial?
-            </h3>
-            <p className="mt-2 text-gray-700">
-              Yes. KineticRecruiter offers a 7-day free trial with no credit card required. All AI
-              features are available during the trial period.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {[
+              { title: 'Flat pricing', body: 'USD $29–$99/month, all AI included. No per-seat surcharges, no add-on fees.' },
+              { title: 'Setup in under a day', body: 'Self-serve onboarding. First candidate shortlist in hours, not weeks.' },
+              { title: 'Native AI, not an add-on', body: 'Semantic candidate scoring, explainable match breakdowns, AI career highlights — all in the base plan.' },
+              { title: 'Agency-first data model', body: 'Multi-client candidate management, client review portals, and branded intake are core features, not workarounds.' },
+            ].map((item) => (
+              <div key={item.title} className="flex items-start gap-3 p-5 rounded-xl bg-white border border-gray-100">
+                <CheckCircle2 className="w-5 h-5 text-kinetic-teal flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-kinetic-navy mb-1">{item.title}</h3>
+                  <p className="text-sm text-gray-600">{item.body}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

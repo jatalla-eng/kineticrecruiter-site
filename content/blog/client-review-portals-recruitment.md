@@ -3,7 +3,7 @@ title: "Client Review Portals: Why Your Hiring Managers Hate Email Submissions"
 date: "2026-03-28"
 category: "Agency Growth"
 description: "Email submissions kill your placement rate. A deep dive into why email review is broken, what a modern client portal does differently, and the measurable impact on submission-to-interview conversion."
-image: "/images/blog/client-review-portals.jpg"
+image: "/images/blog/recruiter-phone.jpg"
 author: "KineticRecruiter Team"
 ---
 

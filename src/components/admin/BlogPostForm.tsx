@@ -41,7 +41,7 @@ export default function BlogPostForm({ post, isEditing = false }: BlogPostFormPr
         description: post.description,
         image: post.image || '',
         author: post.author,
-        content: post.content?.replace(/<[^>]*>/g, '') || '', // Strip HTML for editing
+        content: post.content || '', // raw markdown from getRawPostBySlug
       });
     } else {
       // Set default date to today
