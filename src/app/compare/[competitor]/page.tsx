@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { ArrowLeft } from 'lucide-react';
 import { generatePageMetadata } from '@/lib/metadata';
 import { competitors, getCompetitorBySlug } from '@/lib/competitors';
 import CTASection from '@/components/sections/CTASection';
@@ -57,6 +58,13 @@ export default async function CompetitorComparePage({ params }: Props) {
       {/* Hero */}
       <section className="bg-gradient-to-br from-kinetic-teal to-kinetic-teal-dark py-16">
         <div className="mx-auto max-w-[1200px] px-6">
+          <Link
+            href="/compare"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 hover:text-white mb-6 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            All ATS comparisons
+          </Link>
           <p className="text-sm font-semibold text-white/80 mb-3 uppercase tracking-wider">ATS Comparison</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             KineticRecruiter vs {c.name}

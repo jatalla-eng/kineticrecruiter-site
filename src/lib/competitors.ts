@@ -159,3 +159,122 @@ export const competitors: Competitor[] = [
 export function getCompetitorBySlug(slug: string): Competitor | undefined {
   return competitors.find((c) => c.slug === slug);
 }
+
+/**
+ * Master comparison matrix shown on the /compare index page.
+ * Each row is a dimension; values are strings or booleans per vendor.
+ * Order of vendor keys: kinetic, greenhouse, lever, bullhorn, jobadder, vincere.
+ */
+export type MatrixValue = string | { v: 'yes' | 'no' | 'partial'; note?: string };
+
+export type MatrixRow = {
+  dimension: string;
+  kinetic: MatrixValue;
+  greenhouse: MatrixValue;
+  lever: MatrixValue;
+  bullhorn: MatrixValue;
+  jobadder: MatrixValue;
+  vincere: MatrixValue;
+};
+
+export const comparisonMatrix: MatrixRow[] = [
+  {
+    dimension: 'Starting price',
+    kinetic: '$29/mo flat',
+    greenhouse: '~$6,500/yr',
+    lever: '~$3,500/yr',
+    bullhorn: '$99+/seat/mo',
+    jobadder: '~$150/seat/mo',
+    vincere: '$89+/seat/mo + setup',
+  },
+  {
+    dimension: 'Pricing model',
+    kinetic: 'Flat, all-inclusive',
+    greenhouse: 'Per seat + modules',
+    lever: 'Annual',
+    bullhorn: 'Per seat + modules',
+    jobadder: 'Per seat, annual',
+    vincere: 'Per seat + setup fees',
+  },
+  {
+    dimension: 'Semantic AI scoring',
+    kinetic: { v: 'yes', note: 'Included, every tier' },
+    greenhouse: { v: 'no' },
+    lever: { v: 'no' },
+    bullhorn: { v: 'partial', note: 'Keyword + Copilot add-on' },
+    jobadder: { v: 'partial', note: 'Limited, partly add-on' },
+    vincere: { v: 'partial', note: 'Limited' },
+  },
+  {
+    dimension: 'Explainable match breakdown',
+    kinetic: { v: 'yes' },
+    greenhouse: { v: 'no' },
+    lever: { v: 'no' },
+    bullhorn: { v: 'no' },
+    jobadder: { v: 'no' },
+    vincere: { v: 'no' },
+  },
+  {
+    dimension: 'AI career highlights',
+    kinetic: { v: 'yes', note: 'Role-specific, automatic' },
+    greenhouse: { v: 'no' },
+    lever: { v: 'no' },
+    bullhorn: { v: 'no' },
+    jobadder: { v: 'no' },
+    vincere: { v: 'no' },
+  },
+  {
+    dimension: 'Client review portal (no login)',
+    kinetic: { v: 'yes' },
+    greenhouse: { v: 'no' },
+    lever: { v: 'partial', note: 'Limited' },
+    bullhorn: { v: 'partial' },
+    jobadder: { v: 'no' },
+    vincere: { v: 'no' },
+  },
+  {
+    dimension: 'Branded candidate intake portals',
+    kinetic: { v: 'yes' },
+    greenhouse: { v: 'no' },
+    lever: { v: 'no' },
+    bullhorn: { v: 'partial' },
+    jobadder: { v: 'partial' },
+    vincere: { v: 'partial' },
+  },
+  {
+    dimension: 'Multi-client data model',
+    kinetic: 'Native',
+    greenhouse: 'Workaround',
+    lever: 'Workaround',
+    bullhorn: 'Native',
+    jobadder: 'Native',
+    vincere: 'Native',
+  },
+  {
+    dimension: 'Setup time',
+    kinetic: '< 1 day',
+    greenhouse: '3–6 weeks',
+    lever: '1–2 weeks',
+    bullhorn: '4–12 weeks',
+    jobadder: '2–4 weeks',
+    vincere: '4–8 weeks',
+  },
+  {
+    dimension: 'Integration marketplace',
+    kinetic: 'Core integrations',
+    greenhouse: '500+ apps',
+    lever: '300+ apps',
+    bullhorn: '500+ apps',
+    jobadder: 'Broad',
+    vincere: 'Broad',
+  },
+  {
+    dimension: 'Best for',
+    kinetic: '1–20 recruiter agencies wanting AI',
+    greenhouse: '50+ recruiter enterprise RPOs',
+    lever: 'Retained search firms',
+    bullhorn: 'Enterprise staffing firms',
+    jobadder: 'Mid-market agencies',
+    vincere: 'Config-heavy agencies',
+  },
+];

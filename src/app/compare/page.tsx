@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { generatePageMetadata } from '@/lib/metadata';
 import { competitors } from '@/lib/competitors';
+import MasterComparisonTable from '@/components/compare/MasterComparisonTable';
 import CTASection from '@/components/sections/CTASection';
 
 export const metadata = generatePageMetadata({
@@ -53,8 +54,36 @@ export default function ComparePage() {
         </div>
       </section>
 
-      {/* Comparison grid */}
+      {/* Master comparison table — KR vs all 5 competitors at a glance */}
       <section className="mx-auto max-w-[1200px] px-6 py-16">
+        <div className="max-w-3xl mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-kinetic-navy mb-3">
+            KineticRecruiter vs every major agency ATS.
+          </h2>
+          <p className="text-gray-600">
+            How we stack up across the 11 dimensions that matter most for recruitment agencies.
+            Scroll horizontally on mobile for the full matrix.
+          </p>
+        </div>
+        <MasterComparisonTable />
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500">
+          <span className="inline-flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded-sm bg-kinetic-teal" /> Included / native</span>
+          <span className="inline-flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded-sm bg-motion-amber" /> Partial / add-on</span>
+          <span className="inline-flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded-sm bg-gray-300" /> Not available</span>
+          <span className="ml-auto text-gray-400">Competitor pricing and features based on publicly available info as of 2026.</span>
+        </div>
+      </section>
+
+      {/* Detailed comparison cards */}
+      <section className="mx-auto max-w-[1200px] px-6 pb-16">
+        <div className="max-w-3xl mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-kinetic-navy mb-3">
+            Dive deeper on each competitor.
+          </h2>
+          <p className="text-gray-600">
+            Side-by-side breakdowns with pricing, FAQ, and switching advice for each platform.
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {competitors.map((c) => (
             <Link
@@ -63,9 +92,9 @@ export default function ComparePage() {
               className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 hover:border-kinetic-teal hover:shadow-md transition-all"
             >
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-kinetic-navy group-hover:text-kinetic-teal transition-colors">
+                <h3 className="text-xl font-bold text-kinetic-navy group-hover:text-kinetic-teal transition-colors">
                   vs {c.name}
-                </h2>
+                </h3>
                 <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-kinetic-teal group-hover:translate-x-0.5 transition-all" />
               </div>
               <p className="text-sm text-gray-600 mb-5 leading-relaxed">{c.tagline}</p>
