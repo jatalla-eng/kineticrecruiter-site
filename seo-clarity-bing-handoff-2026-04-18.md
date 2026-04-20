@@ -2,18 +2,22 @@
 
 **Paste this file into a new Claude Code session. Self-contained — has all context needed.**
 
+> **Status (as of 2026-04-20): COMPLETE.**
+> Clarity is live with Project ID `wdcxcgphrx`; Bing Webmaster Tools is verified via GSC import and the sitemap is submitted.
+> Keep this file as a reference for the pattern — but do NOT re-run Task 1 or Task 2.
+
 ---
 
 ## Context
 
-SEO audit for https://kineticrecruiter.com is complete and deployed. Two optional measurement tools remain to wire up. Both are free, privacy-friendly, and the code scaffolding is **already in place** — only env vars + external account setup remain.
+SEO audit for https://kineticrecruiter.com is complete and deployed. Two optional measurement tools remain to wire up. Both are free, privacy-friendly, and the code scaffolding is **already in place** — only external account setup + a 1-line code change remain.
 
 - **Project root:** `/Users/admin/Documents/Development/kineticrecruiter-site`
 - **User:** `john.atalla@gmail.com`
 - **Stack:** Next.js 16 on Google Cloud Run
 - **Cloud Run service:** `site` in region `australia-southeast1`
 - **GCP project ID:** `agentos-demo-1775622291`
-- **Deploy:** `gcloud builds submit --config=cloudbuild.yaml --region=australia-southeast1`
+- **Deploy:** `git push origin main` triggers Cloud Build → Cloud Run automatically. (There is no `cloudbuild.yaml` substitution plumbing — do not try to pass build-time variables unless you add `--build-arg` wiring to both the yaml and the Dockerfile first.)
 - **CDN purge:** `gcloud compute url-maps invalidate-cdn-cache kineticrecruiter-urlmap --path="/*" --global`
 
 ---
@@ -63,47 +67,30 @@ If `NEXT_PUBLIC_CLARITY_PROJECT_ID` is set, Clarity loads. If not set, the compo
    - **Copy the string in the last quotes** (the `XXXXXXXXXX` — usually 10 alphanumeric chars). That's the Project ID.
    - Alternatively, the Project ID is visible in the URL when viewing the project dashboard: `https://clarity.microsoft.com/projects/view/<PROJECT_ID>/...`
 
-4. **Set the env var on Cloud Run**:
+4. **Wire the Project ID into the code via the hardcode-fallback pattern.**
 
-   ```bash
-   gcloud run services update site \
-     --region=australia-southeast1 \
-     --update-env-vars=NEXT_PUBLIC_CLARITY_PROJECT_ID=<PROJECT_ID>
+   `NEXT_PUBLIC_*` vars are baked in at build time by Next.js, and `cloudbuild.yaml` does not currently thread substitutions through to the Docker build step. So the practical path is to hardcode the ID as a fallback, exactly matching how GA4 is handled on line 10 of the same file. Edit `src/app/layout.tsx`:
+
+   ```tsx
+   // Before
+   const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
+
+   // After
+   const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || '<PROJECT_ID>';
    ```
 
-   ⚠️ **Important:** The var must be prefixed `NEXT_PUBLIC_` so Next.js embeds it at build time on the client. Since this is a runtime update, the env var will flow to the `<Script>` tag on the next page render — **no rebuild required**.
-
-   Actually — correction: `NEXT_PUBLIC_*` vars are **baked in at build time**. For Cloud Run runtime env vars to reach `process.env.NEXT_PUBLIC_*` on the client bundle, you need to **redeploy** via Cloud Build so the build picks it up. Two options:
-
-   - **Option A (cleaner, recommended):** Add `NEXT_PUBLIC_CLARITY_PROJECT_ID` as a substitution in `cloudbuild.yaml` and pass it at build time:
-     ```bash
-     gcloud builds submit --config=cloudbuild.yaml \
-       --region=australia-southeast1 \
-       --substitutions=COMMIT_SHA=$(git rev-parse HEAD),_CLARITY_ID=<PROJECT_ID>
-     ```
-     Requires `cloudbuild.yaml` to expose `_CLARITY_ID` → `NEXT_PUBLIC_CLARITY_PROJECT_ID` in the Docker build step. Check the current yaml and add it if missing.
-
-   - **Option B (simpler):** Hardcode the ID directly in `src/app/layout.tsx` as a fallback, similar to how GA4 (`G-3TJGZ1PEJ4`) is already hardcoded. Change:
-     ```tsx
-     const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
-     ```
-     to:
-     ```tsx
-     const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || '<PROJECT_ID>';
-     ```
-     Commit, push, deploy. This is the pattern used for GA4.
+   The env var still overrides the fallback, so local/preview builds can point at a different Clarity project if ever needed.
 
 5. **Deploy**:
    ```bash
    git add src/app/layout.tsx && \
      git commit -m "analytics: wire Microsoft Clarity project ID <PROJECT_ID>" && \
      git push origin main && \
-     gcloud builds submit --config=cloudbuild.yaml \
-       --region=australia-southeast1 \
-       --substitutions=COMMIT_SHA=$(git rev-parse HEAD) && \
      gcloud compute url-maps invalidate-cdn-cache kineticrecruiter-urlmap \
        --path="/*" --global
    ```
+
+   Cloud Build auto-triggers on push to `main`. Wait 3–5 min for the build to roll out before the CDN purge takes effect in-browser.
 
 6. **Verify Clarity is live**:
    - Wait 2–3 min after deploy for CDN to purge
@@ -165,22 +152,23 @@ Only use this if Path A fails for some reason (GSC API hiccup, account mismatch)
    },
    ```
 
-6. **Set the env var + redeploy**:
+6. **Wire + deploy using the same hardcode-fallback pattern as Clarity.** Edit `src/app/layout.tsx`:
+   ```tsx
+   // Before
+   const BING_TOKEN = process.env.BING_SITE_VERIFICATION;
+
+   // After
+   const BING_TOKEN = process.env.BING_SITE_VERIFICATION || '<TOKEN>';
+   ```
+   Then commit, push, and purge the CDN:
    ```bash
-   # Hardcode as fallback (simplest, matches existing pattern):
-   # Edit src/app/layout.tsx, change:
-   #   const BING_TOKEN = process.env.BING_SITE_VERIFICATION;
-   # to:
-   #   const BING_TOKEN = process.env.BING_SITE_VERIFICATION || '<TOKEN>';
    git add src/app/layout.tsx && \
      git commit -m "seo: wire Bing Webmaster verification" && \
      git push origin main && \
-     gcloud builds submit --config=cloudbuild.yaml \
-       --region=australia-southeast1 \
-       --substitutions=COMMIT_SHA=$(git rev-parse HEAD) && \
      gcloud compute url-maps invalidate-cdn-cache kineticrecruiter-urlmap \
        --path="/*" --global
    ```
+   Cloud Build auto-triggers on push to `main`.
 
 7. Wait 2–3 min, then in Bing Webmaster click **Verify**.
 
@@ -195,6 +183,9 @@ Only use this if Path A fails for some reason (GSC API hiccup, account mismatch)
 - Google Search Console verified (domain property)
 - Sitemap submitted to GSC (27 URLs)
 - Clarity + Bing code scaffolding in `src/app/layout.tsx`
+- **Clarity live** — Project ID `wdcxcgphrx`, commit `fcf19bc`, deployed 2026-04-20. Dashboard: https://clarity.microsoft.com/projects/view/wdcxcgphrx
+- **Bing Webmaster Tools verified** via GSC import (account `john.atalla@gmail.com`), 2026-04-20. No Path B meta tag was needed, so `BING_SITE_VERIFICATION` env var and `BING_TOKEN` fallback remain unused.
+- **Sitemap submitted to Bing** — `https://kineticrecruiter.com/sitemap.xml`, 2026-04-20, status Processing.
 
 ---
 
@@ -203,4 +194,4 @@ Only use this if Path A fails for some reason (GSC API hiccup, account mismatch)
 - Do NOT commit without explicit user approval
 - Never skip git hooks; never force-push `main`
 - Always purge CDN after deploy (`cache-control: max-age=0, must-revalidate` + `cdn-cache-control: max-age=600`)
-- If Clarity hardcode path is chosen, follow the same `|| '<FALLBACK>'` pattern GA4 uses — don't break the env-var override
+- Follow the `|| '<FALLBACK>'` pattern GA4 uses for any new `NEXT_PUBLIC_*` constant — hardcode the public value so a fresh clone builds, but keep the env-var override so local/preview builds can point elsewhere
