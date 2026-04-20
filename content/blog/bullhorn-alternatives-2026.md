@@ -3,7 +3,7 @@ title: "Bullhorn Alternatives for Recruitment Agencies in 2026: 7 Modern ATS Opt
 date: "2026-04-14"
 category: Comparisons
 description: "Looking for a Bullhorn alternative? Compare seven modern agency ATS platforms by price, AI capabilities, setup time, and workflow fit. Includes detailed switching advice for Bullhorn users."
-image: "/images/blog/best-ats-agencies.jpg"
+image: "/images/blog/team-meeting.jpg"
 author: KineticRecruiter Team
 ---
 

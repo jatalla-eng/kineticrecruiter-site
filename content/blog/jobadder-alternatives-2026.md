@@ -3,7 +3,7 @@ title: "JobAdder Alternatives in 2026: 6 Modern ATS Options for US Agencies"
 date: "2026-04-16"
 category: Comparisons
 description: "Looking for a JobAdder alternative? Compare six modern agency ATS platforms — including AI-native, enterprise, and budget options — on pricing, features, and workflow fit."
-image: "/images/blog/best-ats-agencies.jpg"
+image: "/images/blog/presenting-data.jpg"
 author: KineticRecruiter Team
 ---
 

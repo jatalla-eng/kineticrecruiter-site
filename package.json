@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "new-post": "node scripts/new-post.js",
+    "ping-indexnow": "node scripts/ping-indexnow.js"
   },
   "dependencies": {
     "@google-cloud/vertexai": "^1.12.0",

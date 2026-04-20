@@ -45,6 +45,29 @@ steps:
       - '--max-instances'
       - '3'
 
+  # Step 4: Purge Cloud CDN so fresh content is served immediately.
+  # --async so this doesn't block the build waiting for the invalidation to finish.
+  # Requires the Cloud Build service account to have compute.urlMaps.invalidateCache
+  # (granted via roles/compute.loadBalancerAdmin or a custom role). If this step
+  # fails with PERMISSION_DENIED on first run, grant the role and retrigger.
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'compute'
+      - 'url-maps'
+      - 'invalidate-cdn-cache'
+      - 'kineticrecruiter-urlmap'
+      - '--path=/*'
+      - '--global'
+      - '--async'
+
+  # Step 5: Notify Bing / DuckDuckGo / Yandex of all sitemap URLs via IndexNow.
+  # Idempotent and non-fatal — the script exits 0 even on error so it never
+  # fails a deploy. Google ignores IndexNow; it discovers via sitemap recrawl.
+  - name: 'node:20-slim'
+    entrypoint: node
+    args: ['scripts/ping-indexnow.js']
+
 images:
   - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:$COMMIT_SHA'
   - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/kineticrecruiter/site:latest'

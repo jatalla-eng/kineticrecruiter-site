@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { BlogPost } from '@/lib/blog';
 import BlogCard from '@/components/blog/BlogCard';
+import ComparisonsSection from '@/components/blog/ComparisonsSection';
 import CTASection from '@/components/sections/CTASection';
 
 const CATEGORIES = [
@@ -28,6 +29,9 @@ export default function BlogIndex({ initialPosts }: BlogIndexProps) {
 
   return (
     <>
+      {/* ATS Comparisons — featured section linking to /compare/[competitor] pages */}
+      <ComparisonsSection />
+
       {/* Category filter pills */}
       <div className="flex flex-wrap gap-2 mb-8">
         {CATEGORIES.map((category) => (

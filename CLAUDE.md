@@ -6,12 +6,17 @@ Live at https://kineticrecruiter.com. App at https://app.kineticrecruiter.com.
 ## Quick Reference
 
 ```
-npm run dev          # Start dev server (port 3000)
-npm run build        # Production build
-npm run lint         # ESLint
+npm run dev                          # Start dev server (port 3000)
+npm run build                        # Production build
+npm run lint                         # ESLint
+npm run new-post -- <slug> "Title"   # Scaffold a new blog post
 ```
 
-Deploy: Push to main triggers Cloud Build -> Cloud Run.
+Deploy: Push to main triggers Cloud Build -> Cloud Run -> CDN purge -> IndexNow ping (all automatic, see `cloudbuild.yaml`).
+
+## Authoring blog content
+
+**Always read `BLOG_AUTHORING.md` before writing or editing anything in `content/blog/`.** It defines the frontmatter spec, content structure, voice, SEO conventions, and reference posts to model.
 
 ## Architecture
 
