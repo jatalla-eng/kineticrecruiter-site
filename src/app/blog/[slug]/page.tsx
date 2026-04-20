@@ -97,7 +97,7 @@ export default async function BlogPostPage({ params }: Props) {
             </h1>
             <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600 mb-6">
               <time dateTime={post.date}>
-                {new Date(post.date).toLocaleDateString('en-AU', {
+                {new Date(post.date).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',

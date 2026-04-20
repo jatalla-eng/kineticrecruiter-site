@@ -26,7 +26,7 @@ export default async function TermsPage() {
               {page.title}
             </h1>
             <p className="text-sm text-gray-500">
-              Last updated: {new Date(page.updated).toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' })}
+              Last updated: {new Date(page.updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           </div>
 
