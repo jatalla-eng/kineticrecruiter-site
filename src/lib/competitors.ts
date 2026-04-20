@@ -154,6 +154,42 @@ export const competitors: Competitor[] = [
       },
     ],
   },
+  {
+    slug: 'recruitcrm',
+    name: 'Recruit CRM',
+    tagline: 'Global agency ATS with unlimited trial vs. US/AU-focused AI-first agency ATS.',
+    summary:
+      'Recruit CRM is a popular AI-assisted agency ATS serving recruitment firms across 100+ countries, with an unusually generous unlimited free trial and aggressive paid-channel marketing. KineticRecruiter is narrower — US and AU focus, flat public USD pricing, and AI-native from day one rather than AI-assisted later.',
+    verdict:
+      'Pick Recruit CRM if you operate across many countries, want an unlimited trial before committing, and value breadth of AI agents across sourcing, outreach, and submittals. Pick KineticRecruiter if you run a US or AU agency, want flat USD pricing published on-page, and want semantic matching with explainable factor breakdowns instead of opaque AI-agent outputs.',
+    rows: [
+      { category: 'Starting price', kinetic: 'USD $29/seat/mo (public, flat).', competitor: 'Typically USD $85+/user/mo. Not published on-page; quoted via sales or trial.' },
+      { category: 'Pricing transparency', kinetic: 'Fully published: Starter/Professional/Agency tiers.', competitor: 'Tiers named (Pro, Business, Enterprise) but prices not shown publicly.' },
+      { category: 'Free trial', kinetic: '7 days, no credit card.', competitor: 'Unlimited free trial, no credit card — one of the most generous in the market.' },
+      { category: 'AI matching', kinetic: 'Semantic search + explainable 0–100 match breakdown, every tier.', competitor: 'AI agents for email replies, submissions, sourcing. Less emphasis on explainable scoring.' },
+      { category: 'Geographic focus', kinetic: 'US + AU primary. Opinionated defaults for these markets.', competitor: '100+ countries. Broader spread; less market-specific tuning.' },
+      { category: 'Setup time', kinetic: '< 1 day self-serve.', competitor: '~1–3 days self-serve; trial converts directly to paid account.' },
+      { category: 'Best for', kinetic: 'US/AU agencies 1–20 recruiters wanting AI and flat pricing.', competitor: 'Multi-country agencies wanting broad AI agent coverage and generous trial.' },
+    ],
+    faq: [
+      {
+        q: 'Is KineticRecruiter a Recruit CRM alternative?',
+        a: 'Yes — for US and AU recruitment agencies specifically. Both are AI-forward agency ATSs serving the 1–20 recruiter band. KineticRecruiter publishes flat USD pricing, focuses opinionated defaults on US and AU market realities, and leads with explainable match scoring. Recruit CRM is broader geographically and leans on AI agents rather than explainable scoring.',
+      },
+      {
+        q: 'How does the free trial compare?',
+        a: 'Recruit CRM offers an unlimited free trial with no credit card. KineticRecruiter offers a 7-day free trial, no credit card, with paid tiers starting at USD $29/month flat. If you want more time to evaluate, Recruit CRM has the edge. If you want to know exactly what you will pay before you start, KineticRecruiter is clearer.',
+      },
+      {
+        q: 'Which is better for a small agency?',
+        a: 'Both target 1–20 recruiter agencies, so the answer depends on what you value more. Pick Recruit CRM for unlimited trial time and broad AI agent coverage across sourcing and outreach. Pick KineticRecruiter for flat USD pricing, US/AU-specific defaults, and explainable 0–100 candidate match scoring that your clients can understand at a glance.',
+      },
+      {
+        q: 'Which has better pricing for a growing team?',
+        a: 'KineticRecruiter uses flat per-plan pricing (USD $29, $59, $99/mo) regardless of how many recruiters are on the plan. Recruit CRM is typically per-user, so the bill scales with headcount. A 10-recruiter agency on Recruit CRM at ~$85/user is ~$850/month; on KineticRecruiter Agency plan the flat rate is $99/month.',
+      },
+    ],
+  },
 ];
 
 export function getCompetitorBySlug(slug: string): Competitor | undefined {
@@ -163,7 +199,7 @@ export function getCompetitorBySlug(slug: string): Competitor | undefined {
 /**
  * Master comparison matrix shown on the /compare index page.
  * Each row is a dimension; values are strings or booleans per vendor.
- * Order of vendor keys: kinetic, greenhouse, lever, bullhorn, jobadder, vincere.
+ * Order of vendor keys: kinetic, greenhouse, lever, bullhorn, jobadder, vincere, recruitcrm.
  */
 export type MatrixValue = string | { v: 'yes' | 'no' | 'partial'; note?: string };
 
@@ -175,6 +211,7 @@ export type MatrixRow = {
   bullhorn: MatrixValue;
   jobadder: MatrixValue;
   vincere: MatrixValue;
+  recruitcrm: MatrixValue;
 };
 
 export const comparisonMatrix: MatrixRow[] = [
@@ -186,6 +223,7 @@ export const comparisonMatrix: MatrixRow[] = [
     bullhorn: '$99+/seat/mo',
     jobadder: '~$150/seat/mo',
     vincere: '$89+/seat/mo + setup',
+    recruitcrm: '~$85/user/mo (not published)',
   },
   {
     dimension: 'Pricing model',
@@ -195,6 +233,7 @@ export const comparisonMatrix: MatrixRow[] = [
     bullhorn: 'Per seat + modules',
     jobadder: 'Per seat, annual',
     vincere: 'Per seat + setup fees',
+    recruitcrm: 'Per user',
   },
   {
     dimension: 'Semantic AI scoring',
@@ -204,6 +243,7 @@ export const comparisonMatrix: MatrixRow[] = [
     bullhorn: { v: 'partial', note: 'Keyword + Copilot add-on' },
     jobadder: { v: 'partial', note: 'Limited, partly add-on' },
     vincere: { v: 'partial', note: 'Limited' },
+    recruitcrm: { v: 'partial', note: 'AI agents, less emphasis on explainable scoring' },
   },
   {
     dimension: 'Explainable match breakdown',
@@ -213,6 +253,7 @@ export const comparisonMatrix: MatrixRow[] = [
     bullhorn: { v: 'no' },
     jobadder: { v: 'no' },
     vincere: { v: 'no' },
+    recruitcrm: { v: 'no' },
   },
   {
     dimension: 'AI career highlights',
@@ -222,6 +263,7 @@ export const comparisonMatrix: MatrixRow[] = [
     bullhorn: { v: 'no' },
     jobadder: { v: 'no' },
     vincere: { v: 'no' },
+    recruitcrm: { v: 'partial', note: 'AI-assisted submittals' },
   },
   {
     dimension: 'Client review portal (no login)',
@@ -231,6 +273,7 @@ export const comparisonMatrix: MatrixRow[] = [
     bullhorn: { v: 'partial' },
     jobadder: { v: 'no' },
     vincere: { v: 'no' },
+    recruitcrm: { v: 'partial' },
   },
   {
     dimension: 'Branded candidate intake portals',
@@ -240,6 +283,7 @@ export const comparisonMatrix: MatrixRow[] = [
     bullhorn: { v: 'partial' },
     jobadder: { v: 'partial' },
     vincere: { v: 'partial' },
+    recruitcrm: { v: 'partial' },
   },
   {
     dimension: 'Multi-client data model',
@@ -249,6 +293,7 @@ export const comparisonMatrix: MatrixRow[] = [
     bullhorn: 'Native',
     jobadder: 'Native',
     vincere: 'Native',
+    recruitcrm: 'Native',
   },
   {
     dimension: 'Setup time',
@@ -258,6 +303,7 @@ export const comparisonMatrix: MatrixRow[] = [
     bullhorn: '4–12 weeks',
     jobadder: '2–4 weeks',
     vincere: '4–8 weeks',
+    recruitcrm: '1–3 days',
   },
   {
     dimension: 'Integration marketplace',
@@ -267,14 +313,26 @@ export const comparisonMatrix: MatrixRow[] = [
     bullhorn: '500+ apps',
     jobadder: 'Broad',
     vincere: 'Broad',
+    recruitcrm: 'Broad (100+ country coverage)',
+  },
+  {
+    dimension: 'Free trial',
+    kinetic: '7 days, no card',
+    greenhouse: 'None — demo-gated',
+    lever: 'None — demo-gated',
+    bullhorn: 'None — demo-gated',
+    jobadder: 'None — demo-gated',
+    vincere: 'None — demo-gated',
+    recruitcrm: 'Unlimited, no card',
   },
   {
     dimension: 'Best for',
-    kinetic: '1–20 recruiter agencies wanting AI',
+    kinetic: '1–20 recruiter US/AU agencies wanting AI + flat pricing',
     greenhouse: '50+ recruiter enterprise RPOs',
     lever: 'Retained search firms',
     bullhorn: 'Enterprise staffing firms',
-    jobadder: 'Mid-market agencies',
+    jobadder: 'Mid-market AU/NZ/UK agencies',
     vincere: 'Config-heavy agencies',
+    recruitcrm: 'Multi-country agencies wanting unlimited trial',
   },
 ];

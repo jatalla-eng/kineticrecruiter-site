@@ -257,14 +257,21 @@ Keywords (phrase match):
 **Ad Set 1: `AS1_Web_Visitors_30d`**
 - Inclusion: `kineticrecruiter.com` visitors, last 30 days
 - Exclusion: users who fired `CompleteRegistration` in last 90 days
-- Budget: $4/day
+- Budget: $3/day
 
 **Ad Set 2: `AS2_Video_Viewers_50pct_30d`** (populates as prospecting runs)
 - Inclusion: video views ≥50% of ThruPlay, any Prospecting ad
 - Exclusion: users who fired `CompleteRegistration` in last 90 days
-- Budget: $3/day
+- Budget: $2/day
 
-**Creative:** Lead with social proof + specific offer (e.g. "7-day free trial, no card required").
+**Ad Set 3: `AS3_Compare_Bullhorn_Visitors_30d`** (high-intent pull audience)
+- Inclusion: URL contains `/compare/bullhorn` OR `/blog/bullhorn-alternatives-2026` OR `/blog/migrating-from-bullhorn-to-modern-ats`, last 30 days
+- Exclusion: users who fired `CompleteRegistration` in last 90 days
+- Budget: $2/day
+- Creative: "Switch from Bullhorn in a weekend" — UGC or static emphasizing 2–5 day migration timeline. Link to `/compare/bullhorn` or `/pricing?from=bullhorn`.
+- Rationale: no competitor runs "leaving Bullhorn" creative; visitors to these pages have already self-identified as disaffected. Highest expected CVR of any retargeting cohort.
+
+**Creative (AS1, AS2):** Lead with social proof + specific offer (e.g. "7-day free trial, no card required"). AS3 uses dedicated "switch from Bullhorn" creative — see `CREATIVE-BRIEF.md`.
 
 ---
 
@@ -315,8 +322,9 @@ KineticRecruiter Paid Ads (Month 1-2)
 │   │   ├── AS2_Titles_Recruiter ($5/day)
 │   │   └── AS3_LAL_1pct_TrialSignups ($5/day — Month 2)
 │   └── META_CONV_Retarget_USAU_2026Q2 ($7/day)
-│       ├── AS1_Web_Visitors_30d ($4/day)
-│       └── AS2_Video_Viewers_50pct_30d ($3/day)
+│       ├── AS1_Web_Visitors_30d ($3/day)
+│       ├── AS2_Video_Viewers_50pct_30d ($2/day)
+│       └── AS3_Compare_Bullhorn_Visitors_30d ($2/day)
 │
 ├── TikTok Spark Ads (~$5-10/day)
 │   └── TIKTOK_SPARK_TopOrganic_USAU_2026Q2

@@ -8,6 +8,7 @@ const VENDOR_COLS = [
   { key: 'bullhorn' as const, label: 'Bullhorn' },
   { key: 'jobadder' as const, label: 'JobAdder' },
   { key: 'vincere' as const, label: 'Vincere' },
+  { key: 'recruitcrm' as const, label: 'Recruit CRM' },
 ];
 
 function renderValue(value: MatrixValue, highlight: boolean) {

@@ -61,7 +61,7 @@ export default function ComparePage() {
             KineticRecruiter vs every major agency ATS.
           </h2>
           <p className="text-gray-600">
-            How we stack up across the 11 dimensions that matter most for recruitment agencies.
+            How we stack up across the 12 dimensions that matter most for recruitment agencies.
             Scroll horizontally on mobile for the full matrix.
           </p>
         </div>
