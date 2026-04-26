@@ -1,0 +1,99 @@
+Campaign,Ad Group,Keyword,Criterion Type,Max CPC,Keyword Status
+GOOG_SEARCH_Brand_US_2026Q2,AG1_Brand,kineticrecruiter,Exact,0.50,Enabled
+GOOG_SEARCH_Brand_US_2026Q2,AG1_Brand,kinetic recruiter,Exact,0.50,Enabled
+GOOG_SEARCH_Brand_US_2026Q2,AG1_Brand,kinetic recruiter,Phrase,0.50,Enabled
+GOOG_SEARCH_Brand_US_2026Q2,AG1_Brand,kinetic recruiter ats,Phrase,0.50,Enabled
+GOOG_SEARCH_Brand_US_2026Q2,AG1_Brand,kinetic recruiter pricing,Phrase,0.50,Enabled
+GOOG_SEARCH_Brand_US_2026Q2,AG1_Brand,kinetic recruiter free trial,Phrase,0.50,Enabled
+GOOG_SEARCH_Brand_US_2026Q2,AG1_Brand,kinetic recruiter login,Phrase,0.50,Enabled
+GOOG_SEARCH_Brand_US_2026Q2,AG1_Brand,kinetic recruiter chrome extension,Phrase,0.50,Enabled
+GOOG_SEARCH_Brand_AU_2026Q2,AG1_Brand,kineticrecruiter,Exact,0.50,Enabled
+GOOG_SEARCH_Brand_AU_2026Q2,AG1_Brand,kinetic recruiter,Exact,0.50,Enabled
+GOOG_SEARCH_Brand_AU_2026Q2,AG1_Brand,kinetic recruiter,Phrase,0.50,Enabled
+GOOG_SEARCH_Brand_AU_2026Q2,AG1_Brand,kinetic recruiter ats,Phrase,0.50,Enabled
+GOOG_SEARCH_Brand_AU_2026Q2,AG1_Brand,kinetic recruiter pricing,Phrase,0.50,Enabled
+GOOG_SEARCH_Brand_AU_2026Q2,AG1_Brand,kinetic recruiter free trial,Phrase,0.50,Enabled
+GOOG_SEARCH_Brand_AU_2026Q2,AG1_Brand,kinetic recruiter login,Phrase,0.50,Enabled
+GOOG_SEARCH_Brand_AU_2026Q2,AG1_Brand,kinetic recruiter chrome extension,Phrase,0.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,applicant tracking system,Exact,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,applicant tracking system,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,ats for recruiters,Exact,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,ats for recruiters,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,ats software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,best ats,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,applicant tracking software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,ats tools,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,modern ats,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,ai ats,Exact,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,ai ats,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG1_ATS_Category,ats with ai,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG2_Agency_Software,recruitment agency software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG2_Agency_Software,recruitment crm,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG2_Agency_Software,staffing agency software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG2_Agency_Software,recruitment software for agencies,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG2_Agency_Software,recruiter software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG2_Agency_Software,software for recruitment consultants,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG2_Agency_Software,executive search software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG2_Agency_Software,agency recruiter tools,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG3_AI_Recruiting,ai recruiting software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG3_AI_Recruiting,ai resume screening,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG3_AI_Recruiting,ai candidate matching,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG3_AI_Recruiting,ai recruiter tools,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG3_AI_Recruiting,ai ats software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG3_AI_Recruiting,resume parsing ai,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG3_AI_Recruiting,ai candidate scoring,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_US_2026Q2,AG3_AI_Recruiting,semantic search recruiting,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG1_ATS_Category,applicant tracking system,Exact,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG1_ATS_Category,applicant tracking system,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG1_ATS_Category,ats for recruiters,Exact,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG1_ATS_Category,ats for recruiters,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG1_ATS_Category,ats software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG1_ATS_Category,best ats,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG1_ATS_Category,applicant tracking software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG1_ATS_Category,ats tools,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG1_ATS_Category,modern ats,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG1_ATS_Category,ai ats,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG1_ATS_Category,ats with ai,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG2_Agency_Software,recruitment agency software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG2_Agency_Software,recruitment crm,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG2_Agency_Software,staffing agency software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG2_Agency_Software,recruitment software for agencies,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG2_Agency_Software,recruiter software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG2_Agency_Software,software for recruitment consultants,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG2_Agency_Software,executive search software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG2_Agency_Software,agency recruiter tools,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG3_AI_Recruiting,ai recruiting software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG3_AI_Recruiting,ai resume screening,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG3_AI_Recruiting,ai candidate matching,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG3_AI_Recruiting,ai recruiter tools,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG3_AI_Recruiting,ai ats software,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG3_AI_Recruiting,resume parsing ai,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG3_AI_Recruiting,ai candidate scoring,Phrase,3.50,Enabled
+GOOG_SEARCH_NonBrand_AU_2026Q2,AG3_AI_Recruiting,semantic search recruiting,Phrase,3.50,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,bullhorn alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,bullhorn competitors,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,jobadder alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,jobadder competitors,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,jobadder pricing,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,loxo alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,loxo competitors,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,crelate alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,recruitcrm alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,recruit crm alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,manatal alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,vincere alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,workable alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_US_2026Q2,AG1_Alternatives,recruiterflow alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,bullhorn alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,bullhorn competitors,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,jobadder alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,jobadder competitors,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,jobadder pricing,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,loxo alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,crelate alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,recruitcrm alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,recruit crm alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,manatal alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,vincere alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,workable alternative,Phrase,4.00,Enabled
+GOOG_SEARCH_Competitor_AU_2026Q2,AG1_Alternatives,recruiterflow alternative,Phrase,4.00,Enabled

@@ -26,11 +26,21 @@ You're creating five accounts. Save every ID/key as you go in a scratchpad — y
 
 1. Go to https://analytics.google.com/
 2. Admin (gear icon) → **Create** → **Account** → name it `KineticRecruiter`
-3. Create a **Property** named `kineticrecruiter.com`, timezone Sydney (or US/Eastern), currency USD
+3. Create a **Property** named `kineticrecruiter.com`, timezone **Australia/Sydney**, currency **USD** (USD matches website pricing in plans.json — revenue reporting depends on it; AU entity does not require AUD reporting currency in GA4)
 4. Business details: Industry "Technology", size "Small"
 5. Business objectives: pick "Generate leads" + "Examine user behavior"
 6. Create a **Web data stream** for `https://kineticrecruiter.com`
-7. **Copy the Measurement ID** (looks like `G-XXXXXXXXXX`) → paste into your scratchpad
+7. **Copy the Measurement ID** (looks like `G-3TJGZ1PEJ4`) → paste into your scratchpad
+
+Account Name: KineticRecruiter (ID:
+Account ID
+391766610
+)
+Property Name: KineticRecruiter (ID:
+Property ID
+533500580
+)
+
 
 ✅ Save: `GA4_MEASUREMENT_ID = G-XXXXXXXXXX`
 
@@ -51,7 +61,7 @@ You're creating five accounts. Save every ID/key as you go in a scratchpad — y
 2. Click **Start now** → sign in with same Google account as GA4
 3. **CRITICAL:** at the campaign-creation prompt, click **"Switch to Expert Mode"** (small link bottom of screen). If you don't, Google forces you into Smart campaigns which you can't easily undo.
 4. Click **Create an account without a campaign**
-5. Confirm business info: country Australia (or US), timezone, currency USD
+5. Confirm business info: **country Australia, timezone Australia/Sydney, currency USD**. Currency is locked at creation — pick USD so reporting matches website pricing. AU entity + USD currency is fully supported.
 6. Submit — account is created
 7. **Copy the Customer ID** (top right, format `XXX-XXX-XXXX`) → scratchpad
 8. Add billing: **Tools → Billing → Settings** → add your card
@@ -77,7 +87,7 @@ You're creating five accounts. Save every ID/key as you go in a scratchpad — y
 
 1. Go to https://ads.tiktok.com/
 2. Sign up with your TikTok account
-3. Region: Australia (or US), industry: Software & Tech, business name `KineticRecruiter`
+3. Region: **Australia**, industry: Software & Tech, business name `KineticRecruiter`
 4. Skip campaign creation
 5. **Assets → Events → Web Events → Create Pixel** → name `KineticRecruiter Pixel`, install method "GTM"
 6. **Copy the Pixel ID** → scratchpad

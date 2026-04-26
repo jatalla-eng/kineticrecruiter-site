@@ -1,0 +1,515 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-04-21 10:00:00",
+  "containerVersion": {
+    "path": "accounts/REPLACE_ACCOUNT_ID/containers/REPLACE_CONTAINER_ID/versions/0",
+    "accountId": "REPLACE_ACCOUNT_ID",
+    "containerId": "REPLACE_CONTAINER_ID",
+    "containerVersionId": "0",
+    "name": "KineticRecruiter - Initial Tracking Setup",
+    "description": "Pre-wired container for kineticrecruiter.com + app.kineticrecruiter.com. Ships GA4, Google Ads, Meta Pixel, TikTok Pixel, LinkedIn Insight Tag. Replace the REPLACE_ME_* values in the Constant variables before publishing.",
+    "container": {
+      "path": "accounts/REPLACE_ACCOUNT_ID/containers/REPLACE_CONTAINER_ID",
+      "accountId": "REPLACE_ACCOUNT_ID",
+      "containerId": "REPLACE_CONTAINER_ID",
+      "name": "kineticrecruiter.com",
+      "publicId": "GTM-XXXXXXX",
+      "usageContext": ["WEB"],
+      "fingerprint": "0",
+      "features": {
+        "supportUserPermissions": true,
+        "supportEnvironments": true,
+        "supportWorkspaces": true,
+        "supportGtagConfigs": true,
+        "supportBuiltInVariables": true,
+        "supportClients": true,
+        "supportFolders": true,
+        "supportTags": true,
+        "supportTemplates": true,
+        "supportTriggers": true,
+        "supportVariables": true,
+        "supportVersions": true,
+        "supportZones": true
+      },
+      "tagManagerUrl": "https://tagmanager.google.com/"
+    },
+    "tag": [
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "tagId": "1",
+        "name": "GA4 - Configuration (All Pages)",
+        "type": "googtag",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "tagId", "value": "{{const - GA4 Measurement ID}}" },
+          {
+            "type": "LIST",
+            "key": "configSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "send_page_view" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "true" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "parameter", "value": "cookie_domain" },
+                  { "type": "TEMPLATE", "key": "parameterValue", "value": "auto" }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "tagId": "2",
+        "name": "GA4 - Event - trial_signup",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "eventName", "value": "trial_signup" },
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{const - GA4 Measurement ID}}" },
+          {
+            "type": "LIST",
+            "key": "eventParameters",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "name", "value": "plan" },
+                  { "type": "TEMPLATE", "key": "value", "value": "{{dlv - plan}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "name", "value": "user_id" },
+                  { "type": "TEMPLATE", "key": "value", "value": "{{dlv - user_id}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "name", "value": "value" },
+                  { "type": "TEMPLATE", "key": "value", "value": "{{dlv - value}}" }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "name", "value": "currency" },
+                  { "type": "TEMPLATE", "key": "value", "value": "{{dlv - currency}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": ["10"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "tagId": "3",
+        "name": "GA4 - Event - view_pricing",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "eventName", "value": "view_pricing" },
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{const - GA4 Measurement ID}}" }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": ["11"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "tagId": "4",
+        "name": "Google Ads - Conversion - Trial Signup",
+        "type": "awct",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "conversionId", "value": "{{const - Google Ads Conversion ID}}" },
+          { "type": "TEMPLATE", "key": "conversionLabel", "value": "{{const - Google Ads Conversion Label - Trial Signup}}" },
+          { "type": "TEMPLATE", "key": "conversionValue", "value": "{{dlv - value}}" },
+          { "type": "TEMPLATE", "key": "currencyCode", "value": "{{dlv - currency}}" },
+          { "type": "BOOLEAN", "key": "enableEnhancedConversions", "value": "true" },
+          {
+            "type": "LIST",
+            "key": "userProvidedData",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  { "type": "TEMPLATE", "key": "name", "value": "email" },
+                  { "type": "TEMPLATE", "key": "value", "value": "{{dlv - email_sha256}}" }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": ["10"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "tagId": "5",
+        "name": "Meta Pixel - Base (All Pages)",
+        "type": "html",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>\n!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '{{const - Meta Pixel ID}}');\nfbq('track', 'PageView');\n</script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\" src=\"https://www.facebook.com/tr?id={{const - Meta Pixel ID}}&ev=PageView&noscript=1\"/></noscript>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "tagId": "6",
+        "name": "Meta Pixel - Event - CompleteRegistration",
+        "type": "html",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>\n  fbq('track', 'CompleteRegistration', {\n    value: {{dlv - value}},\n    currency: {{dlv - currency}},\n    content_name: {{dlv - plan}}\n  }, { eventID: {{dlv - event_id}} });\n</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": ["10"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "tagId": "7",
+        "name": "Meta Pixel - Event - ViewContent (Pricing)",
+        "type": "html",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>\n  fbq('track', 'ViewContent', {\n    content_type: 'product',\n    content_name: 'pricing_page'\n  });\n</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": ["11"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "tagId": "8",
+        "name": "TikTok Pixel - Base (All Pages)",
+        "type": "html",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>\n!function (w, d, t) {\n  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=[\"page\",\"track\",\"identify\",\"instances\",\"debug\",\"on\",\"off\",\"once\",\"ready\",\"alias\",\"group\",\"enableCookie\",\"disableCookie\"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i=\"https://analytics.tiktok.com/i18n/pixel/events.js\";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement(\"script\");o.type=\"text/javascript\",o.async=!0,o.src=i+\"?sdkid=\"+e+\"&lib=\"+t;var a=document.getElementsByTagName(\"script\")[0];a.parentNode.insertBefore(o,a)};\n  ttq.load('{{const - TikTok Pixel ID}}');\n  ttq.page();\n}(window, document, 'ttq');\n</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "tagId": "9",
+        "name": "TikTok Pixel - Event - CompleteRegistration",
+        "type": "html",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script>\n  ttq.track('CompleteRegistration', {\n    value: {{dlv - value}},\n    currency: {{dlv - currency}},\n    content_name: {{dlv - plan}}\n  });\n</script>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": ["10"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "tagId": "10",
+        "name": "LinkedIn Insight Tag (All Pages)",
+        "type": "html",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "html", "value": "<script type=\"text/javascript\">\n_linkedin_partner_id = \"{{const - LinkedIn Partner ID}}\";\nwindow._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];\nwindow._linkedin_data_partner_ids.push(_linkedin_partner_id);\n</script><script type=\"text/javascript\">\n(function(l) {\nif (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};\nwindow.lintrk.q=[]}\nvar s = document.getElementsByTagName(\"script\")[0];\nvar b = document.createElement(\"script\");\nb.type = \"text/javascript\";b.async = true;\nb.src = \"https://snap.licdn.com/li.lms-analytics/insight.min.js\";\ns.parentNode.insertBefore(b, s);})(window.lintrk);\n</script>\n<noscript>\n<img height=\"1\" width=\"1\" style=\"display:none;\" alt=\"\" src=\"https://px.ads.linkedin.com/collect/?pid={{const - LinkedIn Partner ID}}&fmt=gif\" />\n</noscript>" },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": { "type": "MAP" },
+        "consentSettings": { "consentStatus": "NOT_SET" }
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "triggerId": "10",
+        "name": "Custom Event - trial_signup",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "trial_signup" }
+            ]
+          }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "triggerId": "11",
+        "name": "Page View - /pricing",
+        "type": "PAGEVIEW",
+        "filter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{Page Path}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "/pricing" }
+            ]
+          }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "triggerId": "12",
+        "name": "Click - Start Trial CTA",
+        "type": "CLICK",
+        "filter": [
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{Click URL}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": ".*/register.*" }
+            ]
+          }
+        ],
+        "fingerprint": "0"
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "100",
+        "name": "const - GA4 Measurement ID",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "REPLACE_ME_G-XXXXXXXXXX" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "101",
+        "name": "const - Google Ads Conversion ID",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "REPLACE_ME_AW-XXXXXXXXXX" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "102",
+        "name": "const - Google Ads Conversion Label - Trial Signup",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "REPLACE_ME_CONVERSION_LABEL" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "103",
+        "name": "const - Meta Pixel ID",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "REPLACE_ME_META_PIXEL_ID" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "104",
+        "name": "const - TikTok Pixel ID",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "REPLACE_ME_TIKTOK_PIXEL_ID" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "105",
+        "name": "const - LinkedIn Partner ID",
+        "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "REPLACE_ME_LI_PARTNER_ID" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "200",
+        "name": "dlv - plan",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "BOOLEAN", "key": "setDefaultValue", "value": "true" },
+          { "type": "TEMPLATE", "key": "name", "value": "plan" },
+          { "type": "TEMPLATE", "key": "defaultValue", "value": "unknown" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "201",
+        "name": "dlv - user_id",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "user_id" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "202",
+        "name": "dlv - email_sha256",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "email_sha256" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "203",
+        "name": "dlv - value",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "BOOLEAN", "key": "setDefaultValue", "value": "true" },
+          { "type": "TEMPLATE", "key": "name", "value": "value" },
+          { "type": "TEMPLATE", "key": "defaultValue", "value": "70" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "204",
+        "name": "dlv - currency",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "BOOLEAN", "key": "setDefaultValue", "value": "true" },
+          { "type": "TEMPLATE", "key": "name", "value": "currency" },
+          { "type": "TEMPLATE", "key": "defaultValue", "value": "USD" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "205",
+        "name": "dlv - event_id",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "event_id" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "300",
+        "name": "url - gclid",
+        "type": "u",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "component", "value": "QUERY" },
+          { "type": "TEMPLATE", "key": "queryKey", "value": "gclid" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "301",
+        "name": "url - fbclid",
+        "type": "u",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "component", "value": "QUERY" },
+          { "type": "TEMPLATE", "key": "queryKey", "value": "fbclid" }
+        ],
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "REPLACE_ACCOUNT_ID",
+        "containerId": "REPLACE_CONTAINER_ID",
+        "variableId": "302",
+        "name": "url - ttclid",
+        "type": "u",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "component", "value": "QUERY" },
+          { "type": "TEMPLATE", "key": "queryKey", "value": "ttclid" }
+        ],
+        "fingerprint": "0"
+      }
+    ],
+    "builtInVariable": [
+      { "accountId": "REPLACE_ACCOUNT_ID", "containerId": "REPLACE_CONTAINER_ID", "type": "PAGE_URL", "name": "Page URL" },
+      { "accountId": "REPLACE_ACCOUNT_ID", "containerId": "REPLACE_CONTAINER_ID", "type": "PAGE_HOSTNAME", "name": "Page Hostname" },
+      { "accountId": "REPLACE_ACCOUNT_ID", "containerId": "REPLACE_CONTAINER_ID", "type": "PAGE_PATH", "name": "Page Path" },
+      { "accountId": "REPLACE_ACCOUNT_ID", "containerId": "REPLACE_CONTAINER_ID", "type": "REFERRER", "name": "Referrer" },
+      { "accountId": "REPLACE_ACCOUNT_ID", "containerId": "REPLACE_CONTAINER_ID", "type": "EVENT", "name": "Event" },
+      { "accountId": "REPLACE_ACCOUNT_ID", "containerId": "REPLACE_CONTAINER_ID", "type": "CLICK_ELEMENT", "name": "Click Element" },
+      { "accountId": "REPLACE_ACCOUNT_ID", "containerId": "REPLACE_CONTAINER_ID", "type": "CLICK_URL", "name": "Click URL" },
+      { "accountId": "REPLACE_ACCOUNT_ID", "containerId": "REPLACE_CONTAINER_ID", "type": "CLICK_TEXT", "name": "Click Text" }
+    ],
+    "fingerprint": "0",
+    "tagManagerUrl": "https://tagmanager.google.com/"
+  }
+}

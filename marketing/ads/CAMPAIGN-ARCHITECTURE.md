@@ -30,11 +30,14 @@
 
 ### Account-level defaults
 
+- **Entity:** Australian Pty Ltd. **Billing currency:** USD (lock at account creation — matches website pricing).
 - Single account for US + AU (use campaign-level geo targeting).
 - Location targeting: **Presence** only (never "people interested in location"). Prevents junk traffic from low-value geos.
 - Language: English only.
 - Conversion action: `trial_signup` (primary). Set as "Purchase / conversion" category, include in Conversions column, count = **one per click**.
 - Auto-apply recommendations: **OFF**. Google's auto-recs routinely break tight budgets.
+
+**Note on geo:** website accepts customers globally, but Phase 1 paid targeting is US + AU only. Tight budget can't afford to learn across more geos. Layer UK + CA Phase 2 once data supports.
 
 ### Campaign: `GOOG_SEARCH_Brand_US_2026Q2` (and `_AU_`)
 

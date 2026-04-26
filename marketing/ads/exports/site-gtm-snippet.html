@@ -1,0 +1,79 @@
+<!--
+  GTM install snippets for kineticrecruiter.com and app.kineticrecruiter.com.
+  Paste the <head> block at the top of <head>, and the <body> block immediately after <body>.
+  Replace GTM-XXXXXXX with your real container ID once GTM is created.
+
+  In Next.js App Router (src/app/layout.tsx):
+  - The <script> goes in <head>, inside the Script component with strategy="afterInteractive"
+    OR directly in <head> via next/script's beforeInteractive strategy.
+  - The <noscript> <iframe> goes immediately after <body>.
+
+  Reference implementation below uses next/script (recommended for Next.js 13+ App Router).
+-->
+
+
+<!-- =========================================== -->
+<!-- Option A: Plain HTML (any framework)        -->
+<!-- =========================================== -->
+
+<!-- Paste in <head>, as high as possible -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');
+</script>
+
+<!-- Paste immediately after <body> opening tag -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<!-- =========================================== -->
+<!-- Option B: Next.js App Router                -->
+<!-- =========================================== -->
+<!--
+Drop the below into src/app/layout.tsx. This uses next/script for the <head>
+snippet and a raw <noscript> <iframe> for the fallback. The GTM_ID constant
+reads from an env var so you can keep the ID out of git history.
+
+// .env.local
+// NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+
+// src/app/layout.tsx
+import Script from 'next/script';
+
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        {GTM_ID && (
+          <Script id="gtm-script" strategy="afterInteractive">
+            {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','${GTM_ID}');`}
+          </Script>
+        )}
+      </head>
+      <body>
+        {GTM_ID && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        )}
+        {children}
+      </body>
+    </html>
+  );
+}
+-->

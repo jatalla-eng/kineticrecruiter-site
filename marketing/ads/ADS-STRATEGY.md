@@ -33,6 +33,8 @@ Three decisions drive the plan:
 
 ### Geography Recommendation
 
+**Entity:** Australian Pty Ltd. **Account billing currency:** USD (matches website pricing in [plans.json](../../src/lib/plans.json) and revenue reporting). **Geo targeting** is set per campaign and is independent of account country. The website itself accepts customers globally; paid ad targeting is deliberately narrower because <$2k/mo cannot afford to test global at launch.
+
 **Phase 1 (Month 1-2):** US + AU only, English-only.
 
 - **US:** Largest addressable market of recruitment agencies (~24k agencies, ~500k in-house recruiters). Highest willingness-to-pay and LTV.

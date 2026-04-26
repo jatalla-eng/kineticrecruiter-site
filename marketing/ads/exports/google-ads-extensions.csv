@@ -1,0 +1,21 @@
+Extension Type,Account,Campaign,Sitelink Text,Description Line 1,Description Line 2,Final URL,Callout Text,Snippet Header,Snippet Values
+Sitelink,Enabled,,Pricing,From $29/mo per recruiter,"7-day free trial, no card",https://kineticrecruiter.com/pricing,,,
+Sitelink,Enabled,,Free Trial,Start in under 60 seconds,No credit card required,https://kineticrecruiter.com/register?plan=professional,,,
+Sitelink,Enabled,,For Agencies,Unlimited clients & jobs,Built for 1-20 person agencies,https://kineticrecruiter.com/solutions/recruitment-agencies,,,
+Sitelink,Enabled,,AI Features,"AI scoring, resume parsing",Natural-language CV search,https://kineticrecruiter.com/features/ai-candidate-intelligence,,,
+Sitelink,Enabled,,Chrome Extension,Import LinkedIn candidates,One-click from any profile,https://kineticrecruiter.com/features/candidate-intake,,,
+Sitelink,Enabled,,Compare,KR vs other modern ATS,"Features, pricing, support",https://kineticrecruiter.com/compare,,,
+Callout,Enabled,,,,,,No credit card required,,
+Callout,Enabled,,,,,,7-day free trial,,
+Callout,Enabled,,,,,,AI resume parsing,,
+Callout,Enabled,,,,,,Natural language search,,
+Callout,Enabled,,,,,,Unlimited clients,,
+Callout,Enabled,,,,,,Chrome extension,,
+Callout,Enabled,,,,,,Built for agencies,,
+Callout,Enabled,,,,,,Cancel anytime,,
+Callout,Enabled,,,,,,From $29 per month,,
+Callout,Enabled,,,,,,AI candidate scoring,,
+Callout,Enabled,,,,,,10K API calls/day,,
+Callout,Enabled,,,,,,24/7 email support,,
+Structured Snippet,Enabled,,,,,,,Features,"AI Resume Parsing; AI Candidate Matching; Natural Language Search; Kanban Pipeline; Client CRM; Chrome Extension"
+Structured Snippet,Enabled,,,,,,,Service catalog,"Starter — $29/mo; Professional — $59/mo; Agency — $99/mo"
