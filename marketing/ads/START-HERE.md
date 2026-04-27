@@ -727,3 +727,105 @@ If you hit any of these, ping me:
 **Total active work: ~14-18 hours over 14 days.** Most of it is Sessions 5-6.
 
 The minimum viable "I'm running ads" milestone is end of **Session 4 — Day 3** at 30 min of build time once Sessions 1-3 are done.
+
+---
+
+## Handoff to Claude Code
+
+**Last updated:** 2026-04-27
+**Status at handoff:** Session 1 substantially complete. Session 2 blocked on Cloud Build trigger.
+**How to use this section:** open the repo in Claude Code, point Claude at this file, ask it to "continue from the handoff section." Claude will see the open TODOs below and the captured account state above, then pick up the next blocking item.
+
+### Current state (resolved decisions, do not relitigate)
+
+- **Entity:** Australian Pty Ltd
+- **Currency:** AUD across Google Ads + Meta + TikTok ad accounts (overrides earlier USD recommendation — FX-margin reasoning captured in Preflight section above)
+- **Pricing model:** **Tiered $29/$59/$99 USD on the website, locked.** Any ad copy implying flat pricing is stale and must be reconciled to tiered.
+- **Geo targeting:** US + AU only Phase 1 (unchanged from original plan)
+- **Stape.io:** deferred to Month 2 (revisit triggers in Step 1.7)
+- **Account IDs captured above in Session 1 steps** — do not recreate accounts.
+
+### Captured account state (source-of-truth IDs)
+
+| System | ID / Reference |
+|---|---|
+| GA4 Measurement ID | `G-3TJGZ1PEJ4` |
+| GA4 Account ID | `391766610` |
+| GA4 Property ID | `533500580` |
+| GTM Container ID | `GTM-TD2ZCRRV` |
+| Google Ads Customer ID | `529-562-3656` |
+| Meta Business Portfolio | `KineticRecruiter` |
+| Meta Ad Account | `act_1991440081768330` |
+| Meta Pixel ID | `2531875870548790` |
+| Meta Page ID | `1136076626246361` |
+| TikTok Pixel | `D7NCHIJC77U9KU0AEQGG` |
+| LinkedIn Account ID | `524540074` |
+| LinkedIn Partner ID | `9252572` |
+
+### Open TODOs — work these in order
+
+#### TODO-1 (BLOCKER) — Fix Cloud Build trigger
+
+**Symptom:** Code commit `dcf656a` is on GitHub but did not auto-deploy. No GitHub→Cloud Build trigger exists for this repo.
+
+**Why it blocks:** Session 2 deploy verification cannot complete. GTM tag won't be live until a deploy succeeds.
+
+**Action for Claude Code:**
+1. Read [setup-github-trigger.md](../../setup-github-trigger.md) and [cloudbuild.yaml](../../cloudbuild.yaml) for the existing config
+2. Confirm or create the trigger via `gcloud builds triggers create github --repo-name=... --branch-pattern=^main$ --build-config=cloudbuild.yaml --project=<correct-project-id>`
+3. Manually trigger a build to verify
+4. Resolve TODO-2 in parallel — they're related
+
+#### TODO-2 — Confirm Cloud project ownership
+
+**Symptom:** Recent builds went to `agentos-demo-1775622291`. Unclear if intentional.
+
+**Action for Claude Code:**
+1. Run `gcloud projects list` and `gcloud config get-value project` to inspect current state
+2. Inspect any production deploys (Cloud Run service URL → check service ID)
+3. If `agentos-demo-1775622291` is wrong, confirm the correct project ID with the user before changing the trigger
+4. Document the answer here once resolved
+
+#### TODO-3 — Reconcile ad copy to tiered pricing model
+
+**Symptom:** Pricing was locked at tiered `$29/$59/$99` but stale "$89 flat" + "per recruiter" copy persists.
+
+**Files to edit:**
+- [CREATIVE-BRIEF.md](CREATIVE-BRIEF.md) lines 100, 101, 104, 168 — Pillar 6 "Pricing Clarity" was built on a flat-pricing premise that no longer holds. Either:
+  - **Rewrite Pillar 6** around "tiered pricing matches your size, no per-seat tax" (still beats per-seat economics for solo + 2-person agencies)
+  - **Or kill Pillar 6 entirely** and drop UGC006 + STATIC003 from the launch creative set
+- [RSA-COPY.md](RSA-COPY.md) line 211 — sitelink "From $29/mo per recruiter" is wrong (Starter is $29/mo total with limits, not per-recruiter). Change to "From $29/mo" or "From $29/mo for solo recruiters".
+
+**Action for Claude Code:** ask the user which Pillar 6 direction (rewrite vs kill) before editing. Don't assume.
+
+#### TODO-4 — Regenerate Google Ads Editor CSVs in AUD
+
+**Symptom:** `marketing/ads/exports/google-ads-*.csv` have USD numbers baked in (5.00, 0.50, 20.00, 3.50). Account currency is AUD; importing as-is sets wrong bids and budgets.
+
+**Action for Claude Code:**
+1. Pull current FX rate (USD→AUD; check via `curl -s "https://api.frankfurter.app/latest?from=USD&to=AUD"` or similar)
+2. Multiply all budget and bid columns in [google-ads-campaigns.csv](exports/google-ads-campaigns.csv), [google-ads-keywords.csv](exports/google-ads-keywords.csv), [google-ads-ads.csv](exports/google-ads-ads.csv) by the rate
+3. Round daily budgets to whole dollars (AUD), bid caps to nearest 5¢
+4. Verify totals against the AUD-translated budgets in Sessions 4/6/7/8 of this doc
+5. Write the rate used + date into [exports/README.md](exports/README.md)
+
+#### TODO-5 — Cross-platform name normalization
+
+**Symptom:** LinkedIn account name "Kinetic Recruiter" inconsistent with one-word "KineticRecruiter" used everywhere else.
+
+**Action for Claude Code:** rename the LinkedIn account to `KineticRecruiter` (one word). Doesn't affect campaigns; this is for cleaner cross-platform reporting later.
+
+### Open clarifications (no action yet, just documented)
+
+- **LinkedIn account currency** unconfirmed — probably USD; doesn't matter until Month 4 paid LinkedIn launch.
+- **Meta BP business verification** — green "Finish update" button on Business Portfolio. Required before A$1.5k/mo Meta spend. Complete during Session 3 or no later than Day 11 QA.
+
+### Definition of done (for handoff)
+
+This section is closed when:
+- [ ] All 5 TODOs above are completed and checked off
+- [ ] Two clarifications resolved (LinkedIn currency, Meta verification)
+- [ ] Session 2 deploy verification passes
+- [ ] Session 3 conversion event firing end-to-end with Meta EMQ ≥7
+
+When the above is true, delete this section and update top-of-file status to "Sessions 1-3 complete, Session 4 ready to launch."
