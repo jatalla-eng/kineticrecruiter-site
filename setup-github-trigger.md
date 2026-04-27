@@ -1,57 +1,75 @@
-# Setting Up Automatic GitHub Deployments
+# Cloud Build GitHub Trigger Setup
 
-## Issue Identified
-Your homepage changes weren't deployed automatically because the Cloud Build GitHub trigger wasn't set up.
+**Project:** `kineticrecruiterpublic` (project number `741700859778`)
+**Region:** `australia-southeast1`
+**GitHub repo:** `jatalla-eng/kineticrecruiter-site` → branch `main`
+**Build config:** `cloudbuild.yaml` (includes a project guard at Step 0 — see that file)
 
-## Manual Deployment (Completed)
-✅ Your latest changes have been manually deployed and are now live!
+> KR is fully isolated from any AgentOS project. If you ever see KR resources or a
+> trigger pointing at an `agentos-*` project, that is a misconfiguration — fix the
+> caller's gcloud project context and re-run, do not paper over it.
 
-## Setting Up Automatic Deployments
+## What the trigger does
 
-To make future `git push` commands automatically deploy, set up a Cloud Build trigger:
+Pushes to `main` build a Docker image, push to Artifact Registry, deploy to Cloud Run,
+purge the Cloud CDN URL map cache, and ping IndexNow with the sitemap.
 
-### Option 1: Cloud Console (Recommended)
-1. Go to [Cloud Build Triggers](https://console.cloud.google.com/cloud-build/triggers)
-2. Click **"Create Trigger"**
-3. Choose **"Connect Repository"** → **"GitHub"**
-4. Select: `jatalla-eng/kineticrecruiter-site`
-5. Configure trigger:
-   - **Name**: `deploy-on-push-to-main`
-   - **Event**: Push to branch
-   - **Branch**: `^main$`
-   - **Configuration**: Cloud Build configuration file
-   - **File location**: `/cloudbuild.yaml`
-6. Click **"Create"**
+## Verifying the trigger exists
 
-### Option 2: Command Line
 ```bash
-# This might require additional GitHub App permissions
+gcloud builds triggers list \
+  --project=kineticrecruiterpublic \
+  --format="table(name,github.owner,github.name,filename,disabled)"
+```
+
+You should see one trigger named `deploy-on-push-to-main` listening on
+`jatalla-eng/kineticrecruiter-site` with filename `cloudbuild.yaml`.
+
+## Re-creating the trigger (only if it has been deleted)
+
+The trigger needs the Cloud Build GitHub App connected to your GitHub account. The
+app authorization is per-account and outlives any individual trigger.
+
+### One-time GitHub App connection (already done)
+
+If the GitHub App has not been connected to `kineticrecruiterpublic` yet, do this
+once via the Console:
+
+1. Open https://console.cloud.google.com/cloud-build/triggers?project=kineticrecruiterpublic
+2. Click **Connect Repository** → **GitHub (Cloud Build GitHub App)**
+3. Authorize the `jatalla-eng/kineticrecruiter-site` repository
+4. Skip the trigger creation wizard at the end — we create it via CLI below
+
+### Trigger creation (CLI)
+
+Once the GitHub connection is in place:
+
+```bash
 gcloud builds triggers create github \
-  --name="deploy-on-push-to-main" \
-  --repo-name="kineticrecruiter-site" \
-  --repo-owner="jatalla-eng" \
-  --branch-pattern="^main$" \
-  --build-config="cloudbuild.yaml"
+  --project=kineticrecruiterpublic \
+  --region=global \
+  --name=deploy-on-push-to-main \
+  --repo-owner=jatalla-eng \
+  --repo-name=kineticrecruiter-site \
+  --branch-pattern='^main$' \
+  --build-config=cloudbuild.yaml
 ```
 
-### Test Automatic Deployment
-After setting up the trigger, test with a small change:
+## Manual deploy (when you need to bypass the trigger)
+
 ```bash
-echo "# Test automatic deployment" >> README.md
-git add README.md
-git commit -m "test: verify automatic deployment trigger"
-git push origin main
+gcloud builds submit \
+  --project=kineticrecruiterpublic \
+  --config=cloudbuild.yaml \
+  --substitutions=COMMIT_SHA=$(git rev-parse --short HEAD) \
+  .
 ```
 
-Then check: `gcloud builds list --limit=1`
+`cloudbuild.yaml` Step 0 will reject the build if `--project` is anything other
+than `kineticrecruiterpublic`, so an accidental misdirect aborts before any side
+effects.
 
-## Manual Deployment (If Needed)
-If you ever need to manually deploy:
-```bash
-COMMIT_SHA=$(git rev-parse --short HEAD)
-gcloud builds submit --config cloudbuild.yaml --substitutions=COMMIT_SHA=$COMMIT_SHA .
-```
+## Production URLs
 
-## Production Site
-Your updated homepage is now live at:
-https://kineticrecruiter-site-746481210678.australia-southeast1.run.app
+- **Site:** https://kineticrecruiter.com (fronted by global HTTPS load balancer in `kineticrecruiterpublic`)
+- **Cloud Run direct:** https://kineticrecruiter-site-741700859778.australia-southeast1.run.app

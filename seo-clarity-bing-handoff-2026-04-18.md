@@ -16,7 +16,7 @@ SEO audit for https://kineticrecruiter.com is complete and deployed. Two optiona
 - **User:** `john.atalla@gmail.com`
 - **Stack:** Next.js 16 on Google Cloud Run
 - **Cloud Run service:** `site` in region `australia-southeast1`
-- **GCP project ID:** `agentos-demo-1775622291`
+- **GCP project ID:** `kineticrecruiterpublic` (KR is fully isolated from any AgentOS project)
 - **Deploy:** `git push origin main` triggers Cloud Build → Cloud Run automatically. (There is no `cloudbuild.yaml` substitution plumbing — do not try to pass build-time variables unless you add `--build-arg` wiring to both the yaml and the Dockerfile first.)
 - **CDN purge:** `gcloud compute url-maps invalidate-cdn-cache kineticrecruiter-urlmap --path="/*" --global`
 

@@ -1,4 +1,21 @@
 steps:
+  # Step 0: Project guard — refuse to deploy KR into the wrong GCP project.
+  # KR resources live in `kineticrecruiterpublic`. Any other project ID
+  # (e.g. an unrelated default in `gcloud config`) means a misconfigured
+  # `gcloud builds submit` and we abort before any side effects.
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        set -e
+        if [ "$PROJECT_ID" != "kineticrecruiterpublic" ]; then
+          echo "ERROR: KineticRecruiter only deploys to project 'kineticrecruiterpublic'."
+          echo "Got PROJECT_ID=$PROJECT_ID — aborting before any resources are touched."
+          exit 1
+        fi
+        echo "Project guard passed: $PROJECT_ID"
+
   # Step 1: Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args:
