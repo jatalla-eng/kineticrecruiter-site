@@ -7,7 +7,7 @@
 > **Progress as of 2026-04-26**
 > - Preflight: pricing decision **RESOLVED → tiered $29/$59/$99** (matches `plans.json`). Residual copy edits in CREATIVE-BRIEF.md Pillar 6 (lines 100, 101, 104) and RSA-COPY.md sitelink (line 211) still pending.
 > - Session 1: ✅ COMPLETE. GA4, GTM, Google Ads, Meta, TikTok, LinkedIn all captured. Stape.io ⏸️ deferred to Month 2 (revisit triggers documented in Step 1.7).
-> - Session 2: GA4 strategy decided — **migrate gtag.js into GTM** (existing inline gtag.js block in `src/app/layout.tsx` will be replaced; no double-counting). PR drafted directly against `src/app/layout.tsx` + new `src/components/analytics/GTMRouteListener.tsx`.
+> - Session 2: GA4 strategy decided — **migrate gtag.js into GTM** (existing inline gtag.js block in `src/app/layout.tsx` will be replaced; no double-counting). PR drafted directly against `src/app/layout.tsx` + new `src/components/analytics/GTMRouteListener.tsx`. **Deploy infra migrated 2026-04-27** off `agentos-demo-1775622291` (where it never belonged) into dedicated `kineticrecruiterpublic` project; Cloud Build trigger live; project guard in `cloudbuild.yaml` Step 0 prevents recurrence. GTM-TD2ZCRRV is now live in production.
 >
 > **Currency decision (2026-04-26):** Google Ads account is **AUD**, not USD. Reasoning: AU-issued payment card paying USD = bank takes 2–3% FX margin on every charge (~$220–330/year wasted at $30/day spend). Google's institutional FX (when account currency = card currency) has no margin. AUD account targeting US works fine — currency has zero impact on geo targeting. All USD figures in Sessions 4/6/7/8 below have been translated to AUD-equivalents (using AUD/USD ≈ 0.65, so 1 USD ≈ A$1.54). Re-check rates if AUD moves >10% before launch.
 
@@ -764,27 +764,13 @@ The minimum viable "I'm running ads" milestone is end of **Session 4 — Day 3**
 
 ### Open TODOs — work these in order
 
-#### TODO-1 (BLOCKER) — Fix Cloud Build trigger
+#### TODO-1 — Fix Cloud Build trigger ✅ DONE (2026-04-27)
 
-**Symptom:** Code commit `dcf656a` is on GitHub but did not auto-deploy. No GitHub→Cloud Build trigger exists for this repo.
+Trigger `deploy-on-push-to-main` is live in `kineticrecruiterpublic`, watching `jatalla-eng/kineticrecruiter-site` main → `cloudbuild.yaml`, running as `kr-deploy@kineticrecruiterpublic.iam.gserviceaccount.com` (least-privilege SA). Validated end-to-end via `git push` of commit `ce0c647`.
 
-**Why it blocks:** Session 2 deploy verification cannot complete. GTM tag won't be live until a deploy succeeds.
+#### TODO-2 — Cloud project ownership ✅ RESOLVED (2026-04-27)
 
-**Action for Claude Code:**
-1. Read [setup-github-trigger.md](../../setup-github-trigger.md) and [cloudbuild.yaml](../../cloudbuild.yaml) for the existing config
-2. Confirm or create the trigger via `gcloud builds triggers create github --repo-name=... --branch-pattern=^main$ --build-config=cloudbuild.yaml --project=<correct-project-id>`
-3. Manually trigger a build to verify
-4. Resolve TODO-2 in parallel — they're related
-
-#### TODO-2 — Confirm Cloud project ownership
-
-**Symptom:** Recent builds went to `agentos-demo-1775622291`. Unclear if intentional.
-
-**Action for Claude Code:**
-1. Run `gcloud projects list` and `gcloud config get-value project` to inspect current state
-2. Inspect any production deploys (Cloud Run service URL → check service ID)
-3. If `agentos-demo-1775622291` is wrong, confirm the correct project ID with the user before changing the trigger
-4. Document the answer here once resolved
+KR is now in **`kineticrecruiterpublic`** (project number `741700859778`). It was previously misconfigured into `agentos-demo-1775622291`; full migration completed 2026-04-27 (new LB, new IP `34.96.72.204`, new Cert Manager managed cert, GTM rolled live, all KR resources removed from `agentos-demo`). `cloudbuild.yaml` Step 0 now aborts any build whose `$PROJECT_ID` is not `kineticrecruiterpublic` so a recurrence fails before any side effects. See [setup-github-trigger.md](../../setup-github-trigger.md) for the post-migration runbook.
 
 #### TODO-3 — Reconcile ad copy to tiered pricing model
 
