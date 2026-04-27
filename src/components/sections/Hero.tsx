@@ -133,6 +133,7 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="https://app.kineticrecruiter.com/register"
+                  data-cta="hero-primary"
                   className="inline-flex items-center justify-center bg-kinetic-teal hover:bg-kinetic-teal-dark text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-kinetic-teal/20 group hover:shadow-kinetic-teal/35 hover:-translate-y-0.5"
                 >
                   Start Free Trial

@@ -327,6 +327,21 @@ Four base pixels firing on every page of kineticrecruiter.com. Still zero ads li
 
 This is the most important hour of the launch. Without this event, ads have no signal.
 
+### Step 3.0 — Configure GA4 cross-domain (5 min, GA4 UI only)
+
+**Why this matters:** without this, a user who lands on `kineticrecruiter.com`, then clicks through to `app.kineticrecruiter.com/register`, becomes a **brand new user** in GA4 — the session breaks at the subdomain boundary. Google Ads attribution drops, all retargeting audiences fragment.
+
+**Steps:**
+1. GA4 → Admin (gear) → Data Streams → click the `kineticrecruiter.com` web stream
+2. Click **Configure tag settings** (link near the bottom)
+3. Click **Configure your domains**
+4. Add **both** entries:
+   - `kineticrecruiter.com` (Match type: Contains)
+   - `app.kineticrecruiter.com` (Match type: Contains)
+5. Save. GA4 will now propagate `_ga` cookie via the `_gl` URL param when the user crosses subdomains, keeping the session intact.
+
+The marketing site's [src/components/analytics/ClickIdCapture.tsx](../../src/components/analytics/ClickIdCapture.tsx) handles forwarding paid-click IDs (gclid/fbclid/etc) — these two are complementary: cross-domain config preserves _user identity_ across the subdomain hop, click-ID forwarding preserves _ad attribution_.
+
 ### Step 3.1 — Add dataLayer push at register success in the app
 
 The app at `app.kineticrecruiter.com` is a separate codebase. You (or a dev) need to add this snippet to the register-success handler:
@@ -335,6 +350,10 @@ The app at `app.kineticrecruiter.com` is a separate codebase. You (or a dev) nee
 // Wherever your register flow lands the user after successful signup
 if (typeof window !== 'undefined') {
   window.dataLayer = window.dataLayer || [];
+  // Read attribution params off the register URL — the marketing site (kineticrecruiter.com)
+  // appends gclid/fbclid/msclkid/ttclid/utm_* via src/components/analytics/ClickIdCapture.tsx.
+  const url = new URL(window.location.href);
+  const attrib = (k: string) => url.searchParams.get(k) ?? undefined;
   window.dataLayer.push({
     event: 'trial_signup',
     plan: signupPlan,           // 'starter' | 'professional' | 'agency'
@@ -343,9 +362,20 @@ if (typeof window !== 'undefined') {
     value: 70,                   // assumed LTV per trial in USD
     currency: 'USD',
     event_id: crypto.randomUUID(), // for client/server dedup later
+    gclid: attrib('gclid'),
+    gbraid: attrib('gbraid'),
+    wbraid: attrib('wbraid'),
+    fbclid: attrib('fbclid'),
+    msclkid: attrib('msclkid'),
+    ttclid: attrib('ttclid'),
+    utm_source: attrib('utm_source'),
+    utm_medium: attrib('utm_medium'),
+    utm_campaign: attrib('utm_campaign'),
   });
 }
 ```
+
+**Without the click-ID fields above, Google Ads Enhanced Conversions can't match the signup back to the click**, and Meta CAPI Match Quality stays low. The marketing site already forwards these params on every CTA — this snippet just reads them off the `/register` URL.
 
 Helper for the SHA-256:
 ```typescript

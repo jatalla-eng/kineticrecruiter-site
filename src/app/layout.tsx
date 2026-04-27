@@ -5,6 +5,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { GTMRouteListener } from '@/components/analytics/GTMRouteListener';
+import { ClickIdCapture } from '@/components/analytics/ClickIdCapture';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -36,11 +37,6 @@ export const metadata: Metadata = {
   verification: {
     ...(GSC_TOKEN ? { google: GSC_TOKEN } : {}),
     ...(BING_TOKEN ? { other: { 'msvalidate.01': BING_TOKEN } } : {}),
-  },
-  other: {
-    'Cache-Control': 'no-cache, no-store, must-revalidate',
-    'Pragma': 'no-cache',
-    'Expires': '0',
   },
 };
 
@@ -133,6 +129,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Script>
         )}
         <GTMRouteListener />
+        <ClickIdCapture />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

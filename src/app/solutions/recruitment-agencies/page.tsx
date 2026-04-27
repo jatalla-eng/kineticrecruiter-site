@@ -47,6 +47,7 @@ export default function RecruitmentAgenciesPage() {
             </p>
             <a
               href="https://app.kineticrecruiter.com/register"
+              data-cta="solution-recruitment-agencies"
               className="inline-flex items-center justify-center bg-kinetic-teal hover:bg-kinetic-teal-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
             >
               Start Free Trial

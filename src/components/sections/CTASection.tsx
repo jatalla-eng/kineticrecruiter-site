@@ -18,6 +18,7 @@ export default function CTASection({ variant = 'default' }: CTASectionProps) {
           </p>
           <a
             href="https://app.kineticrecruiter.com/register"
+            data-cta="cta-section-minimal"
             className="inline-flex items-center justify-center bg-white text-kinetic-teal hover:bg-gray-50 px-8 py-4 rounded-lg font-semibold text-lg transition-colors group"
           >
             Start Free Trial
@@ -68,6 +69,7 @@ export default function CTASection({ variant = 'default' }: CTASectionProps) {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="https://app.kineticrecruiter.com/register"
+                data-cta="cta-section-default"
                 className="inline-flex items-center justify-center bg-kinetic-teal hover:bg-kinetic-teal-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg group"
               >
                 Start Free Trial

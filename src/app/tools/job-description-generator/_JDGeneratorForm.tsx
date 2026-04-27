@@ -303,6 +303,7 @@ export default function JDGeneratorForm() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <a
             href="https://app.kineticrecruiter.com/register"
+            data-cta="tool-jd-generator"
             className="inline-flex items-center justify-center gap-2 bg-kinetic-teal hover:bg-kinetic-teal-dark text-white font-semibold rounded-lg px-6 py-3 transition-colors"
           >
             Start Free Trial <ArrowRight className="w-4 h-4" />

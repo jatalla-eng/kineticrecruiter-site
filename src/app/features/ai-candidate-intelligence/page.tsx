@@ -51,6 +51,7 @@ export default function AICandidateIntelligencePage() {
             </p>
             <a
               href="https://app.kineticrecruiter.com/register"
+              data-cta="feature-ai-candidate-intelligence"
               className="inline-flex items-center justify-center bg-kinetic-teal hover:bg-kinetic-teal-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg"
             >
               Start Free Trial
