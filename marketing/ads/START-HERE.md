@@ -4,13 +4,25 @@
 **Read order:** Top to bottom. Don't skip ahead. Each session unlocks the next.
 **Mark progress:** Check items off as you go. If a step fails, stop and fix before continuing.
 
+> **Progress as of 2026-04-26**
+> - Preflight: pricing decision **RESOLVED → tiered $29/$59/$99** (matches `plans.json`). Residual copy edits in CREATIVE-BRIEF.md Pillar 6 (lines 100, 101, 104) and RSA-COPY.md sitelink (line 211) still pending.
+> - Session 1: ✅ COMPLETE. GA4, GTM, Google Ads, Meta, TikTok, LinkedIn all captured. Stape.io ⏸️ deferred to Month 2 (revisit triggers documented in Step 1.7).
+> - Session 2: GA4 strategy decided — **migrate gtag.js into GTM** (existing inline gtag.js block in `src/app/layout.tsx` will be replaced; no double-counting). PR drafted directly against `src/app/layout.tsx` + new `src/components/analytics/GTMRouteListener.tsx`.
+>
+> **Currency decision (2026-04-26):** Google Ads account is **AUD**, not USD. Reasoning: AU-issued payment card paying USD = bank takes 2–3% FX margin on every charge (~$220–330/year wasted at $30/day spend). Google's institutional FX (when account currency = card currency) has no margin. AUD account targeting US works fine — currency has zero impact on geo targeting. All USD figures in Sessions 4/6/7/8 below have been translated to AUD-equivalents (using AUD/USD ≈ 0.65, so 1 USD ≈ A$1.54). Re-check rates if AUD moves >10% before launch.
+
 ---
 
 ## Preflight (5 minutes — do this NOW before opening any browser tab)
 
 Before you touch any ad platform, confirm three things:
 
-- [ ] **Pricing decision.** Ad copy in [RSA-COPY.md](RSA-COPY.md) and [CREATIVE-BRIEF.md](CREATIVE-BRIEF.md) currently says "$29/mo flat" and references "$89 flat" in Pillar 6. Site [plans.json](../../src/lib/plans.json) shows tiered $29/$59/$99. **Pick one model and update the doc before launching.** Mismatched landing-page-vs-ad pricing tanks Quality Score and frustrates buyers.
+- [x] **Pricing decision → tiered $29 / $59 / $99 (locked).** Site [plans.json](../../src/lib/plans.json) is the source of truth (Starter $29, Professional $59, Agency $99 — all flat-per-account, no per-seat). Ads must say "**From $29/mo flat. No per-seat.**" — never quote a single flat number.
+   - **Residual copy fixes (do before UGC recording, NOT a launch blocker):**
+     - [ ] [CREATIVE-BRIEF.md](CREATIVE-BRIEF.md) Pillar 6 lines 100, 101, 104 reference `$89 flat` — replace with `$59 flat per account` (Professional tier as the comparison anchor) and recompute the math line: `5 recruiters × $150/mo = $9,000/year. $59/mo flat per account = $708/year.`
+     - [ ] [CREATIVE-BRIEF.md](CREATIVE-BRIEF.md) line 168 (UGC006 screen cue: "flat $89 for 3s") — change to `flat $59`.
+     - [ ] [RSA-COPY.md](RSA-COPY.md) line 211 sitelink description `From $29/mo per recruiter` is the bug already flagged in [STRATEGY-DELTA.md](STRATEGY-DELTA.md) — replace with `From $29/mo, no per-seat tax`.
+     - [ ] [exports/google-ads-extensions.csv](exports/google-ads-extensions.csv) line 2 same fix as above.
 - [ ] **Payment card** ready (used for Google Ads + Meta + Stape.io billing).
 - [ ] **Access to app.kineticrecruiter.com repo** (or a developer who can deploy a 5-line change today).
 
@@ -22,114 +34,172 @@ If any of these are blockers, fix them before continuing.
 
 You're creating five accounts. Save every ID/key as you go in a scratchpad — you'll need them in Session 2.
 
-### Step 1.1 — Google Analytics 4 (5 min)
+### Step 1.1 — Google Analytics 4 (5 min) — ✅ COMPLETE
 
-1. Go to https://analytics.google.com/
-2. Admin (gear icon) → **Create** → **Account** → name it `KineticRecruiter`
-3. Create a **Property** named `kineticrecruiter.com`, timezone **Australia/Sydney**, currency **USD** (USD matches website pricing in plans.json — revenue reporting depends on it; AU entity does not require AUD reporting currency in GA4)
-4. Business details: Industry "Technology", size "Small"
-5. Business objectives: pick "Generate leads" + "Examine user behavior"
-6. Create a **Web data stream** for `https://kineticrecruiter.com`
-7. **Copy the Measurement ID** (looks like `G-3TJGZ1PEJ4`) → paste into your scratchpad
+1. [x] Go to https://analytics.google.com/
+2. [x] Admin (gear icon) → **Create** → **Account** → name it `KineticRecruiter`
+3. [x] Create a **Property** named `kineticrecruiter.com`, timezone **Australia/Sydney**, currency **USD**
+4. [x] Business details: Industry "Technology", size "Small"
+5. [x] Business objectives: "Generate leads" + "Examine user behavior"
+6. [x] Create a **Web data stream** for `https://kineticrecruiter.com`
+7. [x] **Copy the Measurement ID:** `G-3TJGZ1PEJ4`
 
-Account Name: KineticRecruiter (ID:
-Account ID
-391766610
-)
-Property Name: KineticRecruiter (ID:
-Property ID
-533500580
-)
+**Captured:**
+- Account Name: `KineticRecruiter` — Account ID: `391766610` ✅
+- Property Name: `KineticRecruiter` — Property ID: `533500580` ✅
+- Web stream Measurement ID: `G-3TJGZ1PEJ4` ✅ (already used as the fallback in `src/app/layout.tsx` line 10 — confirms it's live)
 
+✅ Saved: `GA4_MEASUREMENT_ID = G-3TJGZ1PEJ4`
 
-✅ Save: `GA4_MEASUREMENT_ID = G-XXXXXXXXXX`
+### Step 1.2 — Google Tag Manager (5 min) — ✅ COMPLETE
 
-### Step 1.2 — Google Tag Manager (5 min)
+1. [x] Go to https://tagmanager.google.com/
+2. [x] **Create Account** → `KineticRecruiter`, country Australia
+3. [x] **Container name:** `kineticrecruiter.com`, target platform **Web**
+4. [x] Accept terms
+5. [x] **Container ID:** `GTM-TD2ZCRRV`
+6. [x] Install snippet captured (head + noscript) — feeds Session 2.1
 
-1. Go to https://tagmanager.google.com/
-2. **Create Account** → name `KineticRecruiter`, country Australia
-3. **Container name:** `kineticrecruiter.com`, target platform **Web**
-4. Accept terms
-5. **Copy the Container ID** (looks like `GTM-XXXXXXX`) → scratchpad
-6. Don't close the install snippet popup — you'll need it in Session 2
+✅ Saved: `GTM_CONTAINER_ID = GTM-TD2ZCRRV`
 
-✅ Save: `GTM_CONTAINER_ID = GTM-XXXXXXX`
+**Install snippet (head — paste via `next/script` in Session 2.1):**
+```html
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TD2ZCRRV');</script>
+<!-- End Google Tag Manager -->
+```
 
-### Step 1.3 — Google Ads (10 min)
+**Install snippet (body, noscript):**
+```html
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TD2ZCRRV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+```
 
-1. Go to https://ads.google.com/
-2. Click **Start now** → sign in with same Google account as GA4
-3. **CRITICAL:** at the campaign-creation prompt, click **"Switch to Expert Mode"** (small link bottom of screen). If you don't, Google forces you into Smart campaigns which you can't easily undo.
-4. Click **Create an account without a campaign**
-5. Confirm business info: **country Australia, timezone Australia/Sydney, currency USD**. Currency is locked at creation — pick USD so reporting matches website pricing. AU entity + USD currency is fully supported.
-6. Submit — account is created
-7. **Copy the Customer ID** (top right, format `XXX-XXX-XXXX`) → scratchpad
-8. Add billing: **Tools → Billing → Settings** → add your card
-9. **Link to GA4:** Tools → Linked accounts → Google Analytics 4 → link your `KineticRecruiter` property
+### Step 1.3 — Google Ads (10 min) — ✅ COMPLETE
 
-✅ Save: `GOOGLE_ADS_CUSTOMER_ID = XXX-XXX-XXXX`
+> **Status:** Account exists in Expert Mode, currency = **AUD** (intentional — see Currency decision banner at top of doc). Billing card added, GA4 linked.
 
-### Step 1.4 — Meta Business Manager + Pixel (10 min)
+1. [x] Go to https://ads.google.com/
+2. [x] Sign in with `john.atalla@gmail.com` (same Google account as GA4)
+3. [x] Expert Mode confirmed (UI shows full Campaigns dashboard, not Smart Campaigns simplified view)
+4. [x] Account created
+5. [x] Business info: country Australia, Australian Eastern Time (GMT+10), currency **AUD** (locked)
+6. [x] Submit — account created
+7. [x] **Customer ID:** `529-562-3656` ✅
+8. [x] **Billing:** card added via Tools → Billing → Settings ✅
+9. [x] **Linked to GA4:** Tools → Data manager → Connected products → Google Analytics (GA4) → linked `KineticRecruiter` (`533500580`) with both "Import app and web metrics" + "Import Google Analytics audiences" toggled ON ✅
 
-1. Go to https://business.facebook.com/
-2. **Create account** → use your KineticRecruiter Facebook profile
-3. Business name `KineticRecruiter`, your name and work email
-4. Once in BM: **Settings → Accounts → Pages → Add Page** (add KR's FB page)
-5. **Settings → Accounts → Ad Accounts → Create new ad account** → name `KineticRecruiter Ads`, currency USD, timezone, payment method
-6. **Settings → Accounts → Pixels → Add → Create Pixel** → name `KineticRecruiter Pixel`
-7. **Copy the Pixel ID** (16-digit number) → scratchpad
-8. Skip the install wizard for now — you'll do it via GTM in Session 2
+> **UI navigation note:** In the latest Google Ads UI (2025+), "Linked accounts" is no longer under Tools as the walkthrough originally said. The path is now **Tools → Data manager → Connected products → Google Analytics (GA4)**. Use the top search bar (search for "google analytics") if you can't find it.
 
-✅ Save: `META_PIXEL_ID = XXXXXXXXXXXXXXXX`
-✅ Save: `META_AD_ACCOUNT_ID = act_XXXXXXXXXXXXXXX`
+✅ Saved: `GOOGLE_ADS_CUSTOMER_ID = 529-562-3656` (AUD)
 
-### Step 1.5 — TikTok Ads Manager (5 min — minimal, just for Spark Ads later)
+**Conversion value translation when you reach Session 3 / Session 4:**
+- Walkthrough quotes `$70` USD as the assumed trial LTV. In an AUD account that should be **A$108** (or let Google auto-convert from imported GA4 conversions, which stay USD).
+- For consistency, keep the dataLayer `value: 70` push in USD (matches GA4 property currency) and use Google Ads' built-in GA4 conversion import — Google handles the daily-rate AUD conversion automatically.
 
-1. Go to https://ads.tiktok.com/
-2. Sign up with your TikTok account
-3. Region: **Australia**, industry: Software & Tech, business name `KineticRecruiter`
-4. Skip campaign creation
-5. **Assets → Events → Web Events → Create Pixel** → name `KineticRecruiter Pixel`, install method "GTM"
-6. **Copy the Pixel ID** → scratchpad
+### Step 1.4 — Meta Business Manager + Pixel (10 min) — ✅ COMPLETE
 
-✅ Save: `TIKTOK_PIXEL_ID = XXXXXXXXXXX`
+> **Currency note:** Same FX-margin logic as Google Ads applies here. With AU-issued card → pick **AUD** for the Meta ad account to avoid 2–3% bank FX margin. Meta currency is also locked at creation. Conversion values map A$108 ≈ $70 USD same as Google Ads.
 
-### Step 1.6 — LinkedIn Insight Tag (5 min — audience-building only)
+1. [x] Go to https://business.facebook.com/ — already signed in
+2. [x] Created new **Business Portfolio** named `KineticRecruiter` (note: Meta renamed Business Manager → Business Portfolio in 2024)
+3. [x] KineticRecruiter Facebook Page added to BP — Page ID `1136076626246361`
+4. [x] **Ad account created:** `KineticRecruiter Ads` — `act_1991440081768330` — **currency AUD** ✅, timezone Australia/Sydney, payment card added
+5. [x] **Pixel/Dataset created:** `KineticRecruiter Pixel` — Dataset ID `2531875870548790` ✅ (Meta renamed Pixels → Datasets in 2024 — same thing, different label; the 16-digit ID is what GTM and CAPI both consume)
+6. [x] Install wizard skipped — pixel will fire via GTM (Session 2.4 Tag 2)
 
-1. Go to https://www.linkedin.com/campaignmanager/
-2. **Create account** → name `KineticRecruiter`, currency USD
-3. Account → **Account assets → Insight Tag → Install my Insight Tag → I will install the tag myself**
-4. **Copy the Partner ID** (7 digits) → scratchpad
+✅ Saved: `META_PIXEL_ID = 2531875870548790`
+✅ Saved: `META_AD_ACCOUNT_ID = act_1991440081768330` (AUD)
+✅ Saved: `META_PAGE_ID = 1136076626246361`
+✅ Saved: `META_BUSINESS_PORTFOLIO = KineticRecruiter`
 
-✅ Save: `LINKEDIN_PARTNER_ID = XXXXXXX`
+> **Follow-up nice-to-have (not a launch blocker):** the green "Finish update" prompt in the top-right of Meta Business Suite is asking you to complete BP **business verification** (legal name, address, ABN). Do this before monthly Meta spend exceeds A$1.5k or Meta will pause the account pending verification. 5 min of paperwork.
 
-### Step 1.7 — Stape.io server-side container (5 min)
+### Step 1.5 — TikTok Ads Manager (5 min — minimal, just for Spark Ads later) — ✅ COMPLETE
+
+1. [x] Go to https://ads.tiktok.com/
+2. [x] Signed up with TikTok account, business: TRANSFORMATIV PTY LTD → account name `KineticRecruiter`
+3. [x] Region: Australia, industry: Software & Tech, currency AUD
+4. [x] Skipped campaign creation
+5. [x] **Assets → Events → Web Events → Create Pixel** → name `KineticRecruiter Pixel`, install method "Google Tag Manager"
+6. [x] TikTok auto-installed the base pixel tag inside `GTM-TD2ZCRRV` workspace as `TT-D7NCHIJC77U9KU0AEQGG-Web-Tag-Pixel_Setup` on All Pages — published
+7. [x] Pixel ID captured: `D7NCHIJC77U9KU0AEQGG`
+
+✅ Saved: `TIKTOK_PIXEL_ID = D7NCHIJC77U9KU0AEQGG`
+
+> **Note for Session 2.4:** TikTok already created the base pixel tag inside GTM via their installer. **Skip the manual "Tag 3 — TikTok Pixel Base" step** in Session 2.4 — it's already done. Just verify it's there in GTM Admin before publishing the rest of the container.
+
+### Step 1.6 — LinkedIn Insight Tag (5 min — audience-building only) — ✅ COMPLETE
+
+1. [x] Go to https://www.linkedin.com/campaignmanager/
+2. [x] Created Campaign Manager account: `Kinetic Recruiter` — Account ID `524540074` (Active)
+3. [x] Insight Tag location (2026 UI): **Data → Signals manager → Insight Tag → "I will install the tag myself" dropdown → "I will use a tag manager"**. The "Account assets → Insight Tag" path the original walkthrough referenced no longer exists.
+4. [x] Partner ID captured: `9252572`
+
+✅ Saved: `LINKEDIN_PARTNER_ID = 9252572`
+
+> **Two follow-up items (not launch blockers):**
+> - **Account name normalization:** LinkedIn account is "Kinetic Recruiter" (with space) — every other platform uses "KineticRecruiter" (one word). Edit in Account settings → Account details → rename to "KineticRecruiter" so cross-platform reporting joins cleanly.
+> - **Currency check:** The walkthrough originally said USD here, but the FX-margin reasoning that drove AUD on Google + Meta + TikTok also applies to LinkedIn. If the LinkedIn account got created in USD it's not urgent (no spend planned until Month 4 per ADS-STRATEGY.md), but worth noting that LinkedIn currency is locked at creation — so if it's USD now and you eventually want AUD, you'd need to create a fresh ad account inside this BP later. Verify in Account settings → Account details.
+
+### Step 1.7 — Stape.io server-side container (5 min) — ⏸️ DEFERRED TO MONTH 2
+
+> **Decision (2026-04-26):** Skipped for Month 1 launch. Trade-offs accepted:
+> - Meta Match Quality starts at 5–6 (vs 7+ with sGTM) → CPMs ~10–15% higher early on
+> - Google Ads Enhanced Conversions still works client-side via GTM, just less robust against iOS / cookie-loss
+> - All client-side pixels work normally — this only affects server-side relay
+>
+> **Revisit trigger (Month 2):** when one of these is true: (a) Meta CPA stable but capped by Match Quality < 7, (b) cumulative ad spend ≥ A$3k, (c) iOS/Safari traffic share > 40% of total. At that point come back to this step.
+>
+> **What gets skipped in other sessions as a consequence:**
+> - Session 3.4 (Stape connection) — entirely skipped for Month 1
+> - GA4 Configuration tag in GTM uses the default endpoint (no `server_container_url` override)
+> - Meta CAPI is set up via Meta's hosted endpoint instead of through Stape relay (Session 3 still configures CAPI, just direct rather than via sGTM)
+
+When ready to revisit:
 
 1. Go to https://stape.io/
-2. Sign up, pick the **$20/mo Power-Up plan** (cheapest with sGTM included)
+2. Sign up, pick the **$20/mo Power-Up plan** (cheapest with sGTM included; USD-only billing — ~A$30/mo at current rates)
 3. **Create container** → server-side GTM → custom domain
 4. DNS step: Stape gives you a CNAME target. **Add a CNAME record** in your DNS:
    - Host: `sgtm`
    - Points to: `<your-stape-target>.stape.host`
 5. Wait 5-10 min for DNS to propagate. Don't continue Session 2 until Stape shows green.
 
-✅ Save: `SGTM_URL = https://sgtm.kineticrecruiter.com`
+⏸️ Deferred: `SGTM_URL = https://sgtm.kineticrecruiter.com` (Month 2)
 
 ### End of Session 1 Checkpoint
 
-You should now have in your scratchpad:
+Live scratchpad (update inline as you go):
+
 ```
-GA4_MEASUREMENT_ID
-GTM_CONTAINER_ID
-GOOGLE_ADS_CUSTOMER_ID
-META_PIXEL_ID
-META_AD_ACCOUNT_ID
-TIKTOK_PIXEL_ID
-LINKEDIN_PARTNER_ID
-SGTM_URL
+# Captured ✅
+GA4_ACCOUNT_ID         = 391766610
+GA4_PROPERTY_ID        = 533500580
+GA4_MEASUREMENT_ID     = G-3TJGZ1PEJ4
+GTM_CONTAINER_ID       = GTM-TD2ZCRRV
+GOOGLE_ADS_CUSTOMER_ID = 529-562-3656         (AUD, billed, GA4-linked)
+META_BUSINESS_PORTFOLIO = KineticRecruiter
+META_PAGE_ID           = 1136076626246361
+META_AD_ACCOUNT_ID     = act_1991440081768330 (AUD, billed)
+META_PIXEL_ID          = 2531875870548790
+TIKTOK_PIXEL_ID        = D7NCHIJC77U9KU0AEQGG  (auto-installed in GTM by TikTok)
+LINKEDIN_ACCOUNT_ID    = 524540074
+LINKEDIN_PARTNER_ID    = 9252572
+
+# Deferred to Month 2 ⏸️
+SGTM_URL               = (Stape.io skipped for launch — see Step 1.7 revisit triggers)
 ```
 
-Five accounts created. Zero ads live. Zero risk. ✅
+**Status:** Session 1 fully captured. All platform accounts created, all IDs saved. Stape deferred to Month 2 by design. Zero ads live. ✅
+
+**Smallest next action:** **Session 2** — deploy GTM to the site. The PR-ready code edit against `src/app/layout.tsx` + new `src/components/analytics/GTMRouteListener.tsx` is already drafted (committed to your repo, ready to deploy). Once GTM-TD2ZCRRV loads on kineticrecruiter.com, GA4 + TikTok pixel start firing automatically (TikTok already auto-installed; Meta + LinkedIn need Tags 2 + 4 added in GTM Admin per Session 2.4).
 
 ---
 
@@ -380,8 +450,8 @@ The smallest, safest, most certain-to-convert campaign. Launch this first to val
 7. Locations: **United States** → Targeting: **Presence** (advanced settings → location options)
 8. Languages: English
 9. Audience segments: skip
-10. Budget: **$5/day**
-11. Bidding: **Manual CPC** with **Maximize clicks OFF**, set bid cap to **$0.50**
+10. Budget: **A$8/day** (≈ $5 USD target)
+11. Bidding: **Manual CPC** with **Maximize clicks OFF**, set bid cap to **A$0.80** (≈ $0.50 USD)
 12. Ad group name: `AG1_Brand`
 13. Keywords (paste from [CAMPAIGN-ARCHITECTURE.md](CAMPAIGN-ARCHITECTURE.md#campaign-goog_search_brand_us_2026q2)):
     ```
@@ -405,7 +475,7 @@ The smallest, safest, most certain-to-convert campaign. Launch this first to val
 Repeat steps 4.1 above with these changes:
 - Campaign name: `GOOG_SEARCH_Brand_AU_2026Q2`
 - Location: **Australia**
-- Budget: **$2/day**
+- Budget: **A$3/day** (≈ $2 USD target)
 - Same keywords, ads, negatives
 
 ### Step 4.3 — First 24-hour check
@@ -419,7 +489,7 @@ Within 24 hours of launch:
 Brand campaigns typically convert in 1-3 days. Don't panic if no conversions in first 48 hours — volume is small.
 
 ### End of Session 4 Checkpoint
-**You have live paid ads.** $7/day burning, capturing your name. ✅
+**You have live paid ads.** A$11/day (≈ $7 USD) burning, capturing your name. ✅
 
 ---
 
@@ -481,7 +551,7 @@ Build everything else in **Paused** state. Do not enable yet.
 
 For each of: `GOOG_SEARCH_NonBrand_US_2026Q2` and `GOOG_SEARCH_NonBrand_AU_2026Q2`:
 
-- Campaign settings same as Brand but: budget $20 US / $8 AU, bid cap $3.50
+- Campaign settings same as Brand but: budget **A$31/day US / A$12/day AU** (≈ $20 / $8 USD), bid cap **A$5.40** (≈ $3.50 USD)
 - Three ad groups: `AG1_ATS_Category`, `AG2_Agency_Software`, `AG3_AI_Recruiting`
 - Keywords from [CAMPAIGN-ARCHITECTURE.md](CAMPAIGN-ARCHITECTURE.md#campaign-goog_search_nonbrand_us_2026q2-and-_au_)
 - RSAs from [RSA-COPY.md Ad Groups 2-4](RSA-COPY.md#ad-group-2--ats-category-goog_search_nonbrand-ag1)
@@ -491,7 +561,7 @@ For each of: `GOOG_SEARCH_NonBrand_US_2026Q2` and `GOOG_SEARCH_NonBrand_AU_2026Q
 ### Step 6.2 — Google Ads Competitor (US + AU)
 
 For `GOOG_SEARCH_Competitor_US_2026Q2` + AU mirror:
-- Budget $5 US / $2 AU, bid cap $4.00
+- Budget **A$8/day US / A$3/day AU** (≈ $5 / $2 USD), bid cap **A$6.20** (≈ $4.00 USD)
 - One ad group: `AG1_Alternatives` with phrase-match keywords from [CAMPAIGN-ARCHITECTURE.md](CAMPAIGN-ARCHITECTURE.md#campaign-goog_search_competitor_us_2026q2)
 - RSAs from [RSA-COPY.md Ad Group 5](RSA-COPY.md#ad-group-5--competitor-alternatives-goog_search_competitor-ag1) — **no competitor names in headlines**
 - **Status: Paused**
@@ -554,16 +624,16 @@ Add manual checks:
 ### Step 7.2 — Soft launch (Day 12, Friday)
 
 In Google Ads, change status from Paused → Enabled at **50% of full budgets**:
-- Google Non-Brand US: temp budget **$10/day** (will scale to $20 on Day 15)
-- Google Non-Brand AU: **$4/day** (→ $8)
-- Google Competitor US: **$2.50/day** (→ $5)
-- Google Competitor AU: **$1/day** (→ $2)
+- Google Non-Brand US: temp budget **A$15/day** (≈ $10 USD; will scale to A$31 on Day 15)
+- Google Non-Brand AU: **A$6/day** (≈ $4 USD; → A$12)
+- Google Competitor US: **A$4/day** (≈ $2.50 USD; → A$8)
+- Google Competitor AU: **A$1.50/day** (≈ $1 USD; → A$3)
 
 In Meta:
 - Enable Prospecting at **$7.50/day total** (split $4/$3.50 across 2 active ad sets — skip LAL)
 - Keep Retargeting paused
 
-Total daily spend during soft launch: **~$32/day**
+Total daily spend during soft launch: **~A$50/day** (≈ $32 USD; Google Ads in AUD + Meta still in USD via separate ad account — see Step 1.4 to revisit Meta currency)
 
 ### Step 7.3 — Monitor over the weekend
 
@@ -583,10 +653,10 @@ Soft launch ran 72 hours. Issues surfaced and fixed. Ready for full budget. ✅
 ### Step 8.1 — Scale to full budget
 
 In Google Ads, increase daily budgets:
-- Non-Brand US: $10 → $20
-- Non-Brand AU: $4 → $8
-- Competitor US: $2.50 → $5
-- Competitor AU: $1 → $2
+- Non-Brand US: A$15 → A$31 (≈ $20 USD)
+- Non-Brand AU: A$6 → A$12 (≈ $8 USD)
+- Competitor US: A$4 → A$8 (≈ $5 USD)
+- Competitor AU: A$1.50 → A$3 (≈ $2 USD)
 
 In Meta:
 - Prospecting: $7.50 → $15 ($5 per ad set across 2 active)
