@@ -4,10 +4,14 @@ import Script from 'next/script';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import { GTMRouteListener } from '@/components/analytics/GTMRouteListener';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-3TJGZ1PEJ4';
+// GA4 is now loaded via GTM (container GTM-TD2ZCRRV). The GA4 Configuration tag
+// inside GTM uses Measurement ID G-3TJGZ1PEJ4. Do NOT add a separate gtag.js
+// loader here — that would double-count page_view events.
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_CONTAINER_ID || 'GTM-TD2ZCRRV';
 const GSC_TOKEN = process.env.GOOGLE_SITE_VERIFICATION;
 const BING_TOKEN = process.env.BING_SITE_VERIFICATION;
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || 'wdcxcgphrx';
@@ -69,30 +73,51 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-US">
       <body className={`${inter.className} min-h-screen flex flex-col`}>
+        {/* Google Tag Manager (noscript fallback) */}
+        {GTM_ID && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height={0}
+              width={0}
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, webSiteSchema]) }}
         />
-        {GA_ID && (
+        {GTM_ID && (
           <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_ID}');`}
+            <Script id="gtm-init" strategy="afterInteractive">
+              {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${GTM_ID}');`}
             </Script>
-            <Script id="ga4-conversions" strategy="afterInteractive">
-              {`document.addEventListener('click', function(e) {
+            {/*
+              Click-event instrumentation — pushes to dataLayer (NOT gtag).
+              GTM picks these up via Custom Event triggers and forwards to GA4
+              + ad pixels. Replaces the previous direct gtag('event', ...) calls.
+            */}
+            <Script id="datalayer-click-events" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+              document.addEventListener('click', function(e) {
                 var a = e.target.closest('a');
                 if (!a || !a.href) return;
                 if (a.href.indexOf('app.kineticrecruiter.com/register') !== -1) {
-                  gtag('event', 'start_trial_click', { event_category: 'conversion', link_location: a.getAttribute('data-cta') || 'page', page_path: location.pathname });
+                  window.dataLayer.push({
+                    event: 'start_trial_click',
+                    link_location: a.getAttribute('data-cta') || 'page',
+                    page_path: location.pathname
+                  });
                 } else if (a.href.indexOf('/contact') !== -1 && a.hostname === location.hostname) {
-                  gtag('event', 'demo_request_click', { event_category: 'conversion', page_path: location.pathname });
+                  window.dataLayer.push({
+                    event: 'demo_request_click',
+                    page_path: location.pathname
+                  });
                 }
               });`}
             </Script>
@@ -107,6 +132,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })(window, document, "clarity", "script", "${CLARITY_ID}");`}
           </Script>
         )}
+        <GTMRouteListener />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
