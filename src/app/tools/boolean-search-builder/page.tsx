@@ -71,7 +71,7 @@ const faqSchema = {
 
 export default function BooleanSearchBuilderPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, toolSchema, faqSchema]) }}
@@ -136,6 +136,6 @@ export default function BooleanSearchBuilderPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

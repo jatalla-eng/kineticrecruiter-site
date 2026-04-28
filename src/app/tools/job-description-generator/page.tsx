@@ -46,7 +46,7 @@ const howToSchema = {
 
 export default function JDGeneratorPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbSchema, toolSchema, howToSchema]) }}
@@ -66,6 +66,6 @@ export default function JDGeneratorPage() {
       </section>
 
       <JDGeneratorForm />
-    </main>
+    </div>
   );
 }
