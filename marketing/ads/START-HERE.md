@@ -4,12 +4,22 @@
 **Read order:** Top to bottom. Don't skip ahead. Each session unlocks the next.
 **Mark progress:** Check items off as you go. If a step fails, stop and fix before continuing.
 
-> **Progress as of 2026-04-26**
-> - Preflight: pricing decision **RESOLVED → tiered $29/$59/$99** (matches `plans.json`). Residual copy edits in CREATIVE-BRIEF.md Pillar 6 (lines 100, 101, 104) and RSA-COPY.md sitelink (line 211) still pending.
+> **Progress as of 2026-04-28**
+> - Preflight: pricing decision **RESOLVED → tiered $29/$59/$99 monthly · $24/$49/$82 annual** (matches `plans.json`). Residual copy fixes ✅ COMPLETE — canonical pricing block now lives at top of CREATIVE-BRIEF.md and RSA-COPY.md, Pillar 6 hooks rewritten to use real plan tiers, sitelink and CSV per-recruiter bugs fixed.
 > - Session 1: ✅ COMPLETE. GA4, GTM, Google Ads, Meta, TikTok, LinkedIn all captured. Stape.io ⏸️ deferred to Month 2 (revisit triggers documented in Step 1.7).
-> - Session 2: GA4 strategy decided — **migrate gtag.js into GTM** (existing inline gtag.js block in `src/app/layout.tsx` will be replaced; no double-counting). PR drafted directly against `src/app/layout.tsx` + new `src/components/analytics/GTMRouteListener.tsx`. **Deploy infra migrated 2026-04-27** off `agentos-demo-1775622291` (where it never belonged) into dedicated `kineticrecruiterpublic` project; Cloud Build trigger live; project guard in `cloudbuild.yaml` Step 0 prevents recurrence. GTM-TD2ZCRRV is now live in production.
+> - Session 2: GA4 strategy decided — **migrate gtag.js into GTM** (existing inline gtag.js block in `src/app/layout.tsx` will be replaced; no double-counting). PR drafted directly against `src/app/layout.tsx` + new `src/components/analytics/GTMRouteListener.tsx`. **Deploy infra migrated 2026-04-27** off `agentos-demo-1775622291` (where it never belonged) into dedicated `kineticrecruiterpublic` project; Cloud Build trigger live; project guard in `cloudbuild.yaml` Step 0 prevents recurrence. GTM-TD2ZCRRV is now live in production. Click-ID forwarding live via `src/components/analytics/ClickIdCapture.tsx`. data-cta attributes live on 11 CTAs.
 >
 > **Currency decision (2026-04-26):** Google Ads account is **AUD**, not USD. Reasoning: AU-issued payment card paying USD = bank takes 2–3% FX margin on every charge (~$220–330/year wasted at $30/day spend). Google's institutional FX (when account currency = card currency) has no margin. AUD account targeting US works fine — currency has zero impact on geo targeting. All USD figures in Sessions 4/6/7/8 below have been translated to AUD-equivalents (using AUD/USD ≈ 0.65, so 1 USD ≈ A$1.54). Re-check rates if AUD moves >10% before launch.
+>
+> **Pricing canonical (2026-04-28):** Single source of truth for all ads pricing copy. If anything contradicts this, the docs are wrong, not the table.
+>
+> | Plan | Monthly | Annual (per mo) | Annual total | Savings |
+> |---|---|---|---|---|
+> | Starter | $29 | $24 | $288/yr | 17% |
+> | Professional | $59 | $49 | $588/yr | 17% |
+> | Agency | $99 | $82 | $984/yr | 17% |
+>
+> **Approved phrasings:** `From $29/mo` (monthly) · `From $24/mo on annual` (best foot forward) · `Starting as low as $24/mo on annual subscription` · `Flat per account. Not per seat.` · `Save 17% on annual`. **Never** quote a flat number that isn't a real tier ($29/$59/$99 monthly, $24/$49/$82 annual). Source: [plans.json](../../src/lib/plans.json).
 
 ---
 
@@ -17,12 +27,12 @@
 
 Before you touch any ad platform, confirm three things:
 
-- [x] **Pricing decision → tiered $29 / $59 / $99 (locked).** Site [plans.json](../../src/lib/plans.json) is the source of truth (Starter $29, Professional $59, Agency $99 — all flat-per-account, no per-seat). Ads must say "**From $29/mo flat. No per-seat.**" — never quote a single flat number.
-   - **Residual copy fixes (do before UGC recording, NOT a launch blocker):**
-     - [ ] [CREATIVE-BRIEF.md](CREATIVE-BRIEF.md) Pillar 6 lines 100, 101, 104 reference `$89 flat` — replace with `$59 flat per account` (Professional tier as the comparison anchor) and recompute the math line: `5 recruiters × $150/mo = $9,000/year. $59/mo flat per account = $708/year.`
-     - [ ] [CREATIVE-BRIEF.md](CREATIVE-BRIEF.md) line 168 (UGC006 screen cue: "flat $89 for 3s") — change to `flat $59`.
-     - [ ] [RSA-COPY.md](RSA-COPY.md) line 211 sitelink description `From $29/mo per recruiter` is the bug already flagged in [STRATEGY-DELTA.md](STRATEGY-DELTA.md) — replace with `From $29/mo, no per-seat tax`.
-     - [ ] [exports/google-ads-extensions.csv](exports/google-ads-extensions.csv) line 2 same fix as above.
+- [x] **Pricing decision → tiered $29 / $59 / $99 monthly · $24 / $49 / $82 annual (locked).** Site [plans.json](../../src/lib/plans.json) is the source of truth. Canonical pricing block now lives at the top of [CREATIVE-BRIEF.md](CREATIVE-BRIEF.md) and [RSA-COPY.md](RSA-COPY.md) — paste verbatim phrasings from there.
+   - [x] CREATIVE-BRIEF.md Pillar 6 hooks rewritten to use real plan tiers (Professional $49/mo on annual as comparison anchor)
+   - [x] CREATIVE-BRIEF.md UGC006 screen cue updated ($49/mo on annual instead of "$89 flat")
+   - [x] RSA-COPY.md sitelink fixed (`From $24/mo on annual plan` instead of `From $29/mo per recruiter`)
+   - [x] exports/google-ads-extensions.csv fixed
+   - [x] exports/google-ads-ads.csv regenerated with annual headlines
 - [ ] **Payment card** ready (used for Google Ads + Meta + Stape.io billing).
 - [ ] **Access to app.kineticrecruiter.com repo** (or a developer who can deploy a 5-line change today).
 
@@ -802,17 +812,9 @@ Trigger `deploy-on-push-to-main` is live in `kineticrecruiterpublic`, watching `
 
 KR is now in **`kineticrecruiterpublic`** (project number `741700859778`). It was previously misconfigured into `agentos-demo-1775622291`; full migration completed 2026-04-27 (new LB, new IP `34.96.72.204`, new Cert Manager managed cert, GTM rolled live, all KR resources removed from `agentos-demo`). `cloudbuild.yaml` Step 0 now aborts any build whose `$PROJECT_ID` is not `kineticrecruiterpublic` so a recurrence fails before any side effects. See [setup-github-trigger.md](../../setup-github-trigger.md) for the post-migration runbook.
 
-#### TODO-3 — Reconcile ad copy to tiered pricing model
+#### TODO-3 — Reconcile ad copy to tiered pricing model ✅ DONE (2026-04-28)
 
-**Symptom:** Pricing was locked at tiered `$29/$59/$99` but stale "$89 flat" + "per recruiter" copy persists.
-
-**Files to edit:**
-- [CREATIVE-BRIEF.md](CREATIVE-BRIEF.md) lines 100, 101, 104, 168 — Pillar 6 "Pricing Clarity" was built on a flat-pricing premise that no longer holds. Either:
-  - **Rewrite Pillar 6** around "tiered pricing matches your size, no per-seat tax" (still beats per-seat economics for solo + 2-person agencies)
-  - **Or kill Pillar 6 entirely** and drop UGC006 + STATIC003 from the launch creative set
-- [RSA-COPY.md](RSA-COPY.md) line 211 — sitelink "From $29/mo per recruiter" is wrong (Starter is $29/mo total with limits, not per-recruiter). Change to "From $29/mo" or "From $29/mo for solo recruiters".
-
-**Action for Claude Code:** ask the user which Pillar 6 direction (rewrite vs kill) before editing. Don't assume.
+**Resolution:** Pillar 6 rewritten using Professional ($59/mo monthly · $49/mo annual) as the comparison anchor against per-seat competitors. Sitelink and CSV per-recruiter bugs fixed. Canonical pricing block now lives at the top of CREATIVE-BRIEF.md and RSA-COPY.md as the single source of truth. Both monthly and annual headline variants populated across all 5 ad groups. Annual (`From $24/mo`) is the best-foot-forward variant.
 
 #### TODO-4 — Regenerate Google Ads Editor CSVs in AUD
 

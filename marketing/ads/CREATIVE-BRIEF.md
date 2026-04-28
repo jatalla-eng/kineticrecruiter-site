@@ -7,6 +7,32 @@
 
 ---
 
+## 0. Canonical Pricing (single source of truth)
+
+Source: [plans.json](../../src/lib/plans.json). If this table and `plans.json` ever disagree, `plans.json` wins — fix this doc, not the ads.
+
+| Plan | Monthly | Annual (per mo) | Annual total | Savings |
+|---|---|---|---|---|
+| Starter | $29 | $24 | $288/yr | 17% |
+| Professional | $59 | $49 | $588/yr | 17% |
+| Agency | $99 | $82 | $984/yr | 17% |
+
+**All plans are flat per account. No per-seat fees. Ever.**
+
+**Approved phrasings (use these verbatim — do not paraphrase):**
+- "From $29/mo" (monthly entry point)
+- "From $24/mo on annual" (best foot forward)
+- "Starting as low as $24/mo on annual subscription" (long-form CTA)
+- "Flat per account. Not per seat." (positioning)
+- "Save 17% on annual" (annual upsell)
+
+**Banned phrasings (will trigger landing-page mismatch + Quality Score hit):**
+- "$89 flat", any single flat number that isn't a real plan tier
+- "Per recruiter", "per user", "per seat" — KR is per-account
+- "Free forever", "$0 plan" — there is no free tier, only a 7-day trial
+
+---
+
 ## 1. Positioning and Voice
 
 ### One-liner
@@ -96,12 +122,14 @@ Example hooks:
 **Use:** cold prospecting + retargeting on Meta where per-seat price shock drives scroll-stop. Competitor intel confirms every agency-ATS competitor except Manatal charges per-seat; none are running anti-per-seat creative. This is the clearest unclaimed messaging lane in the competitive set.
 **Hook archetypes:** Unpopular opinion, Myth bust, The mistake
 
+**Pricing anchor for Pillar 6:** Professional plan ($59/mo monthly OR $49/mo on annual) is the comparison anchor — it's the right fit for a 5-recruiter agency (unlimited jobs, unlimited clients, 1,000 candidates). Lead with annual price for max impact.
+
 Example hooks:
-- "Your ATS charges you $150 per recruiter per month. Ours charges $89 flat."
-- "Unpopular opinion: per-seat pricing is an ATS tax. Here's what $89 flat actually covers."
-- "Stop paying per recruiter. Pay for software, not seats."
-- "Every ATS bill I've ever had went up when we hired. This one doesn't."
-- "Quick math: 5 recruiters × $150/mo = $9,000/year. $89/mo flat = $1,068/year. Same software."
+- "Your ATS charges $150 per recruiter. Ours is $49 flat for the whole agency on annual."
+- "Unpopular opinion: per-seat pricing is an ATS tax. From $24/mo on annual covers your whole team."
+- "Stop paying per recruiter. Pay for software, not seats. From $24/mo on annual."
+- "Every ATS bill I had went up when we hired. Ours stays flat. From $29/mo, $24/mo on annual."
+- "Quick math: 5 recruiters × $150/mo = $9,000/yr. KR Professional on annual = $588/yr. Same software."
 
 ---
 
@@ -165,7 +193,7 @@ BANNED WORDS: leverage, synergy, robust, utilise, streamline, reach out, talent 
 | UGC003 | AI candidate matching + scoring | "I get 200 applicants per role and 180 are irrelevant" | Simple method / Nobody talks about | Agency owner, 40s, 3-person shop | After user says "top 5", show shortlist with scores in 6s |
 | UGC004 | Client CRM + submission emails | "Managing 10 clients in spreadsheets is where placements die" | Proof-first / Experience hook | Agency recruiter, 35-45, boutique exec search | After user says "client wall", show client CRM view in 5s |
 | UGC005 | 7-day free trial (no feature focus — it's the offer) | "Every SaaS wants my credit card before I even try it" | Simple method | Promoter only (no user archetype for offer) | After CTA, show register page briefly for 2s |
-| UGC006 | Flat pricing vs per-seat (no specific feature) | "My ATS bill went up every time I hired. $150 per recruiter per month. For software." | Unpopular opinion / Myth bust | Agency owner, 35-50, 4-8 recruiter shop, previously on Bullhorn or JobAdder | After user says "$1,068 a year", cut to pricing page showing flat $89 for 3s |
+| UGC006 | Flat per-account pricing vs per-seat (no specific feature) | "My ATS bill went up every time I hired. $150 per recruiter per month. For software." | Unpopular opinion / Myth bust | Agency owner, 35-50, 4-8 recruiter shop, previously on Bullhorn or JobAdder | After user says "$588 a year", cut to /pricing page showing Professional at $49/mo on annual for 3s |
 
 ---
 

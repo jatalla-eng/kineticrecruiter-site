@@ -57,7 +57,7 @@ Three decisions drive the plan:
 
 **Target CPA for bidding:** $35 trial signup (Month 1-2 is a learning baseline, not a hard target).
 
-**Payback:** Professional plan at $59/mo → 5-6 months to CAC payback at $300 CAC. Acceptable for self-serve SaaS; improve via upsell to annual (17% discount driving prepay).
+**Payback:** Professional plan at $59/mo monthly (or $49/mo on annual = $588/yr prepaid) → 5-6 months to CAC payback at $300 CAC. Acceptable for self-serve SaaS; annual prepay (17% discount across all tiers) shortens cash-payback significantly when conversion rate to annual is high. Push annual on the trial-to-paid upsell email sequence.
 
 ---
 

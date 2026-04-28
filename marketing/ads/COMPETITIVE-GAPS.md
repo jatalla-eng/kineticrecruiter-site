@@ -34,13 +34,14 @@ Ranked by estimated paid-ads conversion lift if KR owns them first.
 
 ### Highest-leverage (write these into RSAs + Meta creative Week 1)
 
-**1. "Flat pricing. No per-seat tax."**
-Every agency competitor except Manatal charges per-seat. KR is the only transparent flat-price option at $29–99. Nobody in the competitive set is running "stop paying per recruiter" creative.
+**1. "Flat per account. Not per seat."**
+Every agency competitor except Manatal charges per-seat. KR is the only transparent per-account flat-price option at $29-99 monthly (or $24-82 on annual). Nobody in the competitive set is running "stop paying per recruiter" creative.
 
 *Creative hooks:*
 - "Pay for software, not seats."
 - "Your ATS bill stays the same whether you hire 2 recruiters or 20."
-- "$89/mo flat. Not $89 per person."
+- "From $24/mo on annual. Flat per account, not per recruiter."
+- "$150 per recruiter × 5 recruiters = $9,000/year. KR Professional on annual = $588/year."
 
 **2. "Set up this afternoon. Place a candidate tomorrow."**
 Every competitor gates on demo or requires setup cycles. Speed-to-first-placement is unclaimed.

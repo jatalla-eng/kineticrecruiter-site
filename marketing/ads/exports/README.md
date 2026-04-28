@@ -102,7 +102,7 @@ Three headlines in `RSA-COPY.md` broke 30 chars. Already fixed in `google-ads-ad
 - "Natural Language Candidate Search" (33) → **"Natural Language CV Search"** (25)
 - "Software for Recruitment Agencies" (34) → **"Software For Recruiters"** (22)
 
-The "$89 flat" line in `CREATIVE-BRIEF.md` Pillar 6 is not used in any of the ad copy generated here — current pricing is $29/$59/$99 (from `plans.json`). Decide if you want to update the brief before UGC recording; ads are fine as-is.
+**Pricing alignment (2026-04-28):** All headlines and descriptions in this CSV use canonical pricing — `$29/$59/$99` monthly, `$24/$49/$82` on annual ($288/$588/$984/year). Per-account flat, never per-seat. Pillar 6 in `CREATIVE-BRIEF.md` and the canonical pricing block at the top of `RSA-COPY.md` are the source of truth for any future copy edits.
 
 ---
 

@@ -123,11 +123,13 @@ If Meta fails to produce signups at a workable CPA by Day 45, consolidate all Me
 
 These drive what CPA is "acceptable." Update once real cohort data exists.
 
-| Plan | Monthly | Assumed trial→paid | Assumed retention (months) | Gross LTV |
-|---|---|---|---|---|
-| Starter | $29 | 10% | 8 | $232 blended |
-| Professional | $59 | 15% | 14 | $826 blended |
-| Agency | $99 | 20% | 24 | $2,376 blended |
+| Plan | Monthly price | Annual price (per mo) | Trial→paid | Retention (mo, monthly billing) | Gross LTV (monthly billing) |
+|---|---|---|---|---|---|
+| Starter | $29 | $24 ($288/yr) | 10% | 8 | $232 |
+| Professional | $59 | $49 ($588/yr) | 15% | 14 | $826 |
+| Agency | $99 | $82 ($984/yr) | 20% | 24 | $2,376 |
+
+**Annual prepay uplift:** If 30% of paid customers convert to annual (industry baseline for SaaS at this price point), blended LTV per cohort rises ~12% because annual cuts churn (committed contract) even though per-month revenue is 17% lower. **Push annual hard in the trial→paid email sequence — it improves both LTV and cash collection.**
 
 **Assumption:** paid ad traffic skews to Professional (most-relevant messaging). Blended trial LTV across plan mix: **~$70 per trial signup** (=10% to Starter @ $232, 70% to Professional @ $826, 20% to Agency @ $2,376 — expected value ≈ $650 per paid customer × ~11% trial→paid = ~$72/trial).
 

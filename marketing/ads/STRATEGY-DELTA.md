@@ -4,6 +4,8 @@
 **Based on:** `COMPETITOR-INTELLIGENCE-REPORT.md` and `COMPETITIVE-GAPS.md`
 **Audits against:** `ADS-STRATEGY.md`, `LAUNCH-CHECKLIST.md`, `BUDGET-PLAN.md`, `CAMPAIGN-ARCHITECTURE.md`, `CREATIVE-BRIEF.md`, `IMPLEMENTATION-ROADMAP.md`, `RSA-COPY.md`, `TRACKING-SETUP.md`
 
+> **STATUS (2026-04-28):** Amendments 2 and 3 below have been **implemented**. RSA "per-recruiter" copy fixed across `RSA-COPY.md` and `exports/google-ads-extensions.csv`. Pillar 6 added to `CREATIVE-BRIEF.md` with corrected pricing math (Professional plan $59/mo or $49/mo annual as anchor — NOT "$89 flat" which was a placeholder). Canonical pricing block now lives at the top of both `CREATIVE-BRIEF.md` and `RSA-COPY.md`. The example hooks below in Amendment 3 are now superseded by the live Pillar 6 hooks in CREATIVE-BRIEF.md — kept here as historical record only.
+
 This file lists **only** the changes that aren't already covered by the existing docs. Items already in-flight are noted for confirmation rather than action.
 
 ---
