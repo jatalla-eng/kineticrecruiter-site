@@ -110,4 +110,4 @@ Three headlines in `RSA-COPY.md` broke 30 chars. Already fixed in `google-ads-ad
 
 - **Meta Ads bulk import** — Meta's bulk CSV is easier to just build in-platform because Meta's Advantage+ Placements changes the CSV format roughly every quarter. Do that in the Meta UI after Week 2.
 - **TikTok campaigns** — `$5-10/day` doesn't warrant bulk import. Build as you go.
-- **Landing-page code for dataLayer push** — lives in the app repo (`app.kineticrecruiter.com`), not this repo. Separate PR.
+- **Landing-page code for dataLayer push** — lives in the app repo at `~/Documents/Development/TransformativATS` (`app/static/js/trial-signup.js`), shipped 2026-04-28 in commit `de83c45`.
